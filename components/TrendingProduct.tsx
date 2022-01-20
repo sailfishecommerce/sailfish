@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { memo } from "react";
 import Product from "./Product";
 import { productType } from "@/types";
@@ -14,6 +15,13 @@ function TrendingProductsCatalog({ products }: PropsType) {
         {products.map((product: productType) => (
           <Product key={product.id} product={product} />
         ))}
+        <div className="text-center pt-5 mt-5">
+          <Link href="/shop" passHref>
+            <a className="btn btn-outline-accent">
+              More products<i className="ci-arrow-right ms-1"></i>
+            </a>
+          </Link>
+        </div>
       </div>
       <style jsx>
         {`

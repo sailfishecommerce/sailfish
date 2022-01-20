@@ -4,7 +4,6 @@ import { useAppSelector } from "@/hooks/useRedux";
 export function formatPrice(price: number) {
   const productPrice = price?.toFixed(2);
   const splitPrice = productPrice?.split(".");
-  console.log("price-price", price, "splitPrice", splitPrice);
   const mainPrice =
     splitPrice !== undefined ? Number(splitPrice[0])?.toLocaleString() : 0;
   const centPrice = splitPrice !== undefined ? splitPrice[1] : 0;

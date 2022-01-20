@@ -13,7 +13,7 @@ interface CheckoutSidebarProps {
 function OrderSummaryItem({ item }: any) {
   return (
     <div className="d-flex align-items-center py-2 border-bottom">
-      <Link href="/shop-single-v1" passHref>
+      <Link href={`/products/${item.metadata.slug}`} passHref>
         <a className="d-block flex-shrink-0">
           <img
             src={item.metadata.images[0].file.url}

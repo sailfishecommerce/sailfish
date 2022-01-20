@@ -3,46 +3,13 @@ import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import styles from "@/styles/homepageslider.module.css";
+import sliderContent from "@/json/homepage-slider.json";
 
 const TinySlider: any = dynamic(() => import("tiny-slider-react"), {
   ssr: false,
 });
 
-interface HomepageSliderProps {
-  bgColor1: string;
-  sliderTitle1: string;
-  sliderCaption1: string;
-  sliderDescription1: string;
-  sliderImg1: any;
-  bgColor2: string;
-  bgColor3: string;
-  sliderTitle2: string;
-  sliderTitle3: string;
-  sliderCaption2: string;
-  sliderCaption3: string;
-  sliderDescription2: string;
-  sliderDescription3: string;
-  sliderImg2: any;
-  sliderImg3: any;
-}
-
-export default function HomepageSlider({
-  bgColor1,
-  bgColor2,
-  bgColor3,
-  sliderTitle1,
-  sliderTitle2,
-  sliderTitle3,
-  sliderCaption1,
-  sliderCaption2,
-  sliderCaption3,
-  sliderDescription1,
-  sliderDescription2,
-  sliderDescription3,
-  sliderImg1,
-  sliderImg2,
-  sliderImg3,
-}: HomepageSliderProps) {
+export default function HomepageSlider() {
   const settings = {
     controlsText: [
       '<i class="ci-arrow-left"></i>',
@@ -56,29 +23,7 @@ export default function HomepageSlider({
     autoplayHoverPause: true,
     autoplayButtonOutput: false,
   };
-  const content = [
-    {
-      bgColor: bgColor1,
-      sliderTitle: sliderTitle1,
-      sliderCaption: sliderCaption1,
-      sliderDescription: sliderDescription1,
-      sliderImg: sliderImg1,
-    },
-    {
-      bgColor: bgColor2,
-      sliderTitle: sliderTitle2,
-      sliderCaption: sliderCaption2,
-      sliderDescription: sliderDescription2,
-      sliderImg: sliderImg2,
-    },
-    {
-      bgColor: bgColor3,
-      sliderTitle: sliderTitle3,
-      sliderCaption: sliderCaption3,
-      sliderDescription: sliderDescription3,
-      sliderImg: sliderImg3,
-    },
-  ];
+
   return (
     <section
       className={`${styles.tnsCarousel} tns-carousel tns-controls-lg mb-4 mb-lg-5 w-100`}
@@ -90,7 +35,7 @@ export default function HomepageSlider({
         />
       </Head>
       <TinySlider settings={settings}>
-        {content.map((item, index) => (
+        {sliderContent.map((item, index) => (
           <div className="tinySlider" key={index}>
             <div className="px-lg-5 sliderItem">
               <div className="d-lg-flex justify-content-between align-items-center ps-lg-4">

@@ -22,8 +22,6 @@ export default function useCart() {
   const { cart }: useCartType = useAppSelector((state) => state.cart);
   const { updateLoadingState } = useLoading();
 
-  console.log("cart-cart", cart);
-
   function updateQuantity(product: any, quantity: number) {
     const toastId = isLoading();
     updateLoadingState();

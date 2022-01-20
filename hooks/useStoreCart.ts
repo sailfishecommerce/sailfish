@@ -18,8 +18,6 @@ export default function useStoreCart(product: any) {
   const dispatch = useAppDispatch();
   const { isLoading, isSuccessful, hasError } = useToast();
 
-  console.log("cart.items.length", cart.items.length);
-
   function createCart() {
     const loading = isLoading();
     const cartItem = formatCartItem(product, currency, 1);
@@ -36,8 +34,6 @@ export default function useStoreCart(product: any) {
     return axios
       .post("/api/cart/create", cart)
       .then((response: any) => {
-        console.log("create cart", response);
-        console.log("Rresponse.ID", response.id);
         dispatch(updateCartId(response.data.id));
         dispatch(updateCart(response.data));
         isSuccessful(loading, `${name} added to cart`);
