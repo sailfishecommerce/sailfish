@@ -57,7 +57,7 @@ function OrderdetailsItem({ item }: OrderdetailsItemProps) {
       <style jsx>
         {`
           .QuantityView {
-            maxwidth: 9rem;
+            max-width: 9rem;
           }
         `}
       </style>

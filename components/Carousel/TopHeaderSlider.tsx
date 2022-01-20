@@ -1,30 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Mousewheel } from "swiper";
+import Image from "next/image";
+import topHeaderSlider from "@/json/topheaderslider.json";
+
 import "swiper/css";
 import "swiper/css/autoplay";
 
-export default function TopHeaderSlider({
-  icon1,
-  icon2,
-  icon3,
-  sliderText1,
-  sliderText2,
-  sliderText3,
-}: any) {
-  const sliderContent = [
-    {
-      icon: icon1,
-      text: sliderText1,
-    },
-    {
-      icon: icon2,
-      text: sliderText2,
-    },
-    {
-      icon: icon3,
-      text: sliderText3,
-    },
-  ];
+export default function TopHeaderSlider() {
   return (
     <>
       <Swiper
@@ -37,13 +19,20 @@ export default function TopHeaderSlider({
         mousewheel={true}
         navigation={false}
       >
-        {sliderContent.map((content, index) => (
+        {topHeaderSlider.map((content, index) => (
           <SwiperSlide key={index}>
             <div
               key={content.text}
               className="item slider-container d-flex align-items-center m-auto justify-content-center"
             >
-              <div className="icon-container">{content.icon}</div>
+              <div className="icon-container">
+                <Image
+                  src={content.icon}
+                  alt={content.text}
+                  height={50}
+                  width={50}
+                />
+              </div>
               <p className="text-white text-center mb-0">{content.text}</p>
             </div>
           </SwiperSlide>

@@ -27,8 +27,6 @@ export default function SlideCartProduct({
     });
   }
 
-  console.log("itemProduct", item);
-
   return (
     <div className="slide-cart border-bottom p-2 position-relative row">
       <div className="widget-cart-item py-1">

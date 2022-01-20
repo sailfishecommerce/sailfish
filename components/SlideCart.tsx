@@ -17,8 +17,6 @@ export default function SlideCart(props: slideCartProps) {
   const dispatch = useAppDispatch();
   const { cart }: any = useAppSelector((state) => state.cart);
 
-  console.log("cart", cart);
-
   function toggleCheckoutModal() {
     dispatch(displayCheckoutModalAction());
     props.toggle();

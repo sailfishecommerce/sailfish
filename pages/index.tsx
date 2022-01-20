@@ -8,7 +8,7 @@ import InfoCards from "@/components/InfoCards";
 import PopularCategories from "@/components/PopularCategories";
 import Banners from "@/components/Banner";
 import Applayout from "@/layout/Applayout";
-import HomepageSlider from "@/previewComponents/HomepageSlider";
+import HomepageSlider from "@/components/HomepageSlider";
 import useVbout from "@/hooks/useVbout";
 import { useCart } from "@/hooks";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
