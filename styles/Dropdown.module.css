@@ -1,0 +1,24 @@
+.dropdown button:hover {
+  background-color: #fb696a !important;
+}
+
+.dropdown button {
+  background-color: rgb(55, 63, 80) !important;
+}
+
+.dropdown.bottom button {
+  background-color: #2b3445 !important;
+}
+
+@media (max-width: 768px) {
+  .dropdown button {
+    font-size: 14px;
+    padding: 10px;
+    padding-right: 30px;
+  }
+  .dropdownToggle {
+    font-size: 10px !important;
+    padding: 10px;
+    padding-right: 30px;
+  }
+}

@@ -1,0 +1,10 @@
+.shop section ul ul {
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.shop section ul ul li {
+  margin: 0px 0px !important;
+}

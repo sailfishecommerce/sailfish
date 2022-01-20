@@ -1,0 +1,272 @@
+{
+  "header": {
+    "logo": "slot",
+    "slider": "slot",
+    "nav": "slot",
+    "support": "string",
+    "topbarBgColor": {
+      "displayName": "Topbar Background Color",
+      "type": "string",
+      "defaultValue": "#373F50"
+    },
+    "navBgColor": {
+      "displayName": "Nav Background Color",
+      "defaultValue": "white",
+      "type": "string"
+    }
+  },
+  "homepageSlider": {
+    "sliderTitle1": {
+      "type": "string",
+      "displayName": "Slider-1 title",
+      "defaultValue": "Huge Summer Collection"
+    },
+    "sliderCaption1": {
+      "type": "string",
+      "displayName": "Slider-1 Caption",
+      "defaultValue": "Has just arrived!"
+    },
+    "sliderDescription1": {
+      "type": "string",
+      "displayName": "Slider-1 Description",
+      "defaultValue": "Swimwear, Tops, Shorts, Sunglasses &amp; much more..."
+    },
+    "sliderImg1": {
+      "type": "slot",
+      "displayName": "Slider-1 Image"
+    },
+    "bgColor1": {
+      "type": "string",
+      "displayName": "Slider-3 background color",
+      "defaultValue": "#3aafd2"
+    },
+    "sliderTitle2": {
+      "type": "string",
+      "displayName": "Slider-2 title",
+      "defaultValue": "Women Sportswear Sale"
+    },
+    "sliderCaption2": {
+      "type": "string",
+      "displayName": "Slider-2 Caption",
+      "defaultValue": "Hurry up! Limited time offer."
+    },
+    "sliderDescription2": {
+      "type": "string",
+      "displayName": "Slider-2 Description",
+      "defaultValue": "Sneakers, Keds, Sweatshirts, Hoodies &amp; much more..."
+    },
+    "sliderImg2": {
+      "type": "slot",
+      "displayName": "Slider-2 Image"
+    },
+    "bgColor2": {
+      "type": "string",
+      "displayName": "Slider-3 background color",
+      "defaultValue": "#f5b1b0"
+    },
+    "sliderTitle3": {
+      "type": "string",
+      "displayName": "Slider-3 title",
+      "defaultValue": "New Men Accessories"
+    },
+
+    "sliderCaption3": {
+      "type": "string",
+      "displayName": "Slider-3 Caption",
+      "defaultValue": "Complete your look with"
+    },
+
+    "sliderDescription3": {
+      "type": "string",
+      "displayName": "Slider-3 Description",
+      "defaultValue": "Hats &amp; Caps, Sunglasses, Bags &amp; much more..."
+    },
+
+    "sliderImg3": {
+      "type": "slot",
+      "displayName": "Slider-3 Image"
+    },
+    "bgColor3": {
+      "type": "string",
+      "displayName": "Slider-3 background color",
+      "defaultValue": "#eba170"
+    }
+  },
+  "footer": {
+    "topSectionBgColor": {
+      "displayName": "Top Section Background Color",
+      "type": "string",
+      "defaultValue": "#373F50"
+    },
+    "bottomSectionBgColor": {
+      "displayName": "Bottom Section Background Color",
+      "type": "string",
+      "defaultValue": "#2B3445"
+    }
+  },
+  "medicineProducts": {
+    "category": {
+      "defaultValue": "Medicines",
+      "type": "string",
+      "displayName": "Category Name"
+    }
+  },
+  "hairCareProducts": {
+    "category": {
+      "defaultValue": "Hair Care",
+      "type": "string",
+      "displayName": "Category Name"
+    }
+  },
+  "personalCareProducts": {
+    "category": {
+      "defaultValue": "Personal Care",
+      "type": "string",
+      "displayName": "Category Name"
+    }
+  },
+  "beautyProducts": {
+    "category": {
+      "defaultValue": "Beauty",
+      "type": "string",
+      "displayName": "Category Name"
+    }
+  },
+  "vetProducts": {
+    "category": {
+      "defaultValue": "Veterinary and Pet Care",
+      "type": "string",
+      "displayName": "Category Name"
+    }
+  },
+  "confectioneryProducts": {
+    "category": {
+      "defaultValue": "Confectionery",
+      "type": "string",
+      "displayName": "Category Name"
+    }
+  },
+  "shopByBrand": {
+    "brandLogo1": "slot",
+    "brandLogo2": "slot",
+    "brandLogo3": "slot",
+    "brandLogo4": "slot",
+    "brandLogo5": "slot",
+    "brandLogo6": "slot",
+    "brandLogo7": "slot",
+    "brandLogo8": "slot",
+    "brandLogo9": "slot",
+    "brandLogo10": "slot",
+    "brandLogo11": "slot",
+    "brandLogo12": "slot"
+  },
+  "headerSlider": {
+    "icon1": "slot",
+    "icon2": "slot",
+    "icon3": "slot",
+    "sliderText1": {
+      "displayName": "Topbar Content - Text 1",
+      "type": "string",
+      "defaultValue": "Free shipping for order over $200"
+    },
+    "sliderText2": {
+      "displayName": "Topbar Content - Text 2",
+      "type": "string",
+      "defaultValue": "We return money within 30 days"
+    },
+    "sliderText3": {
+      "displayName": "Topbar Content - Text 2",
+      "type": "string",
+      "defaultValue": "Delivery to your doorstep"
+    }
+  },
+  "popularCategory": {
+    "categoryImg": {
+      "displayName": "Category Image",
+      "type": "slot"
+    },
+    "categoryName": {
+      "displayName": "Category Name",
+      "type": "string"
+    }
+  },
+  "adsBanner": {
+    "banner1Title": {
+      "displayName": "Banner-1 Title",
+      "type": "string",
+      "defaultValue": "Hurry up! Limited time offer"
+    },
+    "banner1Caption": {
+      "displayName": "Banner-1 Caption",
+      "type": "string",
+      "defaultValue": "Converse All Star on Sale"
+    },
+    "banner2Title": {
+      "displayName": "Banner-2 Title",
+      "type": "string",
+      "defaultValue": "Your Add Banner Here"
+    },
+    "banner2Caption": {
+      "displayName": "Banner-2 Caption",
+      "type": "string",
+      "defaultValue": "Hurry up to reserve your spot"
+    }
+  },
+  "infoCard": {
+    "section1Title": {
+      "displayName": "Section-1 Title",
+      "type": "string",
+      "defaultValue": "Read the blog"
+    },
+    "section1Description": {
+      "displayName": "Section-1 Description",
+      "type": "string",
+      "defaultValue": "Latest store, fashion news and trends"
+    },
+    "section2Title": {
+      "displayName": "Section-2 Title",
+      "type": "string",
+      "defaultValue": "Follow on Instagram"
+    },
+    "section2Description": {
+      "displayName": "Section-1 Description",
+      "type": "string",
+      "defaultValue": "Latest store, fashion news and trends"
+    },
+    "section1BgColor": {
+      "displayName": "Section-1 background color",
+      "type": "string",
+      "defaultValue": "#FEF1F1"
+    },
+    "section2BgColor": {
+      "displayName": "Section-2 background color",
+      "type": "string",
+      "defaultValue": "#EFEFFB"
+    }
+  },
+  "featuredCategory": {
+    "categoryImg": {
+      "displayName": "Category Banner Image",
+      "type": "slot"
+    },
+    "categoryTitle": {
+      "displayName": "Category Title",
+      "type": "string",
+      "defaultValue": "Shop for medicine"
+    },
+    "categoryCaption": {
+      "displayName": "Category Caption",
+      "type": "string",
+      "defaultValue": "Get started now"
+    },
+    "bannerBgColor": {
+      "displayName": "Category banner background color",
+      "type": "string",
+      "defaultValue": "#e2e9ef"
+    }
+  },
+  "nav": {
+    "logo": "slot",
+    "navBgColor": "string"
+  }
+}

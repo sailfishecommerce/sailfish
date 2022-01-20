@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+  .dropdown {
+    display: none !important;
+  }
+  .dropdown button {
+    display: none !important;
+  }
+}

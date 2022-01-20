@@ -1,0 +1,13 @@
+diff --git a/node_modules/tiny-slider-react/build/Carousel.js b/node_modules/tiny-slider-react/build/Carousel.js
+index bd335e4..a607845 100644
+--- a/node_modules/tiny-slider-react/build/Carousel.js
++++ b/node_modules/tiny-slider-react/build/Carousel.js
+@@ -13,8 +13,6 @@ var _tinySlider = require("tiny-slider/src/tiny-slider");
+ 
+ var _utils = require("./utils");
+ 
+-require("tiny-slider/dist/tiny-slider.css");
+-
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+ 
+ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
