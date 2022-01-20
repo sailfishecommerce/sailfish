@@ -5,6 +5,7 @@ import useCart from "@/hooks/useCart";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
 import useVbout from "@/hooks/useVbout";
+import { memo } from "react";
 
 interface CartWidgetProps {
   cart: cartType;
@@ -60,7 +61,7 @@ function CartWidget({ cart }: CartWidgetProps) {
   );
 }
 
-export default function HeaderCartDropdown() {
+function HeaderCartDropdownComponent() {
   const { cart, toggleCart }: any = useCart();
 
   return (
@@ -98,5 +99,7 @@ export default function HeaderCartDropdown() {
     </div>
   );
 }
+const HeaderCartDropdown = memo(HeaderCartDropdownComponent);
+export default HeaderCartDropdown;
 
 HeaderCartDropdown.whyDidYouRender = true;

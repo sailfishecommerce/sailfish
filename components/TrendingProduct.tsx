@@ -42,3 +42,5 @@ function TrendingProductsCatalog({ products }: PropsType) {
 const TrendingProducts = memo(TrendingProductsCatalog);
 
 export default TrendingProducts;
+
+TrendingProducts.whyDidYouRender = true;

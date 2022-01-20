@@ -54,11 +54,11 @@ export default function ShopByBrandCarousel() {
                   className={`${styles.brandLink} d-flex bg-white shadow-sm rounded-3 py-3 py-sm-4`}
                   href="#"
                 >
-                  <div className="brandContainer d-flex mx-auto">
+                  <div className="brandContainer d-flex justify-content-center align-items-center mx-auto">
                     <Image
                       src={brand.img}
                       alt={brand.name}
-                      height={100}
+                      height={50}
                       width={100}
                     />
                   </div>
@@ -71,7 +71,7 @@ export default function ShopByBrandCarousel() {
       <style jsx>
         {`
           .brandContainer {
-            width: 150px;
+            width: 100px;
           }
         `}
       </style>
