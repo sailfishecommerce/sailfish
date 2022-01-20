@@ -15,7 +15,7 @@ function TrendingProductsCatalog({ products }: PropsType) {
         {products.map((product: productType) => (
           <Product key={product.id} product={product} />
         ))}
-        <div className="text-center pt-5 mt-5">
+        <div className="text-center pt-1 mt-1 mb-3">
           <Link href="/shop" passHref>
             <a className="btn btn-outline-accent">
               More products<i className="ci-arrow-right ms-1"></i>

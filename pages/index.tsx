@@ -46,13 +46,7 @@ export default function Index({ products }: any) {
       <HomepageSlider />
       <PopularCategories />
       <TrendingProducts products={products} />
-      <FeaturedCategory
-        categoryTitle="Shop for medicine"
-        categoryCaption="Get started now"
-        bannerBgColor="#F3C2CC"
-        local
-        categoryImg="/img/shop/featured_category_image.webp"
-      />
+      <FeaturedCategory />
       <Banners
         banner1Title="Hurry up! Limited time offer"
         banner2Title="Your Add Banner Here"
@@ -60,14 +54,7 @@ export default function Index({ products }: any) {
         banner2Caption="Hurry up to reserve your spot"
       />
       <ShopByBrandCarousel />
-      <InfoCards
-        section1Title="Read the blog"
-        section1Description="Latest store, fashion news and trends"
-        section1BgColor="#FEF1F1"
-        section2Title="Follow on Instagram"
-        section2Description="Latest store, fashion news and trends"
-        section2BgColor="#EFEFFB"
-      />
+      <InfoCards />
       <style jsx>
         {`
           @media (min-width: 800px) {

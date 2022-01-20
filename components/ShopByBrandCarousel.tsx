@@ -58,8 +58,8 @@ export default function ShopByBrandCarousel() {
                     <Image
                       src={brand.img}
                       alt={brand.name}
-                      height={60}
-                      width={90}
+                      height={80}
+                      width={200}
                     />
                   </div>
                 </a>

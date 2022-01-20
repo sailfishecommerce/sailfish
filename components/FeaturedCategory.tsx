@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useRef } from "react";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -9,21 +8,7 @@ import { updateCategory } from "@/redux/category-slice";
 import CategoryBanner from "./CategoryBanner";
 import FeaturedCategoryCarousel from "./Carousel/FeaturedCategoryCarousel";
 
-interface FeaturedCategoryProps {
-  categoryImg?: string;
-  categoryTitle: string;
-  categoryCaption: string;
-  bannerBgColor: string;
-  local?: boolean;
-}
-
-export default function FeaturedCategory({
-  categoryImg,
-  categoryTitle,
-  categoryCaption,
-  bannerBgColor,
-  local,
-}: FeaturedCategoryProps) {
+export default function FeaturedCategory() {
   const deviceWidth = useMediaQuery("(max-width:600px)");
   const dispatch = useAppDispatch();
   const { useCategories } = useRequest();
@@ -61,11 +46,11 @@ export default function FeaturedCategory({
         {/*<!-- Banner with controls-->*/}
         <CategoryBanner
           controls={controlRef}
-          categoryTitle={categoryTitle}
-          categoryImg={categoryImg}
-          categoryCaption={categoryCaption}
-          bannerBgColor={bannerBgColor}
-          local={local}
+          categoryTitle="Shop for medicine"
+          categoryImg="/img/shop/featured_category_image.webp"
+          categoryCaption="Get started now"
+          bannerBgColor="#F3C2CC"
+          local
         />
         {/*<!-- Product grid (carousel)-->*/}
         <FeaturedCategoryCarousel controls={controlRef} />
@@ -73,3 +58,5 @@ export default function FeaturedCategory({
     </section>
   );
 }
+
+FeaturedCategory.whyDidYouRender = true;

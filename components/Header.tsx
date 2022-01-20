@@ -17,4 +17,5 @@ function HeaderComponent() {
 const Header = memo(HeaderComponent);
 
 export default Header;
+
 Header.whyDidYouRender = true;
