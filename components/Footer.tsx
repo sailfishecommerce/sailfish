@@ -1,24 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { memo } from "react";
 import BottomTab from "./BottomTab";
 import FooterBottomSection from "./FooterBottomSection";
 import FooterTopSection from "./FooterTopSection";
 
-interface FooterProps {
-  topSectionBgColor: string;
-  bottomSectionBgColor: string;
-}
-export default function Footer({
-  topSectionBgColor,
-  bottomSectionBgColor,
-}: FooterProps) {
+export default function FooterComponent() {
   return (
     <footer className="footer w-100">
-      <FooterTopSection topSectionBgColor={topSectionBgColor} />
-      <FooterBottomSection bottomSectionBgColor={bottomSectionBgColor} />
+      <FooterTopSection />
+      <FooterBottomSection />
       <BottomTab />
     </footer>
   );
 }
+
+const Footer = memo(FooterComponent);
 
 Footer.whyDidYouRender = true;

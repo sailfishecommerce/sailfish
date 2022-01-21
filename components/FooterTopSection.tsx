@@ -8,11 +8,7 @@ import useVbout from "@/hooks/useVbout";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
 
-interface Props {
-  topSectionBgColor: string;
-}
-
-export default function FooterTopSection({ topSectionBgColor }: Props) {
+export default function FooterTopSection() {
   const { listAllCategory } = useCategory();
   const { data, status } = useQuery("listAllCategory", listAllCategory);
 
@@ -168,7 +164,7 @@ export default function FooterTopSection({ topSectionBgColor }: Props) {
       <style jsx>
         {`
           .topSection {
-            background-color: ${topSectionBgColor};
+            background-color: #373F50;
           }
           .antispam-container {
             position: absolute;

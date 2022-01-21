@@ -3,13 +3,8 @@ import Link from "next/link";
 import footerBottomContent from "@/json/footer-bottom.json";
 import CurrencyLanguageDropdown from "@/components/CurrencyLanguageDropdown";
 
-interface FooterBottomSectionProps {
-  bottomSectionBgColor: string;
-}
 
-export default function FooterBottomSection({
-  bottomSectionBgColor,
-}: FooterBottomSectionProps) {
+export default function FooterBottomSection() {
   return (
     <>
       <div className="footerBottom pt-5">
@@ -109,7 +104,7 @@ export default function FooterBottomSection({
       <style jsx>
         {`
           .footerBottom {
-            background-color: ${bottomSectionBgColor};
+            background-color: #2b3445;
           }
           .icon-text:hover i {
             transition: 0.9s;

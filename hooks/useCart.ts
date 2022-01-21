@@ -24,7 +24,7 @@ export default function useCart() {
 
   function updateQuantity(product: any, quantity: number) {
     const toastId = isLoading();
-    updateLoadingState();
+
     return updateCartItemQuantity(product, quantity)
       .then((response) => {
         dispatch(updateCart(response));
@@ -33,12 +33,10 @@ export default function useCart() {
           "response increaseQuantity updateCartItemQuantity",
           response
         );
-        updateLoadingState();
       })
       .catch((error) => {
         console.log("error updateCartItemQuantity", error);
         hasError(toastId, "an error occured, please check your network");
-        updateLoadingState();
       });
   }
 
@@ -48,7 +46,7 @@ export default function useCart() {
 
   function addItemToCart(product: productType) {
     const toastId = isLoading();
-    updateLoadingState();
+
     addToCart(product, productOption)
       .then((response) => {
         console.log("response addItemToCart", response);
@@ -59,28 +57,23 @@ export default function useCart() {
         } else {
           hasError(toastId, response.errors.itemOptions.message);
         }
-        updateLoadingState();
       })
       .catch((error) => {
         console.log("error addItemToCart", error);
         hasError(toastId, "an error occured, please check your network");
-        updateLoadingState();
       });
   }
 
   function removeFromCart(item: any) {
     const toastId = isLoading();
-    updateLoadingState();
     return removeCartItem(item)
       .then((response) => {
         dispatch(updateCart(response));
         isSuccessful(toastId, `${item.product.name} removed from cart`);
-        updateLoadingState();
       })
       .catch((error) => {
         console.log("removeCartItem error", error);
         hasError(toastId, "an error occured, please check your network");
-        updateLoadingState();
       });
   }
 
@@ -90,7 +83,7 @@ export default function useCart() {
     selectedOptions: productOptionType
   ) {
     const toastId = isLoading();
-    updateLoadingState();
+
     addToCartModal(product, productQty, selectedOptions)
       .then((response: any) => {
         if (!response?.errors) {
@@ -100,20 +93,16 @@ export default function useCart() {
         } else {
           hasError(toastId, response.errors.itemOptions.message);
         }
-        updateLoadingState();
       })
       .catch((error: { message: any }) => {
         hasError(toastId, `unable to add to cart ${error?.message}`);
-        updateLoadingState();
       });
   }
 
   function applyDiscountCode(code: string) {
-    updateLoadingState();
     const loading = isLoading();
     return applyGiftCode(code)
       .then((response) => {
-        updateLoadingState();
         isSuccessful(loading, response?.message);
         console.log("response", response);
         return response;
@@ -121,7 +110,7 @@ export default function useCart() {
       .catch((error) => {
         console.error("error", error);
         hasError(loading, error?.message);
-        updateLoadingState();
+
         return error;
       });
   }
