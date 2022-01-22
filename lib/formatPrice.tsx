@@ -27,11 +27,16 @@ export default function FormattedPrice({
         (currencyP: { code: string }) => currencyP.code === currency
       )
     : [{ symbol: "$", rate: 1 }];
+  const siteCurriences =
+    currencies !== undefined ? currencies : [{ symbol: "$", rate: 1 }];
+  const currencyRate =
+    currencies !== undefined ? currencies[1].rate : siteCurriences[0].rate;
 
   const priceRate = oldPrice
-    ? (price / currencies[1].rate) * selectedCurrency[0].rate
+    ? (price / currencyRate) * selectedCurrency[0].rate
     : price * selectedCurrency[0].rate;
 
+  console.log("currencies", currencies);
   return (
     <div className="d-flex align-items-baseline">
       {currencies ? currencySymbolFormatter(selectedCurrency[0]) : "HKD $"}

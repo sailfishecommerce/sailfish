@@ -3,12 +3,6 @@ import {
   updateStoreCartItem,
 } from "@/redux/store-cart-slice";
 
-type cartItemProductType = {
-  id: string;
-  hkd_selling_price: number;
-  price: number;
-};
-
 export default function formatCartItem(
   product: any,
   currency: string,
