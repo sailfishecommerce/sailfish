@@ -13,19 +13,19 @@ interface CheckoutSidebarProps {
 function OrderSummaryItem({ item }: any) {
   return (
     <div className="d-flex align-items-center py-2 border-bottom">
-      <Link href={`/products/${item.metadata.slug}`} passHref>
+      <Link href={`/products/${item.product.slug}`} passHref>
         <a className="d-block flex-shrink-0">
           <img
-            src={item.metadata.images[0].file.url}
-            alt={item.metadata.name}
+            src={item.product.images[0].file.url}
+            alt={item.product.name}
             width="64"
           />
         </a>
       </Link>
       <div className="ps-2">
         <h6 className="widget-product-title">
-          <Link href={`/products/${item.metadata.slug}`} passHref>
-            <a>{item.metadata.name}</a>
+          <Link href={`/products/${item.product.slug}`} passHref>
+            <a>{item.product.name}</a>
           </Link>
         </h6>
         <div className="widget-product-meta d-flex align-items-baseline">
@@ -51,7 +51,7 @@ export default function CheckoutSidebar({ cart }: CheckoutSidebarProps) {
             {cart &&
               cart.items.map((item: itemType, index: number) => (
                 <OrderSummaryItem
-                  key={`${item.product_id}-${index}}`}
+                  key={`${item.productId}-${index}}`}
                   item={item}
                 />
               ))}
@@ -61,32 +61,32 @@ export default function CheckoutSidebar({ cart }: CheckoutSidebarProps) {
               <li className="d-flex justify-content-between align-items-center">
                 <span className="me-2">Subtotal:</span>
                 <span className="text-end">
-                  <FormattedPrice price={cart.sub_total} />
+                  <FormattedPrice price={cart.subTotal} />
                 </span>
               </li>
               <li className="d-flex justify-content-between align-items-center">
                 <span className="me-2">Shipping:</span>
                 <span className="text-end">
-                  <FormattedPrice price={cart.shipment_total} />
+                  <FormattedPrice price={cart.shipmentTotal} />
                 </span>
               </li>
               <li className="d-flex justify-content-between align-items-center">
                 <span className="me-2">Taxes:</span>
                 <span className="text-end">
-                  <FormattedPrice price={cart.tax_total} />
+                  <FormattedPrice price={cart.taxTotal} />
                 </span>
               </li>
               <li className="d-flex justify-content-between align-items-center">
                 <span className="me-2">Discount:</span>
                 <span className="text-end">
-                  <FormattedPrice price={cart.discount_total} />
+                  <FormattedPrice price={cart.discountTotal} />
                 </span>
               </li>
             </ul>
           )}
           {cart && (
             <h3 className="fw-normal text-center my-4">
-              <FormattedPrice price={cart.grand_total} />
+              <FormattedPrice price={cart.grandTotal} />
             </h3>
           )}
           <form onSubmit={onSubmitCoupon} className="needs-validation">

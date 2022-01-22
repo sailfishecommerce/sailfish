@@ -89,9 +89,9 @@ const MProduct = ({ product, forCategory }: ProductProps) => {
             </Link>
           </h3>
           <div className="d-flex justify-content-between">
-            <ul className="product-price d-flex align-items-baseline">
+            <ul className="product-price d-flex flex-column align-items-baseline">
               <li className="text-accent">{price()}</li>
-              {currency === "HKD" && product.hkd_compare_at_price > 0 && (
+              {product.hkd_compare_at_price > 0 && (
                 <li className="small text-accent">{oldPrice()}</li>
               )}
             </ul>

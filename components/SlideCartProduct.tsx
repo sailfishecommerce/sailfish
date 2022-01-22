@@ -39,11 +39,11 @@ export default function SlideCartProduct({
           <span aria-hidden="true">&times;</span>
         </button>
         <div className="d-flex align-items-center">
-          <Link href={`/products/${item.metadata.slug}`} passHref>
+          <Link href={`/products/${item.product.slug}`} passHref>
             <a className="flex-shrink-0">
               <img
-                src={item.metadata?.images[0].file.url.split(";")[0]}
-                alt={item.metadata?.name}
+                src={item.product?.images[0].file.url.split(";")[0]}
+                alt={item.product?.name}
                 width="64"
               />
             </a>
@@ -51,11 +51,11 @@ export default function SlideCartProduct({
           <div className="ps-2">
             <div className="name-group d-flex flex-column">
               <h5 className="widget-product-title">
-                <Link href={`/products/${item.metadata.slug}`} passHref>
-                  <a>{item.metadata.name}</a>
+                <Link href={`/products/${item.product.slug}`} passHref>
+                  <a>{item.product.name}</a>
                 </Link>
               </h5>
-              {item.metadata?.attributes?.box && (
+              {item.product?.attributes?.box && (
                 <p>
                   {item.quantity} carton = {Number(item.quantity) * 10} boxes
                 </p>
@@ -69,7 +69,7 @@ export default function SlideCartProduct({
                 <span className="text-muted">x {item.quantity}</span>
                 <span className="mx-1">= </span>
                 <span className="text-accent me-2">
-                  <FormattedPrice price={item.price_total} />
+                  <FormattedPrice price={item.priceTotal} />
                 </span>
               </div>
             </div>

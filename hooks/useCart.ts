@@ -5,7 +5,6 @@ import { updateCart } from "@/redux/cart-slice";
 import { toggleSlideCart } from "@/redux/ui-slice";
 import { useAppSelector } from "./useRedux";
 import { productOptionType, productType, useCartType } from "@/types";
-import useLoading from "./useLoading";
 
 export default function useCart() {
   const { isLoading, isSuccessful, hasError } = useToast();
@@ -18,9 +17,7 @@ export default function useCart() {
   } = useSwellCart();
   const dispatch = useAppDispatch();
   const { slideCart } = useAppSelector((state) => state.UI);
-  const { productOption } = useAppSelector((state) => state.product);
   const { cart }: useCartType = useAppSelector((state) => state.cart);
-  const { updateLoadingState } = useLoading();
 
   function updateQuantity(product: any, quantity: number) {
     const toastId = isLoading();
@@ -44,23 +41,18 @@ export default function useCart() {
     dispatch(toggleSlideCart());
   }
 
-  function addItemToCart(product: productType) {
+  function addItemToCart(product: productType, quantity:number) {
     const toastId = isLoading();
-
-    addToCart(product, productOption)
+    addToCart(product, quantity)
       .then((response) => {
         console.log("response addItemToCart", response);
-        if (!response?.errors) {
-          dispatch(updateCart(response));
-          isSuccessful(toastId, `${product?.name} added to cart`);
-          dispatch(toggleSlideCart());
-        } else {
-          hasError(toastId, response.errors.itemOptions.message);
-        }
+        dispatch(updateCart(response));
+        isSuccessful(toastId, `${product?.name} added to cart`);
+        dispatch(toggleSlideCart());
       })
       .catch((error) => {
         console.log("error addItemToCart", error);
-        hasError(toastId, "an error occured, please check your network");
+        hasError(toastId, error);
       });
   }
 

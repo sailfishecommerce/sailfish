@@ -70,7 +70,7 @@ export default function Orderdetails({ cart }: OrderdetailsProps) {
     <div>
       <h2 className="h6 pt-1 pb-3 mb-3 border-bottom">Review your order</h2>
       {cart.items.map((item: itemType) => (
-        <OrderdetailsItem key={item.product_id} item={item} />
+        <OrderdetailsItem key={item.productId} item={item} />
       ))}
     </div>
   );

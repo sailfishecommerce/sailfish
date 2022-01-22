@@ -44,6 +44,22 @@ export default function useStoreCart(product: any) {
       });
   }
 
+  async function removeItem() {
+    const loading = isLoading();
+
+    return axios
+      .post("/api/cart/create", cart)
+      .then((response: any) => {
+        dispatch(updateCartId(response.data.id));
+        dispatch(updateCart(response.data));
+        isSuccessful(loading, `${name} added to cart`);
+      })
+      .catch((error) => {
+        console.log("error", error);
+        hasError(loading, "an error occurred");
+      });
+  }
+
   function updateStoreCart() {
     const loading = isLoading();
     const cartItem = formatCartItem(product, currency, 1);

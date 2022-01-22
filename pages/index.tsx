@@ -16,17 +16,13 @@ import { createCartVbout } from "@/redux/integration-slice";
 import Metatag from "@/components/Metatag";
 import TrendingProducts from "@/components/TrendingProduct";
 import ShopByBrandCarousel from "@/components/ShopByBrandCarousel";
-import { getCart } from "@/lib/cart";
+import { emptyCart, getCart, listCurrencies, listProducts } from "@/lib/cart";
 
 export default function Index({ products }: any) {
   const { createVboutCart } = useVbout();
   const dispatch = useAppDispatch();
   const vboutSlice = useAppSelector((state) => state.integrations);
   const { cart }: any = useCart();
-
-  getCart()
-    .then((response) => console.log("cart response", response))
-    .catch((error) => console.log("error", error));
 
   const vboutContent = {
     id: cart?.id,
@@ -38,12 +34,12 @@ export default function Index({ products }: any) {
     },
   };
 
-  useEffect(() => {
-    if (cart !== null && !vboutSlice?.vbout.createCart) {
-      dispatch(createCartVbout());
-      createVboutCart(vboutContent);
-    }
-  }, [cart]);
+  // useEffect(() => {
+  //   if (cart !== null && !vboutSlice?.vbout.createCart) {
+  //     dispatch(createCartVbout());
+  //     createVboutCart(vboutContent);
+  //   }
+  // }, [cart]);
 
   return (
     <Applayout title="Live healthy Store - Quality Australian Products - Free Shipping to HK">
