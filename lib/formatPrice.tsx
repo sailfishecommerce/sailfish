@@ -13,11 +13,13 @@ export function formatPrice(price: number) {
 interface formattedPriceProps {
   price: number;
   oldPrice?: boolean;
+  isProduct?: boolean;
 }
 
 export default function FormattedPrice({
   price,
   oldPrice,
+  isProduct,
 }: formattedPriceProps): JSX.Element {
   const { currencies } = useCurrency();
   const { currency } = useAppSelector((state) => state.currencyLanguage);
@@ -36,12 +38,13 @@ export default function FormattedPrice({
     ? (price / currencyRate) * selectedCurrency[0].rate
     : price * selectedCurrency[0].rate;
 
-  console.log("currencies", currencies);
+  const productItemPrice = isProduct ? priceRate : price;
+
   return (
     <div className="d-flex align-items-baseline">
       {currencies ? currencySymbolFormatter(selectedCurrency[0]) : "HKD $"}
-      {formatPrice(priceRate).mainPrice}.
-      <small>{formatPrice(priceRate).centPrice}</small>
+      {formatPrice(productItemPrice).mainPrice}.
+      <small>{formatPrice(productItemPrice).centPrice}</small>
     </div>
   );
 }

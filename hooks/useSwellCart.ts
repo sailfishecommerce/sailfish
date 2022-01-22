@@ -9,7 +9,7 @@ export default function useSwellCart() {
     return await swell.cart.get();
   }
 
-  async function addToCart(product: productType, quantity:number) {
+  async function addToCart(product: productType, quantity: number) {
     return await swell.cart.addItem({
       product_id: product.id,
       quantity,
@@ -45,9 +45,9 @@ export default function useSwellCart() {
     return await swell.cart.setItems(data);
   }
 
-  async function removeCartItem(product: { productId: string }) {
+  async function removeCartItem(product: { id: string }) {
     console.log("product rmo", product);
-    return await swell.cart.removeItem(product.productId);
+    return await swell.cart.removeItem(product.id);
   }
 
   async function emptyCart() {

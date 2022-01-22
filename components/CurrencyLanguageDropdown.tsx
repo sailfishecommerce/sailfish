@@ -1,29 +1,33 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import { Dropdown } from "react-bootstrap";
+import { toast } from "react-toastify";
+import { useEffect, memo } from "react";
 
-import currencylanguage from "@/json/CurrencyLanguage.json";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updateCurrency } from "@/redux/currency-language-slice";
 import useCurrency from "@/hooks/useCurrency";
 import { useToast } from "@/hooks";
 import styles from "@/styles/Dropdown.module.css";
+import useSwellCart from "@/hooks/useSwellCart";
+import { updateCart } from "@/redux/cart-slice";
 
 interface Props {
   position?: string;
 }
 
-export default function CurrencyLanguageDropdown({ position }: Props) {
+function CurrencyLanguageDropdownComponent({ position }: Props) {
   const dispatch = useAppDispatch();
   const { isLoading, isSuccessful, hasError } = useToast();
   const { currencies, selectCurrencies } = useCurrency();
   const { currency } = useAppSelector((state) => state.currencyLanguage);
   const footerStyle = position === "bottom" ? styles.bottom : "";
+  const { getACart } = useSwellCart();
 
   function selectCurrency(e: any): any {
     const loading = isLoading();
     return selectCurrencies(e.target.value)
       .then((response) => {
-        console.log("response", response);
         isSuccessful(loading, `${response.currency} selected`);
         dispatch(updateCurrency(response.currency));
       })
@@ -34,11 +38,26 @@ export default function CurrencyLanguageDropdown({ position }: Props) {
       });
   }
 
+  useEffect(() => {
+    function updateCartAfterCurrencyChange() {
+      getACart()
+        .then((response) => {
+          dispatch(updateCart(response));
+        })
+        .catch(() =>
+          toast.error("unable to update cart after currency change")
+        );
+    }
+    updateCartAfterCurrencyChange();
+  }, [currency]);
+
   return (
     <Dropdown
       className={`${styles.dropdown} ${footerStyle} topbar-text dropdown disable-autohide`}
     >
-      <Dropdown.Toggle className={`${styles.dropdownToggle} topbar-link dropdown-toggle`}>
+      <Dropdown.Toggle
+        className={`${styles.dropdownToggle} topbar-link dropdown-toggle`}
+      >
         <img className="me-2" src="/img/flags/en.png" width="20" alt="en" />
         {`En / ${currency}`}
       </Dropdown.Toggle>
@@ -48,6 +67,7 @@ export default function CurrencyLanguageDropdown({ position }: Props) {
             onChange={selectCurrency}
             className="form-select form-select-sm"
           >
+            <option>Select Currency</option>
             {currencies &&
               currencies.map((currency: any) => (
                 <option key={currency.code} value={currency.code}>
@@ -56,18 +76,13 @@ export default function CurrencyLanguageDropdown({ position }: Props) {
               ))}
           </select>
         </Dropdown.Item>
-        {currencylanguage.language.map((language) => (
-          <Dropdown.Item key={language.label} className="pb-1">
-            <img
-              className="me-2"
-              src={language.img}
-              width="20"
-              alt={language.alt}
-            />
-            {language.label}
-          </Dropdown.Item>
-        ))}
       </Dropdown.Menu>
     </Dropdown>
   );
 }
+
+const CurrencyLanguageDropdown = memo(CurrencyLanguageDropdownComponent);
+
+export default CurrencyLanguageDropdown;
+
+CurrencyLanguageDropdown.whyDidYouRender = true;

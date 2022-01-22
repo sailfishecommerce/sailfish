@@ -10,7 +10,7 @@ export default function formatCartItem(
 ) {
   const cartItem = {
     product_id: product.id,
-    price: currency === "HKD" ? product.hkd_selling_price : product.price,
+    price:  product.price,
     quantity,
     metadata: {
       name: product.name,

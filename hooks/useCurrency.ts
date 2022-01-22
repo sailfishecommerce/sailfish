@@ -5,6 +5,7 @@ import { useAppSelector } from "./useRedux";
 export default function useCurrency() {
   const { data: currencies } = useQuery("currencies", listEnabledCurrencies);
   const { currency } = useAppSelector((state) => state.currencyLanguage);
+  
   async function listEnabledCurrencies() {
     return await swell.currency.list();
   }

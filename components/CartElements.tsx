@@ -9,7 +9,6 @@ interface cartControlProps {
 
 export function CartControl({ item }: cartControlProps) {
   const { updateQuantity } = useCart();
-  console.log("CartControl items", item);
   const stepValue = item?.metadata?.attributes?.box ? 10 : 1;
   const minValue = item?.metadata?.attributes?.box ? 10 : 1;
 

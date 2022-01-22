@@ -11,6 +11,7 @@ import { replaceSpaceWithHypen } from "@/lib/formatString";
 import useCurrency from "@/hooks/useCurrency";
 import discountPrice from "@/lib/discountPrice";
 import useProductPrice from "@/hooks/useProductPrice";
+import FormattedPrice from "@/lib/formatPrice";
 
 const DynamicProductViewForm = dynamic(
   () => import("../components/ProductViewForm")
@@ -24,8 +25,6 @@ declare function tcjs(trigger: string, type: string, name: string): any;
 const MProduct = ({ product, forCategory }: ProductProps) => {
   const { productViewEvent } = useProduct(product);
   const [inHover, setHover] = useState(false);
-  const { currency } = useCurrency();
-  const { price, oldPrice } = useProductPrice(product);
 
   const productImage =
     inHover && product.images.length > 1
@@ -90,9 +89,17 @@ const MProduct = ({ product, forCategory }: ProductProps) => {
           </h3>
           <div className="d-flex justify-content-between">
             <ul className="product-price d-flex flex-column align-items-baseline">
-              <li className="text-accent">{price()}</li>
+              <li className="text-accent fs-lg">
+                <FormattedPrice price={product.price} isProduct />
+              </li>
               {product.hkd_compare_at_price > 0 && (
-                <li className="small text-accent">{oldPrice()}</li>
+                <del className="small text-accent fs-ms">
+                  <FormattedPrice
+                    price={product.hkd_compare_at_price}
+                    oldPrice
+                    isProduct
+                  />
+                </del>
               )}
             </ul>
             <div className="reviewRating d-flex flex-column">
