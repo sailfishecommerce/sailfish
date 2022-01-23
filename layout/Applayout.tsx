@@ -35,7 +35,7 @@ export default function Applayout({
       `}</Script>
 
       <Head>
-        <title>{title}</title>
+        <title>{title} | Sailfish</title>
         <script
           src="https://en.trustmate.io/api/widget/4420c1ed-e3a7-47c2-b6a2-2d7386a819da/script"
           defer

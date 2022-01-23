@@ -1,6 +1,5 @@
 import { PropsWithChildren } from "react";
 import { ToastContainer } from "react-toastify";
-import Head from "next/head";
 import dynamic from "next/dynamic";
 
 import useCart from "@/hooks/useCart";
@@ -9,7 +8,10 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import Reward from "@/components/Rewards";
 import { toggleAuthModal } from "@/redux/ui-slice";
 import useLoading from "@/hooks/useLoading";
+import LayoutMetatag from "./LayoutMetatag";
 import "react-toastify/dist/ReactToastify.css";
+import useModal from "@/hooks/useModal";
+import displayAppModal from "@/lib/displayAppModal";
 
 const SlideCart = dynamic(() => import("../components/SlideCart"));
 const NextNProgress = dynamic(() => import("../components/Nprogress"));
@@ -22,6 +24,7 @@ const QuickViewModal = dynamic(
 
 export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {
   const { toggleCart, slideCart } = useCart();
+  const { modal, onHideModal } = useModal();
   const { scroll } = useScroll();
   const UI = useAppSelector((state) => state.UI);
   const dispatch = useAppDispatch();
@@ -38,25 +41,7 @@ export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {
 
   return (
     <div>
-      <Head>
-        <script id="vboutTrackingCodeScript">
-          {`
-            var _vbset = _vbset || [];
-            _vbset.push(['_account', 'VBT-88360-6048']);
-            _vbset.push(['_domain', 'https://livehealthy.hk']);
-
-            (function() {
-              var vbt = document.createElement('script'); vbt.type = 'text/javascript'; vbt.async = true; 
-              vbt.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'www.vbt.io/tracker?_account='+_vbset[0][1]+'&_domain='+_vbset[1][1];var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(vbt, s);
-            })();
-        `}
-        </script>
-        <meta name="robots" content="noindex" />
-        <meta
-          name="google-site-verification"
-          content="jzOTMxF7oUbLPiv-axyDSRh7yVdltNu-gP2gKfcBIpc"
-        />
-      </Head>
+      <LayoutMetatag />
       <div data-aos="fade-up" id="head" />
       {slideCart && <SlideCart toggle={toggleCart} />}
       {UI?.quickViewModal?.active && (
@@ -65,36 +50,9 @@ export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {
       {UI?.displayAuthModal && (
         <AuthModal onHide={toggleAuthModalHandler} show={UI.displayAuthModal} />
       )}
+      {modal && displayAppModal(modal, onHideModal)}
       {loading && <SpinnerOverlay />}
       {loadingState && <LoadingBar />}
-      <Head>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" color="#fe6a6a" href="/safari-pinned-tab.svg" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
       <NextNProgress color="red" options={{ showSpinner: false }} />
       <ToastContainer />
 

@@ -8,10 +8,14 @@ const uiSlice = createSlice({
     loading: false,
     modal: false,
     authModal: "AUTHFORM",
+    displayModal: {
+      active: false,
+      type: null,
+      data: null,
+    },
     checkoutModal: "SECURE_CHECKOUT",
     displayCheckoutModal: false,
     displayAuthModal: false,
-    topbarCounter: 0,
     quickViewModal: {
       active: false,
       productToView: null,
@@ -46,21 +50,15 @@ const uiSlice = createSlice({
     toggleAuthModal(state) {
       state.displayAuthModal = !state.displayAuthModal;
     },
-    updateTopbarCounter(state, action: PayloadAction<"inc" | "dec">) {
-      if (
-        state.topbarCounter < 2 &&
-        state.topbarCounter >= 0 &&
-        action.payload === "inc"
-      ) {
-        state.topbarCounter = state.topbarCounter + 1;
-      } else if (action.payload === "inc" && state.topbarCounter === 3) {
-        state.topbarCounter = 0;
-      } else if (action.payload === "dec" && state.topbarCounter < 0) {
-        state.topbarCounter = 3;
-      } else if (action.payload === "dec" && state.topbarCounter > 0) {
-        state.topbarCounter = state.topbarCounter - 1;
+    toggleAppModal(state, action) {
+      state.displayModal.type = action.payload.type;
+      if (state.displayModal.type) {
+        state.displayModal.active = true;
       } else {
-        state.topbarCounter;
+        state.displayModal.active = false;
+      }
+      if (action.payload.data) {
+        state.displayModal.data = action.payload?.data;
       }
     },
   },
@@ -74,9 +72,9 @@ export const {
   updateLoadingAction,
   quickViewModal,
   toggleAuthModal,
+  toggleAppModal,
   checkoutModal,
   displayCheckoutModalAction,
-  updateTopbarCounter,
 } = uiSlice.actions;
 
 export default uiSlice.reducer;

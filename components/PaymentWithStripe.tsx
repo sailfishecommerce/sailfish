@@ -1,18 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
-
 import { useProcessPayment } from "@/hooks";
 import StripePaymentMethod from "./StripePaymentMethod";
 import { FormStagesType } from "@/types";
 
 export default function PaymentWithStripe({ formStages }: FormStagesType) {
-  const [loading, setLoading] = useState(false);
   const { makePayment, loadingState } = useProcessPayment();
 
   function makePaymentHandler() {
-    setLoading(true);
     console.log("formStages.shippingForm", formStages.shippingForm);
-    makePayment(formStages.shippingForm, setLoading)
+    makePayment(formStages.shippingForm)
       .then((response) => console.log("makePayment", response))
       .catch((err) => console.error("error", err));
   }

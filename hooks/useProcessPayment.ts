@@ -1,76 +1,34 @@
-import { toast } from "react-toastify";
 import { useState } from "react";
 import { useAppDispatch } from "@/redux/store";
 import { useRouter } from "next/router";
 
-import useToast from "@/hooks/useToast";
-import useAccount from "./useAccount";
 import usePayment from "./usePayment";
 import useSwellCart from "./useSwellCart";
-import { updateCart } from "@/redux/cart-slice";
-import useCart from "./useCart";
-import { useAuth, useLoading } from ".";
-import { toggleAuthModal } from "@/redux/ui-slice";
+import { useAuth, useToast, useAccount, useCart } from "@/hooks";
 import { sendProductReview, updateSubmittedOrder } from "@/redux/payment-slice";
-import useVbout from "./useVbout";
+import { updateCart } from "@/redux/cart-slice";
+import useVbout from "@/hooks/useVbout";
+import useModal from "@/hooks/useModal";
+import { vboutOrderData } from "@/lib/vbout";
 
 export default function useProcessPayment() {
   const router = useRouter();
   const { tokenizePayment, submitUserOrder } = usePayment();
   const { getUserDetails } = useAuth();
+  const { onShowModal } = useModal();
 
   const { getACart } = useSwellCart();
   const { cart }: any = useCart();
-  const { updateLoadingState } = useLoading();
   const { updateUserBillingInfo, createUserAddresstAtCheckout } = useAccount();
   const dispatch = useAppDispatch();
   const [loadingState, setLoadingState] = useState(false);
   const { createVboutOrder } = useVbout();
   const { isLoading, isSuccessful, hasError } = useToast();
 
-  function processPayment(data: any, setLoading: any) {
-    const toastId = isLoading();
-
+  function processPayment(data: any, loading: any) {
     function vboutOrder(order: any) {
-      createVboutOrder({
-        cartId: cart.id,
-        uniqueId: `${cart.id}-${order.id}`,
-        orderId: order.id,
-        orderNumber: order.number,
-        paymentMethod: order.billing?.card.brand,
-        grandTotal: order.grandTotal,
-        status: order.status,
-        subtotal: order.subtotal,
-        customerInfo: {
-          firstname: order.account.firstName,
-          lastname: order.account.lastName,
-          email: order.account.email,
-          country: order.billing.country,
-        },
-        billingInfo: {
-          firstname: order.account.firstName,
-          lastname: order.account.lastName,
-          email: order.account.email,
-          address: `${order.billing.address1} ${order.billing.address1}`,
-          city: order.billing.city,
-          statename: order.billing.state,
-          countryname: order.billing.country,
-          zipcode: order.billing.zip,
-        },
-        shippingInfo: {
-          firstname: order.account.firstName,
-          lastname: order.account.lastName,
-          email: order.account.email,
-          address: `${order.billing.address1} ${order.billing.address1}`,
-          city: order.billing.city,
-          statename: order.billing.state,
-          countryname: order.billing.country,
-          zipcode: order.billing.zip,
-        },
-      });
+      return createVboutOrder(vboutOrderData(cart, order));
     }
-
-    updateLoadingState();
     setLoadingState(true);
     tokenizePayment()
       .then((tokenPaymentResponse) => {
@@ -85,13 +43,11 @@ export default function useProcessPayment() {
                   submitUserOrder()
                     .then((response: any) => {
                       console.log("submitOrder", response);
-                      updateLoadingState();
                       if (response.paid) {
-                        updateLoadingState();
                         setLoadingState(false);
                         dispatch(sendProductReview(true));
                         vboutOrder(response);
-                        isSuccessful(toastId, "payment successful");
+                        isSuccessful(loading, "payment successful");
                         dispatch(
                           updateSubmittedOrder({
                             account: response?.account,
@@ -99,7 +55,6 @@ export default function useProcessPayment() {
                             products: response?.items,
                           })
                         );
-                        setLoading(false);
                         router.push("/checkout-complete");
                         dispatch(updateCart(null));
                       }
@@ -107,36 +62,31 @@ export default function useProcessPayment() {
                     })
                     .catch((error) => {
                       console.log("error submitUserOrder", error);
-                      hasError(toastId, error?.message);
-                      updateLoadingState();
+                      hasError(loading, error?.message);
                     });
                 })
                 .catch((error) => {
                   console.log("updateUserBillingInfo error", error);
-                  hasError(toastId, error?.message);
-                  updateLoadingState();
+                  hasError(loading, error?.message);
                 });
             })
             .catch((error) => {
-              hasError(toastId, error?.message);
-              updateLoadingState();
+              hasError(loading, error?.message);
             });
         } else {
-          hasError(toastId, tokenPaymentResponse?.message);
-          updateLoadingState();
+          hasError(loading, tokenPaymentResponse?.message);
           setLoadingState(false);
         }
       })
       .catch((err) => {
         console.log("error makePayment", err);
-        hasError(toastId, err?.message);
-        setLoading(false);
-        updateLoadingState();
-        setLoadingState(false);
+        hasError(loading, err?.message);
       });
   }
-  async function makePayment(data: any, setLoading: any) {
+
+  async function makePayment(data: any) {
     console.log("cart.accountId", cart?.accountId, "cart", cart);
+    const loading = isLoading();
     getUserDetails().then((response) => {
       console.log("response getUserDetails", response);
       if (response === null) {
@@ -144,17 +94,23 @@ export default function useProcessPayment() {
           .then((response) => {
             console.log("createUserAddresstAtCheckout", response);
             if (response.email.code === "UNIQUE") {
-              toast.error("please login to continue with your order");
-              dispatch(toggleAuthModal());
+              hasError(
+                loading,
+                "you have an existing account with us, please login"
+              );
+              onShowModal(
+                "CHECKOUT_NOTIFICATION_MODAL",
+                response.email.fields.email
+              );
             } else {
-              processPayment(data, setLoading);
+              processPayment(data, loading);
             }
           })
           .catch((err) => {
             console.log("err createUserAddresstAtCheckout", err?.message);
           });
       } else {
-        processPayment(data, setLoading);
+        processPayment(data, loading);
       }
     });
   }

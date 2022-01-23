@@ -19,8 +19,6 @@ export default function usePayment() {
           elementId: cardNumberElementId,
           options: {
             classes: inputClasses,
-            placeholder: "Credit Card Number",
-            showIcon: true,
             iconStyle: "solid",
           },
         },

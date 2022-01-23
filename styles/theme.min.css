@@ -2202,6 +2202,11 @@ textarea.form-control-lg {
 .form-control-color:not(:disabled):not([readonly]) {
   cursor: pointer;
 }
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
 .form-control-color::-moz-color-swatch {
   height: 1.5em;
   border-radius: 0.3125rem;

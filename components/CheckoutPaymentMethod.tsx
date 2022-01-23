@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @next/next/no-img-element */
 import { toast } from "react-toastify";
 
 import { accordionButtonStyle } from "@/lib/single-Checkout";

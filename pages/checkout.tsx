@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Applayout from "@/layout/Applayout";
 import dynamic from "next/dynamic";
 import useAirwallex from "@/hooks/useAirwallex";
@@ -17,11 +16,9 @@ const DynamicCheckoutSidebar = dynamic(
 
 const DynamicCheckoutForm = dynamic(() => import("../components/CheckoutForm"));
 
-// const Dynamic
-
 export default function CheckoutSingle() {
   const { generateAirwallexAccessToken } = useAirwallex();
-  const { userDetail } = useAppSelector((state) => state.auth);
+  const { userDetail, authorized } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const { airwallex, airwallexPaymentIntent } = useAirwallex();
   const { cart } = useCart();
@@ -46,23 +43,17 @@ export default function CheckoutSingle() {
       <div className="container">
         <div className="row mb-5">
           <section className="col-lg-8 d-flex flex-column">
-            <div className="d-sm-flex justify-content-between align-items-center bg-secondary p-4 rounded-3 mb-grid-gutter">
+            <div className="mt-5 d-sm-flex justify-content-between align-items-center bg-secondary p-4 rounded-3 mb-grid-gutter">
               <div className="d-flex align-items-center">
-                <div className="img-thumbnail rounded-circle position-relative flex-shrink-0">
-                  <span
-                    className="badge bg-warning position-absolute end-0 mt-n2"
-                    data-bs-toggle="tooltip"
-                    title="Reward points"
-                  >
-                    384
+                {authorized ? (
+                  <span className="fw-bold text-decoration-underline">
+                    Hello {userDetail.firstName}
                   </span>
-                  <img
-                    className="rounded-circle"
-                    src="/img/shop/account/avatar.jpg"
-                    width="90"
-                    alt="Susan Gardner"
-                  />
-                </div>
+                ) : (
+                  <span className="guest fw-bold text-decoration-underline">
+                    Hello Guest, Thanks for choosing Sailfish.
+                  </span>
+                )}
                 <div className="ps-3">
                   <h3 className="fs-base mb-0">
                     {userDetail?.firstName} {userDetail?.lastName}
