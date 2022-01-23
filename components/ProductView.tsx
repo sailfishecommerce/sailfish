@@ -127,7 +127,6 @@ export function ProductQuantityCounter({
   product,
 }: ProductQuantityCounterType) {
   const { addItemToCartWithOptions } = useCart();
-  console.log("product", product);
   const [itemQty, setItemQty] = useState(1);
 
   function updateCounter(type: "increment" | "decrement") {

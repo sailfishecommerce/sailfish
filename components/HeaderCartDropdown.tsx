@@ -63,7 +63,6 @@ function CartWidget({ cart }: CartWidgetProps) {
 
 function HeaderCartDropdownComponent() {
   const { cart, toggleCart }: any = useCart();
-  console.log("cart", cart);
   return (
     <div className="dropdown-menu dropdown-menu-end">
       <div className="widget widget-cart px-3 pt-2 pb-3">

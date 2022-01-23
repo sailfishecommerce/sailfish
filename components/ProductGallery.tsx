@@ -21,8 +21,6 @@ export default function ProductGallery({ product, quickView }: Props) {
   const activethumbnailImg = (index: number) =>
     activeImage === index ? "active" : "";
 
-  console.log("ProductGallery product", product);
-
   function updateActiveImage(index: number) {
     setActiveImage(index);
   }
