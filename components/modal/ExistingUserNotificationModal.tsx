@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import AppModal from "@/components/modal/AppModal";
@@ -41,7 +42,17 @@ export default function ExistingUserNotificationModal({
 
   return (
     <AppModal show={show} onHide={onHide} header={<ModalHeader />}>
-      <h6 className="text-center">Thanks for shopping with us</h6>
+      <div className="d-flex align-items-center mx-auto justify-content-center mb-1">
+        <h6 className="text-center mb-0 me-1">
+          Hello, thanks for shopping with us
+        </h6>
+        <Image
+          src="/shopping-bag.png"
+          alt="shopping bag"
+          height={40}
+          width={40}
+        />
+      </div>
       <h6 className="text-center">
         A user with the email address{" "}
         <span className="text-decoration-underline fw-bold">{data} </span>{" "}
