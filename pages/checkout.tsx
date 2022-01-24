@@ -23,24 +23,24 @@ export default function Checkout() {
   const { airwallex, airwallexPaymentIntent } = useAirwallex();
   const { cart } = useCart();
 
-  // useEffect(() => {
-  //   const isClientSecretValid = clientSecretValidity(airwallex?.clientSecret);
-  //   if (isClientSecretValid) {
-  //     dispatch(updateClientSecretStatus(true));
-  //   } else {
-  //     dispatch(updateClientSecretStatus(false));
-  //     airwallexPaymentIntent();
-  //   }
-  // }, []);
+  useEffect(() => {
+    generateAirwallexAccessToken();
+  }, []);
 
-  // useEffect(() => {
-  //   generateAirwallexAccessToken();
-  // }, []);
+  useEffect(() => {
+    const isClientSecretValid = clientSecretValidity(airwallex?.clientSecret);
+    if (isClientSecretValid) {
+      dispatch(updateClientSecretStatus(true));
+    } else {
+      dispatch(updateClientSecretStatus(false));
+      airwallexPaymentIntent();
+    }
+  }, []);
 
   return (
     <Applayout title="Checkout your order">
       <CheckoutBanner title="Checkout" breadcrumb="Checkout" />
-      <div className="container">
+      <div className="container checkout-page-content">
         <div className="row mb-5">
           <section className="col-lg-8 d-flex flex-column">
             <div className="mt-5 d-sm-flex justify-content-between align-items-center bg-secondary p-4 rounded-3 mb-grid-gutter">
@@ -67,8 +67,13 @@ export default function Checkout() {
           {cart && <DynamicCheckoutSidebar cart={cart} />}
         </div>
       </div>
+      <style jsx>{`
+        .checkout-page-content {
+          min-height: 500px;
+        }
+      `}</style>
     </Applayout>
   );
 }
 
-Checkout.whyDidYouRender = true
+Checkout.whyDidYouRender = true;

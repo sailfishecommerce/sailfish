@@ -7,6 +7,9 @@ import {
   ElementType,
 } from "airwallex-payment-elements";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+
+import { useToast, useLoading } from "@/hooks";
 
 interface AirwallexDropinProps {
   intent_id: string | any;
@@ -20,8 +23,10 @@ export default function AirwallexCard({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
+  const { loading, updateLoadingState } = useLoading();
+  const { isLoading, isSuccessful, hasError } = useToast();
 
-  // console.log("intent_id", intent_id, "client_secret", client_secret);
+  console.log("intent_id", intent_id, "client_secret", client_secret);
 
   useEffect(() => {
     loadAirwallex({
@@ -58,8 +63,16 @@ export default function AirwallexCard({
     };
   }, []);
 
+  useEffect(() => {
+    if (loading && !isSubmitting && errorMessage.length > 0) {
+      updateLoadingState();
+      toast.error(errorMessage);
+    }
+  }, [errorMessage, isSubmitting, loading]);
+
   const triggerConfirm = (): void => {
     setIsSubmitting(true);
+    const loading = isLoading();
     setErrorMessage("");
     const card = getElement("card");
     if (card) {
@@ -74,7 +87,9 @@ export default function AirwallexCard({
         },
       })
         .then((response) => {
+          console.log("response triggerConfirm", response);
           setIsSubmitting(false);
+          isSuccessful(loading, "Payment successful");
           window.alert(
             `Payment Intent confirmation was successful: ${JSON.stringify(
               response
@@ -86,6 +101,7 @@ export default function AirwallexCard({
           setIsSubmitting(false);
           setErrorMessage(error.message ?? JSON.stringify(error));
           console.error("There is an error", error);
+          hasError(loading, error);
         });
     }
   };

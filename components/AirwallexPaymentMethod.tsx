@@ -25,13 +25,11 @@ export default function AirwallexPaymentMethod() {
           <p>
             <span className="fw-medium">Airwallex</span> - the safer, easier way
             to pay
-          </p>
-          {airwallex.paymentIntentId && airwallex.clientSecret && (
-            <AirwallexDropin
-              intent_id={airwallex.paymentIntentId}
-              client_secret={airwallex.clientSecret}
-            />
-          )}
+          </p>          
+          <AirwallexDropin
+            intent_id={airwallex.paymentIntentId}
+            client_secret={airwallex.clientSecret}
+          />
         </div>
       </div>
     </div>

@@ -22,6 +22,7 @@ export default function useAirwallex() {
 
   function generateAirwallexAccessToken() {
     const accessTokenValidity = isTokenValid(airwallex?.tokenExpiryDate);
+    console.log("accessTokenValidity", accessTokenValidity);
     if (accessTokenValidity) {
       dispatch(updateAccessTokenStatus(true));
     } else {
@@ -30,29 +31,24 @@ export default function useAirwallex() {
     }
   }
 
-  const paymentDetails = cart && {
-    request_id: uuidv4(),
-    amount: cart.grandTotal,
-    currency: cart?.currency,
-    merchant_order_id: cart?.id,
-    order: {
-      products: cart?.items,
-    },
-  };
-
   const paymentData = {
-    paymentDetails,
+    paymentDetails: {
+      request_id: uuidv4(),
+      amount: cart?.grandTotal,
+      currency: cart?.currency,
+      merchant_order_id: cart?.id,
+      order: {
+        products: cart?.items,
+      },
+    },
     auth: airwallex?.accessToken,
   };
-
-  // console.log("paymentData", paymentData);
-
   function airwallexPaymentIntent() {
     if (cart) {
       return axios
         .post("/api/create-payment-intent", paymentData)
         .then((response) => {
-          // console.log("response", response.data);
+          console.log("airwallexPaymentIntent response", response.data);
           const paymentIntentData = {
             clientSecret: response.data.client_secret,
             paymentIntentId: response.data.id,
