@@ -83,6 +83,7 @@ export default function useAccount() {
   }
 
   async function createUserAddresstAtCheckout(data: checkoutData) {
+    console.log("userAddress data", data);
     return await swell.account.create({
       email: data.email,
       first_name: data.firstName,
@@ -118,8 +119,6 @@ export default function useAccount() {
       },
     });
   }
-
-  
 
   return {
     createUserAccount,

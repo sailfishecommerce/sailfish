@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import CheckoutPaymentMethod from "@/components/CheckoutPaymentMethod";
 import ShippingCheckoutForm from "@/components/ShippingCheckoutForm";
 
-export default function CheckoutForm() {
+function CheckoutFormComponent() {
   const [formStages, setFormStages] = useState<any>({
     stage1: false,
     shippingForm: null,
@@ -19,3 +19,9 @@ export default function CheckoutForm() {
     </div>
   );
 }
+
+const CheckoutForm = memo(CheckoutFormComponent);
+
+export default CheckoutForm;
+
+CheckoutForm.whyDidYouRender = true;

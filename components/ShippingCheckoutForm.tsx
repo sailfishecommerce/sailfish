@@ -104,3 +104,5 @@ export default function ShippingCheckoutForm({
     </div>
   );
 }
+
+ShippingCheckoutForm.whyDidYouRender = true;

@@ -87,32 +87,39 @@ export default function useProcessPayment() {
   async function makePayment(data: any) {
     console.log("cart.accountId", cart?.accountId, "cart", cart);
     const loading = isLoading();
-    getUserDetails().then((response) => {
-      console.log("response getUserDetails", response);
-      if (response === null) {
-        createUserAddresstAtCheckout(data)
-          .then((response) => {
-            console.log("createUserAddresstAtCheckout", response);
-            if (response.email.code === "UNIQUE") {
-              hasError(
-                loading,
-                "you have an existing account with us, please login"
-              );
-              onShowModal(
-                "CHECKOUT_NOTIFICATION_MODAL",
-                response.email.fields.email
-              );
-            } else {
-              processPayment(data, loading);
-            }
-          })
-          .catch((err) => {
-            console.log("err createUserAddresstAtCheckout", err?.message);
-          });
-      } else {
-        processPayment(data, loading);
-      }
-    });
+    getUserDetails()
+      .then((response) => {
+        console.log("response getUserDetails", response);
+        if (response === null) {
+          console.log("data createUserAddresstAtCheckout", data);
+          createUserAddresstAtCheckout(data)
+            .then((response) => {
+              console.log("createUserAddresstAtCheckout", response);
+              if (response !== null && response?.email?.code === "UNIQUE") {
+                hasError(
+                  loading,
+                  "you have an existing account with us, please login"
+                );
+                onShowModal(
+                  "CHECKOUT_NOTIFICATION_MODAL",
+                  response.email.fields.email
+                );
+              } else {
+                processPayment(data, loading);
+              }
+            })
+            .catch((err) => {
+              console.log("err createUserAddresstAtCheckout", err);
+              hasError(loading, err?.message);
+            });
+        } else {
+          processPayment(data, loading);
+        }
+      })
+      .catch((error) => {
+        console.log("get user details", error);
+        hasError(loading, error?.message);
+      });
   }
 
   return {

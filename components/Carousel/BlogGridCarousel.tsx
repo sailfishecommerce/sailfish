@@ -73,7 +73,7 @@ export default function BlogGridCarousel() {
               </div>
             </div>
           </article>
-        ))}      
+        ))}
       </CarouselWrapper>
     </div>
   );

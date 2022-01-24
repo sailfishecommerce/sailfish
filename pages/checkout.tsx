@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import Applayout from "@/layout/Applayout";
 import dynamic from "next/dynamic";
-import useAirwallex from "@/hooks/useAirwallex";
 
+import Applayout from "@/layout/Applayout";
+import useAirwallex from "@/hooks/useAirwallex";
 import CheckoutBanner from "@/components/CheckoutBanner";
 import { useAppSelector, useAppDispatch } from "@/hooks/useRedux";
 import useCart from "@/hooks/useCart";
@@ -16,26 +16,26 @@ const DynamicCheckoutSidebar = dynamic(
 
 const DynamicCheckoutForm = dynamic(() => import("../components/CheckoutForm"));
 
-export default function CheckoutSingle() {
+export default function Checkout() {
   const { generateAirwallexAccessToken } = useAirwallex();
   const { userDetail, authorized } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const { airwallex, airwallexPaymentIntent } = useAirwallex();
   const { cart } = useCart();
 
-  useEffect(() => {
-    const isClientSecretValid = clientSecretValidity(airwallex?.clientSecret);
-    if (isClientSecretValid) {
-      dispatch(updateClientSecretStatus(true));
-    } else {
-      dispatch(updateClientSecretStatus(false));
-      airwallexPaymentIntent();
-    }
-  }, []);
+  // useEffect(() => {
+  //   const isClientSecretValid = clientSecretValidity(airwallex?.clientSecret);
+  //   if (isClientSecretValid) {
+  //     dispatch(updateClientSecretStatus(true));
+  //   } else {
+  //     dispatch(updateClientSecretStatus(false));
+  //     airwallexPaymentIntent();
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    generateAirwallexAccessToken();
-  }, []);
+  // useEffect(() => {
+  //   generateAirwallexAccessToken();
+  // }, []);
 
   return (
     <Applayout title="Checkout your order">
@@ -70,3 +70,5 @@ export default function CheckoutSingle() {
     </Applayout>
   );
 }
+
+Checkout.whyDidYouRender = true
