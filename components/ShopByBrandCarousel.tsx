@@ -54,7 +54,10 @@ export default function ShopByBrandCarousel() {
                   className={`${styles.brandLink} d-flex bg-white shadow-sm rounded-3 py-3 py-sm-4`}
                   href="#"
                 >
-                  <div className="brandContainer d-flex justify-content-center align-items-center mx-auto">
+                  <div
+                    style={{ height: "100px", width: "200px" }}
+                    className="brandContainer d-flex justify-content-center align-items-center mx-auto"
+                  >
                     <Image
                       src={brand.img}
                       alt={brand.name}

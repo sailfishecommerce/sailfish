@@ -36,6 +36,10 @@ export default function Applayout({
 
       <Head>
         <title>{title} | Sailfish</title>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+        />
         <script
           src="https://en.trustmate.io/api/widget/4420c1ed-e3a7-47c2-b6a2-2d7386a819da/script"
           defer

@@ -54,12 +54,7 @@ export default function Index({ products }: any) {
       <PopularCategories />
       <TrendingProducts products={products} />
       <FeaturedCategory />
-      <Banners
-        banner1Title="Hurry up! Limited time offer"
-        banner2Title="Your Add Banner Here"
-        banner1Caption="Converse All Star on Sale"
-        banner2Caption="Hurry up to reserve your spot"
-      />
+      <Banners />
       <ShopByBrandCarousel />
       <InfoCards />
       <style jsx>
