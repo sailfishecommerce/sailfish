@@ -1,5 +1,5 @@
-import { useCartType } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { useCartType } from "@/types";
 
 const cartSlice = createSlice({
   name: "cart",

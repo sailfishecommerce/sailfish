@@ -10,4 +10,3 @@ declare module "imagemin";
 declare module "imagemin-jpegtran";
 declare module "imagemin-pngquant";
 declare module "imagemin-webp";
-declare module "react-window";
