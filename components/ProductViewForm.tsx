@@ -18,8 +18,6 @@ export default function ProductViewForm({
     return style;
   }, []);
 
-  console.log("product", product);
-
   function onSubmitHandler(e: any) {
     e.preventDefault();
     addItemToCart(product, 1);

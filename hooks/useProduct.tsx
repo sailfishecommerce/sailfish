@@ -19,6 +19,9 @@ export default function useProduct(product: productType) {
   const dispatch = useAppDispatch();
 
   function quickViewHandler(product: any) {
+    const itemId =
+      product.objectID !== undefined ? product.objectID : [product.id];
+    itemViewed("quick_view_of_product_by_modal", itemId);
     dispatch(quickViewModal(product));
   }
 

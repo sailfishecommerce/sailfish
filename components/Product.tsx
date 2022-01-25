@@ -30,7 +30,7 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
     useAlgoliaEvents();
 
   function itemClickedAndViewed(objectIDs: string[], id: string[]) {
-    const itemId = objectIDs.length > 0 ? objectIDs : id;
+    const itemId = objectIDs[0] !== undefined ? objectIDs : id;
     itemClicked("product clicked", itemId);
     itemViewed("product viewed", itemId);
   }
@@ -47,8 +47,6 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
       ? itemClickedAndViewed(objectIDs, id)
       : null;
   }
-
-  console.log("productproduct", product);
 
   const linkURL =
     algoliaEvent === "search"
