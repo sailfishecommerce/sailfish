@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import swell from "swell-node";
-import swellNodeInit from "@/lib/swellNode";
 
+import swellNodeInit from "@/lib/swellNode";
 import FeaturedCategory from "@/components/FeaturedCategory";
 import InfoCards from "@/components/InfoCards";
 import PopularCategories from "@/components/PopularCategories";
@@ -29,7 +29,7 @@ export default function Index({ products }: any) {
   useEffect(() => {
     generateUserToken();
   }, [authorized]);
-  
+
   const vboutContent = {
     id: cart?.id,
     cartId: cart?.id,
