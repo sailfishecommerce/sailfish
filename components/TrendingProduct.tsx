@@ -14,7 +14,7 @@ function TrendingProductsCatalog({ products }: PropsType) {
   const rowVirtualizerFixed = useVirtual({
     size: products.length,
     parentRef,
-    estimateSize: useCallback(() => 10, []),
+    estimateSize: useCallback(() => 200, []),
     overscan: 6,
   });
 
@@ -23,7 +23,7 @@ function TrendingProductsCatalog({ products }: PropsType) {
       <h2 className="text-center trending">Trending products</h2>
       <div
         ref={parentRef}
-        style={{ height: `${rowVirtualizerFixed.totalSize}px` }}
+        // style={{ height: `${rowVirtualizerFixed.totalSize}px` }}
         className="row pt-4 mx-n2"
       >
         {rowVirtualizerFixed.virtualItems.map((virtualRow: any) => (

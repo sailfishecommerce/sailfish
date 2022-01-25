@@ -25,8 +25,6 @@ export default function SearchBar() {
   const tabWidth = useMediaQuery("(max-width:768px)");
   const { addProductSearch } = useVbout();
 
-  console.log("closeSearchView", closeSearchView);
-
   const inputClassName = !tabWidth
     ? "input-group d-none d-lg-flex mx-4"
     : "mobileInput w-100 my-0";

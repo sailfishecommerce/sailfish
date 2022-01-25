@@ -13,8 +13,6 @@ export default function useUserToken() {
   const dispatch = useAppDispatch();
   const { data, status } = useQuery("getAccount", getUserAccount);
 
-  console.log("userToken", userToken);
-
   const { swell, initializeSwell } = swellClientInit();
 
   async function getUserAccount() {
