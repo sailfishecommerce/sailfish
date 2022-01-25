@@ -44,7 +44,7 @@ function Categorylinks({ items }: any) {
 
   function categoryEvents(contentLink: contentLinkType) {
     vboutCategoryViewHandler(contentLink);
-    itemViewed("category_viewed", contentLink.id, [contentLink.slug]);
+    itemViewed("category_viewed", contentLink.id);
   }
 
   return (
