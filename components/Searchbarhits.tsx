@@ -5,13 +5,14 @@ import Image from "next/image";
 import { hitType } from "@/types";
 import { useEffect } from "react";
 import { useAppSelector } from "@/hooks/useRedux";
+import { useRouter } from "next/router";
 import {
   closeSearch,
   updateSearchData,
   updateViewSearch,
 } from "@/redux/algolia-slice";
 import { useAppDispatch } from "@/redux/store";
-import { useRouter } from "next/router";
+import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 
 interface SearchHitsProps {
   hits: hitType[];
@@ -22,6 +23,7 @@ function SearchHits({ hits }: SearchHitsProps) {
   const { viewSearch, query } = useAppSelector((state) => state.algolia);
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const { clickedProductAfterSearch } = useAlgoliaEvents();
 
   useEffect(() => {
     if (viewSearch) {
@@ -56,7 +58,16 @@ function SearchHits({ hits }: SearchHitsProps) {
                     href={`/products/${hit.slug}?query-id=${hit.__queryID}`}
                     passHref
                   >
-                    <a className="hit d-flex align-items-center my-0 py-1">
+                    <a
+                      onClick={() =>
+                        clickedProductAfterSearch(
+                          hit.__queryID,
+                          [hit.objectID],
+                          [hit.__position]
+                        )
+                      }
+                      className="hit d-flex align-items-center my-0 py-1"
+                    >
                       <div className="hit-image">
                         <Image
                           src={hit.images[0]?.file?.url}

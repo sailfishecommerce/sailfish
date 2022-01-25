@@ -16,7 +16,7 @@ export default function SearchPage() {
   const router = useRouter();
   const { query } = router;
 
-  console.log("query", query);
+  console.log("searchData", searchData);
 
   const rowVirtualizer = useVirtual({
     size: searchData.length,
@@ -47,6 +47,7 @@ export default function SearchPage() {
             <Product
               key={virtualRow.index}
               product={searchData[virtualRow.index]}
+              algoliaEvent="search"
             />
           ))}
         </div>

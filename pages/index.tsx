@@ -17,13 +17,19 @@ import Metatag from "@/components/Metatag";
 import TrendingProducts from "@/components/TrendingProduct";
 import ShopByBrandCarousel from "@/components/ShopByBrandCarousel";
 import { emptyCart, getCart, listCurrencies, listProducts } from "@/lib/cart";
+import useUserToken from "@/hooks/useUserToken";
 
 export default function Index({ products }: any) {
   const { createVboutCart } = useVbout();
   const dispatch = useAppDispatch();
   const vboutSlice = useAppSelector((state) => state.integrations);
   const { cart }: any = useCart();
+  const { generateUserToken, authorized } = useUserToken();
 
+  useEffect(() => {
+    generateUserToken();
+  }, [authorized]);
+  
   const vboutContent = {
     id: cart?.id,
     cartId: cart?.id,

@@ -12,6 +12,7 @@ import useCurrency from "@/hooks/useCurrency";
 import discountPrice from "@/lib/discountPrice";
 import useProductPrice from "@/hooks/useProductPrice";
 import FormattedPrice from "@/lib/formatPrice";
+import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 
 const DynamicProductViewForm = dynamic(
   () => import("../components/ProductViewForm")
@@ -22,9 +23,37 @@ const DynamicProductMetatags = dynamic(
 );
 declare function tcjs(trigger: string, type: string, name: string): any;
 
-const MProduct = ({ product, forCategory }: ProductProps) => {
+const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
   const { productViewEvent } = useProduct(product);
   const [inHover, setHover] = useState(false);
+  const { clickedProductAfterSearch, itemClicked, itemViewed } =
+    useAlgoliaEvents();
+
+  function itemClickedAndViewed(objectIDs: string[], id: string[]) {
+    const itemId = objectIDs.length > 0 ? objectIDs : id;
+    itemClicked("product clicked", itemId);
+    itemViewed("product viewed", itemId);
+  }
+
+  function trackAlgoliaEvents(
+    queryID: string | any,
+    objectIDs: string[] | any,
+    position: number[] | any,
+    id: string[]
+  ) {
+    algoliaEvent === "search"
+      ? clickedProductAfterSearch(queryID, objectIDs, position)
+      : algoliaEvent === "click"
+      ? itemClickedAndViewed(objectIDs, id)
+      : null;
+  }
+
+  console.log("productproduct", product);
+
+  const linkURL =
+    algoliaEvent === "search"
+      ? `/products/${product.slug}?query-id=${product.__queryID}`
+      : `/products/${product.slug}`;
 
   const productImage =
     inHover && product.images.length > 1
@@ -51,9 +80,16 @@ const MProduct = ({ product, forCategory }: ProductProps) => {
             <i className="ci-heart"></i>
           </button>
         </div>
-        <Link href={`/products/${product.slug}`} passHref>
+        <Link href={linkURL} passHref>
           <a
-            onClick={productViewEvent}
+            onClick={() =>
+              trackAlgoliaEvents(
+                product?.__queryID,
+                [product.objectID],
+                [product.__position],
+                [product.id]
+              )
+            }
             className="productLink card-img-top d-block overflow-hidden"
           >
             <div

@@ -10,6 +10,9 @@ export type productType = {
       text: string;
     }[];
   };
+  __queryID?: string;
+  __position?: number;
+  objectID?: string;
   vendor: string;
   product_image?: string;
   product_images: { link: string; alt: string }[];
@@ -300,6 +303,8 @@ export type filterType = {
 export type hitType = {
   name: string;
   __queryID: string;
+  __position: number;
+  objectID: string;
   description?: string | any;
   attributes?: any;
   meta_title?: string;
@@ -367,6 +372,7 @@ export interface CartItemProps {
 export interface ProductProps {
   product: productType;
   forCategory?: boolean;
+  algoliaEvent?: "search" | "click" | "filter";
 }
 
 export type typeModal =

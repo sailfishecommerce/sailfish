@@ -13,7 +13,7 @@ function TrendingProductsCatalog({ products }: PropsType) {
       <h2 className="text-center trending">Trending products</h2>
       <div className="row pt-4 mx-n2">
         {products.map((product: productType) => (
-          <Product key={product.id} product={product} />
+          <Product key={product.id} product={product} algoliaEvent="click" />
         ))}
         <div className="text-center pt-1 mt-1 mb-3">
           <Link href="/shop" passHref>

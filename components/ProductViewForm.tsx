@@ -3,6 +3,7 @@ import { useCallback } from "react";
 import useProduct from "@/hooks/useProduct";
 import { ProductProps } from "@/types";
 import { useCart } from "@/hooks";
+import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 
 export default function ProductViewForm({
   product,
@@ -11,15 +12,18 @@ export default function ProductViewForm({
   const { quickViewHandler, optionHandler } = useProduct(product);
   const { addItemToCart } = useCart();
   const categoryStyle = forCategory ? "d-flex flex-column" : "d-flex";
-
+  const { productAddedToCart } = useAlgoliaEvents();
   const formOptionBg = useCallback((name: string) => {
     const style = { backgroundColor: name.toLowerCase() };
     return style;
   }, []);
 
+  console.log("product", product);
+
   function onSubmitHandler(e: any) {
     e.preventDefault();
     addItemToCart(product, 1);
+    productAddedToCart([product.id]);
   }
 
   return (

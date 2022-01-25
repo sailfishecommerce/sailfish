@@ -70,7 +70,7 @@ export default function SearchBar() {
       indexName="New_Livehealthy_products_index"
       searchClient={algoliasearchClient}
     >
-      <Configure clickAnalytics distinct enablePersonalization={true} />
+      <Configure clickAnalytics distinct enablePersonalization />
       <div className="searchBox">
         <div className={inputContainerClassName}>
           <SearchBox

@@ -32,5 +32,5 @@ export default function useUserToken() {
       dispatch(updateUserDetails(data.id));
     }
   }
-  return { generateUserToken, status };
+  return { generateUserToken, status, authorized };
 }

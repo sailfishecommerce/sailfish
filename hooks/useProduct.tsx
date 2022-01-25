@@ -41,7 +41,7 @@ export default function useProduct(product: productType) {
     addItemToCart(product);
     // tcjs("trigger", "hm", "add-product-to-cart");
     // addCartItemVboutHandler();
-    productAddedToCart(product.id, [product.slug]);
+    productAddedToCart([product.objectID]);
   }
 
   function addProductViewVboutHandler() {
@@ -59,7 +59,7 @@ export default function useProduct(product: productType) {
 
   function productViewEvent() {
     addProductViewVboutHandler();
-    itemViewed("product_viewed", product.id, [product.slug]);
+    itemViewed("product_viewed", [product.objectID]);
   }
 
   return {
