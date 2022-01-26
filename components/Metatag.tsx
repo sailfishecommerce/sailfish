@@ -25,7 +25,7 @@ export default function Metatag() {
       <meta property="og:image:height" content="1000" />
       <meta
         property="og:image"
-        content="https://cdn.shopify.com/s/files/1/0040/1699/6481/files/Facebook_DP_97730035-fb01-4b92-930e-1e651e16b00b.png?v=1627736864"
+        content="https://res.cloudinary.com/verrb-inc/image/upload/v1643186935/sailfish/site_image_up727p.webp"
       />
       <meta
         name="twitter:description"
@@ -36,7 +36,7 @@ export default function Metatag() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "url":"https://livehealthy.hk/",
-            "logo": "//cdn.shopify.com/s/files/1/0040/1699/6481/files/Sailfish-logo.png?v=1626620681"
+            "logo": "https://res.cloudinary.com/verrb-inc/image/upload/v1643186694/sailfish/logo_u4xg8w.webp"
           }`}
       </script>
       <script type="application/ld+json">
@@ -44,7 +44,7 @@ export default function Metatag() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "url":"https://livehealthy.hk/",
-            "logo": "//cdn.shopify.com/s/files/1/0040/1699/6481/files/Sailfish-logo.png?v=1626620681"
+            "logo": "https://res.cloudinary.com/verrb-inc/image/upload/v1643186694/sailfish/logo_u4xg8w.webp"
           }`}
       </script>
     </Head>

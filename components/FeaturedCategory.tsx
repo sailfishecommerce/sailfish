@@ -44,14 +44,7 @@ export default function FeaturedCategory() {
     <section className="container mb-4 pb-3 pb-sm-0 mb-sm-5">
       <div className="row">
         {/*<!-- Banner with controls-->*/}
-        <CategoryBanner
-          controls={controlRef}
-          categoryTitle="Shop for medicine"
-          categoryImg="/img/shop/featured_category_image.webp"
-          categoryCaption="Get started now"
-          bannerBgColor="#F3C2CC"
-          local
-        />
+        <CategoryBanner controls={controlRef} />
         {/*<!-- Product grid (carousel)-->*/}
         <FeaturedCategoryCarousel controls={controlRef} />
       </div>

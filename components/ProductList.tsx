@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
+import Image from "@/components/Image";
 import FormattedPrice from "@/lib/formatPrice";
 import RatingStar from "@/components/RatingStar";
 import { productType } from "@/types";

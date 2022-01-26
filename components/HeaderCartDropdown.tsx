@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { memo } from "react";
 
 import useCart from "@/hooks/useCart";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
 import useVbout from "@/hooks/useVbout";
-import { memo } from "react";
+import Image from "@/components/Image";
 
 interface CartWidgetProps {
   cart: cartType;
@@ -36,10 +37,11 @@ function CartWidget({ cart }: CartWidgetProps) {
       <div className="d-flex align-items-center">
         <Link href={`/products/${cart.product.slug}`} passHref>
           <a className="flex-shrink-0">
-            <img
+            <Image
               src={cart.product.images[0].file.url.split(";")[0]}
               alt={cart.product.name}
-              width="64"
+              width={64}
+              height={64}
             />
           </a>
         </Link>

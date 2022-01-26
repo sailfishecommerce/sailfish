@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { useState, memo } from "react";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 
+import Image from "@/components/Image";
 import { ProductProps } from "@/types";
 import useProduct from "@/hooks/useProduct";
 import RatingStar from "./RatingStar";

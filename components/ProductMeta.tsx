@@ -32,7 +32,7 @@ export default function ProductMeta({ product }: Props) {
                 "@type":"Organization",
                 "name":"Live healthy",
                 "url":"https://livehealthy.hk/",
-                "logo": "//cdn.shopify.com/s/files/1/0040/1699/6481/files/Sailfish-logo.png?v=1626620681"
+                "logo": "https://res.cloudinary.com/verrb-inc/image/upload/v1643186694/sailfish/logo_u4xg8w.webp"
               }
             },
             "brand":{

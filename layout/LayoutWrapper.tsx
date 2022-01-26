@@ -56,7 +56,7 @@ export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {
       <NextNProgress color="red" options={{ showSpinner: false }} />
       <ToastContainer />
 
-      <div className="content position-relative">{children}</div>
+      <div className="content position-relative h-100">{children}</div>
       <div className="position-relative sailfish-reward-widget">
         <Reward />
       </div>

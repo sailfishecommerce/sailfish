@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import dynamic from "next/dynamic";
+
+import Image from "@/components/Image";
 import sliderContent from "@/json/homepage-slider.json";
 import styles from "@/styles/homepageslider.module.css";
 
@@ -36,45 +38,52 @@ export default function HomepageSlider() {
             className="tinySlider"
             key={index}
           >
-            <div
-              style={{
-                backgroundColor: item.bgColor,
-                height: "680px",
-              }}
-              className="px-lg-5 sliderItem"
-            >
-              <div className="d-lg-flex justify-content-between align-items-center ps-lg-4">
-                <img
+            <div className="px-lg-5 sliderItem">
+              <div
+                className={`${styles.imageContainer} justify-content-between align-items-center ps-lg-4 d-block order-lg-2 me-lg-5`}
+              >
+                <Image
                   src={item.sliderImg}
-                  height="50%"
-                  width="50%"
-                  className="carouselImg d-block order-lg-2 me-lg-n5 flex-shrink-0"
+                  height={300}
+                  width={400}
+                  className={`${styles.carouselImg} d-block order-lg-2 me-lg-n5 flex-shrink-0`}
                   alt="Summer Collection"
+                  layout="responsive"
                 />
-                <div className="position-relative mx-auto me-lg-n5 py-5 px-4 mb-lg-5 order-lg-1">
-                  <div className="pb-lg-5 mb-lg-5 text-center text-lg-start text-lg-nowrap">
-                    <h3 className="h2 text-light fw-light pb-1 from-start">
-                      {item.sliderCaption}
-                    </h3>
-                    <h2 className="text-light display-5 from-start delay-1">
-                      {item.sliderTitle}
-                    </h2>
-                    <p className="fs-lg text-light pb-3 from-start delay-2">
-                      {item.sliderDescription}
-                    </p>
-                    <div className="d-table scale-up delay-4 mx-auto mx-lg-0">
-                      <Link href="/shop" passHref>
-                        <a className="btn btn-primary">
-                          Shop Now
-                          <i className="ci-arrow-right ms-2 me-n1"></i>
-                        </a>
-                      </Link>
-                    </div>
+              </div>
+              <div className="position-relative position-relative  ms-lg-5 py-5 px-4 mb-lg-5 order-lg-1">
+                <div className="pb-lg-5 mb-lg-5 text-center text-lg-start text-lg-nowrap">
+                  <h3 className="h2 text-light fw-light pb-1 from-start">
+                    {item.sliderCaption}
+                  </h3>
+                  <h2 className="text-light display-5 from-start delay-1">
+                    {item.sliderTitle}
+                  </h2>
+                  <p className="fs-lg text-light pb-3 from-start delay-2">
+                    {item.sliderDescription}
+                  </p>
+                  <div className="d-table scale-up delay-4 mx-auto mx-lg-0">
+                    <Link href="/shop" passHref>
+                      <a className="btn btn-primary">
+                        Shop Now
+                        <i className="ci-arrow-right ms-2 me-n1"></i>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
             <style jsx>{`
+              .tinySlider {
+                background-color: #3aafd2;
+              }
+              .sliderItem {
+                background-color: ${item.bgColor};
+                height: 680px;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+              }
               .sliderWidth {
                 max-width: 42rem;
                 z-index: 10;

@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
-import Image from "next/image";
 
+import Image from "@/components/Image";
 import brands from "@/json/brand.json";
 import "swiper/css";
 import "swiper/css/autoplay";

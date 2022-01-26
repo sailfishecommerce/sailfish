@@ -3,6 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
+import Image from "@/components/Image";
 import useCart from "@/hooks/useCart";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { toggleAuthModal, toggleSlideCart } from "@/redux/ui-slice";
@@ -12,17 +13,12 @@ import SearchBar from "@/components/SearchBar";
 import useScroll from "@/hooks/useScroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import FormattedPrice from "@/lib/formatPrice";
+import styles from "@/styles/ui.module.css";
 
 const HeaderCartDropdown = dynamic(() => import("./HeaderCartDropdown"));
 const CategoryDropdown = dynamic(() => import("./NavDropdown"));
 
-interface NavProps {
-  logo?: any;
-  navBgColor: string;
-  local?: boolean;
-}
-
-export default function Nav({ logo, navBgColor, local }: NavProps) {
+export default function Nav() {
   const { cart }: any = useCart();
   const { authorized, userDetail }: any = useAppSelector((state) => state.auth);
   const { userLogout } = useAuth();
@@ -44,17 +40,17 @@ export default function Nav({ logo, navBgColor, local }: NavProps) {
 
   return (
     <>
-      <nav className={navStyle}>
+      <nav className={`${navStyle} ${styles.nav}`}>
         <div className="navbar navbar-expand-lg navbar-light">
           <div className="container position-relative">
             <Link href="/" passHref>
               <a className="navbar-brand d-none d-sm-block flex-shrink-0">
-                {!local ? logo : <img src="/logo.png" alt="logo" />}
+                <Image src="/logo.webp" alt="logo" height={70} width={200} />
               </a>
             </Link>
             <Link href="/" passHref>
               <a className="navbar-brand d-sm-none flex-shrink-0 me-2">
-                <img src="/logo.png" width="74" alt="Bandicoot" />
+                <Image src="/logo.webp" alt="logo" height={50} width={70} />
               </a>
             </Link>
             {largerDeviceWidth && <SearchBar />}
@@ -188,7 +184,7 @@ export default function Nav({ logo, navBgColor, local }: NavProps) {
       <style jsx>
         {`
           .navbar-sticky {
-            background-color: ${navBgColor};
+            background-color: white;
             width: 100%;
           }
           .navbar-brand.d-sm-none.flex-shrink-0.me-2 img {

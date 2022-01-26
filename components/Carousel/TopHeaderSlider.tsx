@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Mousewheel } from "swiper";
-import Image from "next/image";
-import topHeaderSlider from "@/json/topheaderslider.json";
 
+import Image from "@/components/Image";
+import topHeaderSlider from "@/json/topheaderslider.json";
 import "swiper/css";
 import "swiper/css/autoplay";
 

@@ -1,16 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { connectHits, Highlight } from "react-instantsearch-dom";
 import Link from "next/link";
-import Image from "next/image";
 import { hitType } from "@/types";
 import { useEffect } from "react";
 import { useAppSelector } from "@/hooks/useRedux";
 import { useRouter } from "next/router";
+
 import {
   closeSearch,
   updateSearchData,
   updateViewSearch,
 } from "@/redux/algolia-slice";
+import Image from "@/components/Image";
 import { useAppDispatch } from "@/redux/store";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 

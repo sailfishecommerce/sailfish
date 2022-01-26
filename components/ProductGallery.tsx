@@ -43,14 +43,14 @@ export default function ProductGallery({ product, quickView }: Props) {
   return (
     <>
       <Head>
-        <link
+        <link          
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/src/css/lightgallery.css"
         />
       </Head>
       <Script
         src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/lib/js/lightgallery.min.js"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <div className="col-lg-7 pe-lg-0 pt-lg-4">
         <div className="product-gallery">

@@ -33,11 +33,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <div>
       <Script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <Script
         src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
       <Script type="module" src="/js/theme.js" strategy="afterInteractive" />
 

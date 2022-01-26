@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+
 import footerBottomContent from "@/json/footer-bottom.json";
 import CurrencyLanguageDropdown from "@/components/CurrencyLanguageDropdown";
-
+import Image from "@/components/Image";
 
 export default function FooterBottomSection() {
   return (
@@ -38,10 +39,11 @@ export default function FooterBottomSection() {
                     className="d-inline-block align-middle mt-n1 me-3"
                     href="#"
                   >
-                    <img
+                    <Image
                       className="d-block"
-                      src="/logo.png"
-                      width="117"
+                      src="/logo.webp"
+                      width={200}
+                      height={70}
                       alt="Bandicoot"
                     />
                   </a>
@@ -80,10 +82,11 @@ export default function FooterBottomSection() {
                   </a>
                 ))}
               </div>
-              <img
+              <Image
                 className="d-inline-block"
-                src="/img/cards-alt.png"
-                width="187"
+                src="/img/cards-alt.webp"
+                width={200}
+                height={35}
                 alt="Payment methods"
               />
             </div>
@@ -114,7 +117,7 @@ export default function FooterBottomSection() {
             font-size: 13px;
           }
           .text-primary.content-icon {
-            fontsize: 2.25rem;
+            font-size: 2.25em;
           }
         `}
       </style>

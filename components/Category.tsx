@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Image from "next/image";
+import Image from "@/components/Image";
 import Link from "next/link";
 
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
+import RatingStar from "./RatingStar";
 
 interface CategoryProps {
   category: {
@@ -58,15 +59,7 @@ export default function Category({ category }: CategoryProps): JSX.Element {
               </a>
             </Link>
           </h3>
-          <div className="d-flex justify-content-between">
-            <div className="star-rating">
-              <i className="star-rating-icon ci-star-filled active"></i>
-              <i className="star-rating-icon ci-star-filled active"></i>
-              <i className="star-rating-icon ci-star-filled active"></i>
-              <i className="star-rating-icon ci-star-filled active"></i>
-              <i className="star-rating-icon ci-star"></i>
-            </div>
-          </div>
+          <RatingStar rate={5} />
         </div>
       </div>
       <style jsx>

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 
+import Image from "@/components/Image";
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
 
 interface PopularCategoryProps {
@@ -26,8 +26,8 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
           className="imgLink d-block text-center text-decoration-none me-1"
         >
           <Image
-            height={300}
-            width={300}
+            height={320}
+            width={350}
             src={category.images[0].file.url}
             alt={category.name}
             placeholder="blur"

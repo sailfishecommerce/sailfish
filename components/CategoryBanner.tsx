@@ -1,27 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import Image from "@/components/Image";
 
 interface CategoryBannerProps {
-  categoryImg?: string;
-  categoryTitle: string;
-  categoryCaption: string;
-  bannerBgColor: string;
   controls: {
     navigationNextRef: any;
     navigationPrevRef: any;
   };
-  local?: boolean;
 }
 
-export default function CategoryBanner({
-  categoryImg,
-  categoryTitle,
-  categoryCaption,
-  bannerBgColor,
-  controls,
-  local,
-}: CategoryBannerProps) {
+export default function CategoryBanner({ controls }: CategoryBannerProps) {
   const { navigationNextRef, navigationPrevRef } = controls;
 
   return (
@@ -29,10 +18,10 @@ export default function CategoryBanner({
       <div className="categoryBannerColor d-flex flex-column h-100 overflow-hidden rounded-3">
         <div className="d-flex justify-content-between px-grid-gutter py-grid-gutter">
           <div>
-            <h3 className="mb-1">{categoryTitle}</h3>
+            <h3 className="mb-1">Shop for medicine</h3>
             <Link href="/shop" passHref>
               <a className="fs-md text-white">
-                {categoryCaption}
+                Get started now
                 <i className="ci-arrow-right fs-xs align-middle ms-1"></i>
               </a>
             </Link>
@@ -47,27 +36,23 @@ export default function CategoryBanner({
           </div>
         </div>
         <Link href="/shop" passHref>
-          {local ? (
-            <a className="d-none d-md-block mt-auto">
-              <div className="d-block w-100">
-                <img
-                  className="categoryBanner"
-                  src={categoryImg}
-                  alt="category banner"
-                />
-              </div>
-            </a>
-          ) : (
-            <a className="d-none d-md-block mt-auto">
-              <div className="d-block w-100">{categoryImg}</div>
-            </a>
-          )}
+          <a className="d-none d-md-block mt-auto">
+            <div className="d-block w-100">
+              <Image
+                className="categoryBanner"
+                src="/img/shop/featured_category_image.webp"
+                alt="category banner"
+                height="400"
+                width="500"
+              />
+            </div>
+          </a>
         </Link>
       </div>
       <style jsx>
         {`
           .categoryBannerColor {
-            background-color: ${bannerBgColor};
+            background-color: #f3c2cc;
           }
           .categoryBanner {
             height: 100%;
