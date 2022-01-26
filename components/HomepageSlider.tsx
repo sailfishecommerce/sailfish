@@ -51,7 +51,7 @@ export default function HomepageSlider() {
                   layout="responsive"
                 />
               </div>
-              <div className="position-relative position-relative  ms-lg-5 py-5 px-4 mb-lg-5 order-lg-1">
+              <div className="position-relative  ms-lg-5 py-5 px-4 mb-lg-5 order-lg-1">
                 <div className="pb-lg-5 mb-lg-5 text-center text-lg-start text-lg-nowrap">
                   <h3 className="h2 text-light fw-light pb-1 from-start">
                     {item.sliderCaption}
