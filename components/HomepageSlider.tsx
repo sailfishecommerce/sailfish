@@ -80,6 +80,10 @@ export default function HomepageSlider() {
                 z-index: 10;
               }
               @media (max-width: 768px) {
+                .carouselImg {
+                  height: 100%;
+                  width: 100%;
+                }
                 .sliderText h3 {
                   font-size: 20px;
                 }

@@ -4,20 +4,20 @@
     "sliderTitle": "Huge Summer Collection",
     "sliderCaption": "Has just arrived!",
     "sliderDescription": "Swimwear, Tops, Shorts, Sunglasses & much more...",
-    "sliderImg": "/img/home/hero-slider/01.jpg"
+    "sliderImg": "/img/home/hero-slider/01.webp"
   },
   {
     "bgColor": "#f5b1b0",
     "sliderTitle": "Women Sportswear Sale",
     "sliderCaption": "Hurry up! Limited time offer.",
     "sliderDescription": "Sneakers, Kids, Sweatshirts, Hoodies & much more...",
-    "sliderImg": "/img/home/hero-slider/02.jpg"
+    "sliderImg": "/img/home/hero-slider/02.webp"
   },
   {
     "bgColor": "#eba170",
     "sliderTitle": "New Men Accessories",
     "sliderCaption": "Complete your look with",
     "sliderDescription": "Hats & Caps, Sunglasses, Bags & much more...",
-    "sliderImg": "/img/home/hero-slider/03.jpg"
+    "sliderImg": "/img/home/hero-slider/03.webp"
   }
 ]
