@@ -89,6 +89,9 @@ export default function HomepageSlider() {
                 z-index: 10;
               }
               @media (max-width: 768px) {
+                .sliderItem {
+                  flex-direction: column;
+                }
                 .carouselImg {
                   height: 100%;
                   width: 100%;
