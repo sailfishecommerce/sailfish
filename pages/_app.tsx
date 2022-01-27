@@ -1,5 +1,5 @@
 import "../lib/wdyr";
-import { useEffect, StrictMode } from "react";
+import { useEffect } from "react";
 import AOS from "aos";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";

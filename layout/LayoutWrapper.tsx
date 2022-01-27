@@ -49,6 +49,13 @@ export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {
         src="node_modules/default-passive-events/dist/index.js"
         strategy="afterInteractive"
       />
+      <Head>
+        <link
+          href="https://CZT5MA7JLJ-dsn.algolia.net"
+          rel="preconnect"
+          crossOrigin="true"
+        />
+      </Head>
       <div data-aos="fade-up" id="head" />
       {slideCart && <SlideCart toggle={toggleCart} />}
       {UI?.quickViewModal?.active && (

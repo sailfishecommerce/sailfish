@@ -1,8 +1,14 @@
 import NextImage from "next/image";
 import { useEffect, useState } from "react";
+import useInView from "react-cool-inview";
 
 const Image = (props) => {
   const [loading, setLoading] = useState(props.loading);
+
+  const { observe, inView } = useInView({
+    unobserveOnEnter: true,
+    rootMargin: "30px",
+  });
 
   useEffect(() => {
     // Skip if image is already eager or has priority (disables lazy loading)
@@ -27,7 +33,15 @@ const Image = (props) => {
     }
   }, [props.loading, props.priority]);
 
-  return <NextImage loading={loading} {...props} />;
+  const styles = props.slider
+    ? { width: "unset", height: "unset" }
+    : { width: `${props.width}px`, height: `${props.height}px` };
+
+  return (
+    <div className="lazyImageWrapper" style={styles} ref={observe}>
+      {inView && <NextImage loading={loading} {...props} />}
+    </div>
+  );
 };
 
 const isMobileConnection = () => {
