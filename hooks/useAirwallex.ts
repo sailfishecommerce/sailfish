@@ -57,8 +57,8 @@ export default function useAirwallex() {
           dispatch(paymentError(null));
         })
         .catch((error) => {
-          console.log("error", error);
-          dispatch(paymentError(error?.message));
+          const errorMessage = error.message ? error.message : error;
+          dispatch(paymentError(errorMessage));
         });
     }
   }

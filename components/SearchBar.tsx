@@ -24,7 +24,6 @@ export default function SearchBar() {
   const { userDetail }: any = useAppSelector((state) => state.auth);
   const tabWidth = useMediaQuery("(max-width:768px)");
   const { addProductSearch } = useVbout();
-
   const inputClassName = !tabWidth
     ? "input-group d-none d-lg-flex mx-4"
     : "mobileInput w-100 my-0";
@@ -35,6 +34,9 @@ export default function SearchBar() {
     const searchInputRef: any = inputRef.current;
     searchInputRef.className = "form-control rounded-end pe-5";
   }, []);
+
+  // console.log("inputRef", inputRef);
+  // console.log("inputRef value", inputRef?.current?.value);
 
   const algoliasearchClient = {
     ...searchClient,

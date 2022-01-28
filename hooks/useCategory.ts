@@ -29,6 +29,7 @@ export default function useCategory() {
     return categories;
   }
 
+
   return {
     listAllCategory,
     getACategory,

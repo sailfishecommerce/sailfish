@@ -40,14 +40,12 @@ export default function useToast() {
   const toastId: any = useRef(null);
 
   const loadToast = () => {
-    updateLoadingState();
     toastId.current = toast.loading("Processing ...", {
       position: "top-left",
     });
   };
 
-  const successToast = (text: string) => {
-    updateLoadingState();
+  const successToast = (text: string) =>
     toast.update(toastId.current, {
       render: text,
       type: "success",
@@ -56,10 +54,8 @@ export default function useToast() {
       closeButton: true,
       autoClose: 5000,
     });
-  };
 
-  const errorToast = (text: string) => {
-    updateLoadingState();
+  const errorToast = (text: string) =>
     toast.update(toastId.current, {
       render: text,
       type: "error",
@@ -68,7 +64,6 @@ export default function useToast() {
       closeButton: true,
       autoClose: 5000,
     });
-  };
 
   return {
     isLoading,

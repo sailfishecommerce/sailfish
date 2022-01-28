@@ -1,8 +1,17 @@
 import useAirwallex from "@/hooks/useAirwallex";
 import { AirwallexDropin } from "@/components";
+import { useEffect } from "react";
 
 export default function AirwallexPaymentMethod() {
   const { airwallex } = useAirwallex();
+
+  console.log("airwallex airwallex", airwallex);
+
+  useEffect(() => {
+    if (airwallex.clientSecret === null && airwallex.paymentIntentId === null) {
+      console.log("airwallex not initialized");
+    }
+  }, [airwallex]);
 
   return (
     <div className="accordion-item">
@@ -25,7 +34,7 @@ export default function AirwallexPaymentMethod() {
           <p>
             <span className="fw-medium">Airwallex</span> - the safer, easier way
             to pay
-          </p>          
+          </p>
           <AirwallexDropin
             intent_id={airwallex.paymentIntentId}
             client_secret={airwallex.clientSecret}
