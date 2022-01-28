@@ -21,11 +21,12 @@ export default function FormattedPrice({
   oldPrice,
   isProduct,
 }: formattedPriceProps): JSX.Element {
-  const { currencies } = useCurrency();
+  const { getCurrencies } = useCurrency();
+  const currencies: any = getCurrencies();
   const { currency } = useAppSelector((state) => state.currencyLanguage);
 
   const selectedCurrency = currencies
-    ? currencies.filter(
+    ? currencies?.filter(
         (currencyP: { code: string }) => currencyP.code === currency
       )
     : [{ symbol: "$", rate: 1 }];
@@ -50,7 +51,8 @@ export default function FormattedPrice({
 }
 
 export function HkdPrice({ price }: formattedPriceProps): JSX.Element {
-  const { currencies } = useCurrency();
+  const { getCurrencies } = useCurrency();
+  const currencies: any = getCurrencies();
   const { currency } = useAppSelector((state) => state.currencyLanguage);
 
   const selectedCurrency = currencies
