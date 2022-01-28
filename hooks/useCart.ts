@@ -1,10 +1,11 @@
+import { useQuery, useQueryClient } from "react-query";
 import useToast from "@/hooks/useToast";
 import useSwellCart from "@/hooks/useSwellCart";
 import { useAppDispatch } from "@/redux/store";
 import { updateCart } from "@/redux/cart-slice";
 import { toggleSlideCart } from "@/redux/ui-slice";
 import { useAppSelector } from "./useRedux";
-import { productOptionType, productType, useCartType } from "@/types";
+import { productOptionType, productType } from "@/types";
 
 export default function useCart() {
   const { isLoading, isSuccessful, hasError } = useToast();
@@ -13,11 +14,13 @@ export default function useCart() {
     applyGiftCode,
     addToCart,
     addToCartModal,
+    getACart,
     removeCartItem,
   } = useSwellCart();
   const dispatch = useAppDispatch();
   const { slideCart } = useAppSelector((state) => state.UI);
-  const { cart }: useCartType = useAppSelector((state) => state.cart);
+  const queryClient = useQueryClient();
+  const cart = queryClient.getQueryData("cart");
 
   function updateQuantity(product: any, quantity: number) {
     const toastId = isLoading();
@@ -37,12 +40,15 @@ export default function useCart() {
       });
   }
 
+  const useCartData = () => useQuery("cart", getACart);
+
   function toggleCart() {
     dispatch(toggleSlideCart());
   }
 
-  function addItemToCart(product: productType, quantity:number) {
+  function addItemToCart(product: productType, quantity: number) {
     const toastId = isLoading();
+
     addToCart(product, quantity)
       .then((response) => {
         console.log("response addItemToCart", response);
@@ -116,5 +122,6 @@ export default function useCart() {
     addItemToCart,
     applyDiscountCode,
     removeFromCart,
+    useCartData,
   };
 }

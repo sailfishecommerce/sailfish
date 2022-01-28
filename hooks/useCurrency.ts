@@ -1,5 +1,4 @@
-import { useQueryClient } from "react-query";
-
+import { useQuery, useQueryClient } from "react-query";
 import swellClientInit from "@/lib/config";
 import { useAppSelector } from "./useRedux";
 
@@ -8,12 +7,7 @@ export default function useCurrency() {
   initializeSwell();
 
   const { currency } = useAppSelector((state) => state.currencyLanguage);
-  const queryClient = useQueryClient();
 
-  function getCurrencies() {
-    const currencies = queryClient.getQueryData("currencies");
-    return currencies;
-  }
   async function listEnabledCurrencies() {
     return await swell.currency.list();
   }
@@ -25,12 +19,12 @@ export default function useCurrency() {
   async function getSelectedCurrencies() {
     return await swell.currency.selected();
   }
+
   return {
     listEnabledCurrencies,
     selectCurrencies,
     getSelectedCurrencies,
     currency,
-    getCurrencies,
   };
 }
 
@@ -44,4 +38,16 @@ export function currencySymbolFormatter(currency: {
   } else {
     return currency.symbol;
   }
+}
+
+export function useCurrencies() {
+  const { listEnabledCurrencies } = useCurrency();
+  const { data: currencies, status } = useQuery(
+    "currencies",
+    listEnabledCurrencies,
+    {
+      staleTime: Infinity,
+    }
+  );
+  return [currencies, status];
 }

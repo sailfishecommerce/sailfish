@@ -2,12 +2,13 @@
 import Link from "next/link";
 
 import FormattedPrice from "@/lib/formatPrice";
-import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
+import { useAppDispatch } from "@/hooks/useRedux";
 import { displayCheckoutModalAction } from "@/redux/ui-slice";
 import { CartDiscount } from "./CartElements";
 import SlideCartNote from "./SlideCartNote";
 import SlideCartProduct from "./SlideCartProduct";
 import styles from "@/styles/ui.module.css";
+import { useCart } from "@/hooks";
 
 interface slideCartProps {
   toggle: () => void;
@@ -15,7 +16,8 @@ interface slideCartProps {
 
 export default function SlideCart(props: slideCartProps) {
   const dispatch = useAppDispatch();
-  const { cart }: any = useAppSelector((state) => state.cart);
+  const { useCartData } = useCart();
+  const { data: cart } = useCartData();
 
   function toggleCheckoutModal() {
     dispatch(displayCheckoutModalAction());

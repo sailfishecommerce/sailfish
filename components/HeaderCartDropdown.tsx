@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { memo } from "react";
@@ -7,6 +8,7 @@ import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
 import useVbout from "@/hooks/useVbout";
 import Image from "@/components/Image";
+import useShoppingCart from "@/hooks/useShoppingCart";
 
 interface CartWidgetProps {
   cart: cartType;
@@ -14,14 +16,16 @@ interface CartWidgetProps {
 
 function CartWidget({ cart }: CartWidgetProps) {
   const { removeVboutCartItem } = useVbout();
-  const { removeFromCart } = useCart();
+  const { dataStatus, removeCartItem } = useShoppingCart();
+
+  dataStatus(removeCartItem, `${cart.product.name} removed from cart`);
 
   function removeItemFromCart() {
-    removeFromCart(cart);
-    removeVboutCartItem({
-      cartId: cart.id,
-      productId: cart.productId,
-    });
+    removeCartItem.mutate(cart);
+    // removeVboutCartItem({
+    //   cartId: cart.id,
+    //   productId: cart.productId,
+    // });
   }
 
   return (
@@ -63,8 +67,12 @@ function CartWidget({ cart }: CartWidgetProps) {
   );
 }
 
-function HeaderCartDropdownComponent() {
-  const { cart, toggleCart }: any = useCart();
+interface Props {
+  cart: cartType;
+}
+
+function HeaderCartDropdownComponent({ cart }: Props) {
+  const { toggleCart } = useCart();
   return (
     <div className="dropdown-menu dropdown-menu-end">
       <div className="widget widget-cart px-3 pt-2 pb-3">

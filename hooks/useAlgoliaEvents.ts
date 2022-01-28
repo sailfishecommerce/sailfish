@@ -4,6 +4,12 @@ import { useAppSelector } from "./useRedux";
 export default function useAlgoliaEvents() {
   const { userToken }: any = useAppSelector((state) => state.user);
 
+  aa("init", {
+    appId: `${process.env.NEXT_PUBLIC_ALGOLIA_APPLICATION_ID}`,
+    apiKey: `${process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY}`,
+    useCookie: false,
+  });
+
   function clickedObjectIDsAfterSearch(
     insights: (
       arg0: string,

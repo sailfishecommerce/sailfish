@@ -1,4 +1,5 @@
-import useCurrency, { currencySymbolFormatter } from "@/hooks/useCurrency";
+import { currencySymbolFormatter } from "@/hooks/useCurrency";
+import useQueryData from "@/hooks/useQueryData";
 import { useAppSelector } from "@/hooks/useRedux";
 
 export function formatPrice(price: number) {
@@ -21,8 +22,7 @@ export default function FormattedPrice({
   oldPrice,
   isProduct,
 }: formattedPriceProps): JSX.Element {
-  const { getCurrencies } = useCurrency();
-  const currencies: any = getCurrencies();
+  const currencies: any = useQueryData("currencies");
   const { currency } = useAppSelector((state) => state.currencyLanguage);
 
   const selectedCurrency = currencies
@@ -51,8 +51,7 @@ export default function FormattedPrice({
 }
 
 export function HkdPrice({ price }: formattedPriceProps): JSX.Element {
-  const { getCurrencies } = useCurrency();
-  const currencies: any = getCurrencies();
+  const currencies: any = useQueryData("currencies");
   const { currency } = useAppSelector((state) => state.currencyLanguage);
 
   const selectedCurrency = currencies

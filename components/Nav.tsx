@@ -3,6 +3,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
+import useSwellCart from "@/hooks/useSwellCart";
 import Image from "@/components/Image";
 import useCart from "@/hooks/useCart";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
@@ -19,9 +20,9 @@ const HeaderCartDropdown = dynamic(() => import("./HeaderCartDropdown"));
 const CategoryDropdown = dynamic(() => import("./NavDropdown"));
 
 export default function Nav() {
-  const { cart }: any = useCart();
   const { authorized, userDetail }: any = useAppSelector((state) => state.auth);
   const { userLogout } = useAuth();
+  const { useCartData } = useCart();
   const router = useRouter();
   const { scroll } = useScroll();
   const scrollUp = Number(scroll) > 400 ? true : false;
@@ -29,6 +30,8 @@ export default function Nav() {
   const dispatch = useAppDispatch();
   const tabWidth = useMediaQuery("(max-width:768px)");
   const largerDeviceWidth = useMediaQuery("(min-width:768px)");
+
+  const { data: cart } = useCartData();
 
   function toggleAuthModalHandler() {
     dispatch(toggleAuthModal());
@@ -125,7 +128,7 @@ export default function Nav() {
                     )}
                   </a>
                 </div>
-                {cart?.items.length > 0 && <HeaderCartDropdown />}
+                {cart?.items.length > 0 && <HeaderCartDropdown cart={cart} />}
               </div>
             </div>
           </div>

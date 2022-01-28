@@ -1,19 +1,16 @@
 import Link from "next/link";
 
 import footerContent from "@/json/footer.json";
-import useCategory from "@/hooks/useCategory";
+import  { useCategoryData } from "@/hooks/useCategory";
 import { contentLinkType } from "@/types";
 import useVbout from "@/hooks/useVbout";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
 
 export default function FooterTopSection() {
-  const { allCategories } = useCategory();
-  const categories = allCategories();
+  const [categories, status] = useCategoryData();
 
-  console.log("categories", categories);
-
-  if (categories !== undefined) {
+  if (status === "success") {
     footerContent.section1[0].links = categories?.results.slice(12);
   }
   const { addCategoryView } = useVbout();

@@ -79,9 +79,11 @@ export default function QuickViewModal({ product }: QuickViewModalProps) {
                     </del>
                   )}
                 </div>
-               {productToView.hkd_compare_at_price > 0 && <div className="percentage">{`${discountPrice(
-                  productToView
-                )} %`}</div>}
+                {productToView.hkd_compare_at_price > 0 && (
+                  <div className="percentage">{`${discountPrice(
+                    productToView
+                  )} %`}</div>
+                )}
               </div>
               <ProductForm product={productToView} />
               <div

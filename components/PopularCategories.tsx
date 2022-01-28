@@ -1,16 +1,12 @@
-import { useQuery } from "react-query";
-
-import useCategory from "@/hooks/useCategory";
+import { useCategoryData } from "@/hooks/useCategory";
 import PopularCategory from "@/components/PopularCategory";
 import LoadingPopularCategory from "@/components/PopularCategoryLoader";
 
 export default function PopularCategories() {
-  const { listAllCategory } = useCategory();
-  const { data: categories, status } = useQuery(
-    "listAllCategory",
-    listAllCategory
-  );
-  const topCategories = categories?.results?.filter(
+  const [data, status] = useCategoryData();
+
+  // re-render component on data change
+  const topCategories = data?.results?.filter(
     (category: { topId: string }) => !category.topId
   );
 

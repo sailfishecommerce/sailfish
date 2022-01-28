@@ -1,3 +1,4 @@
+import { useQuery, useQueryClient } from "react-query";
 import { v4 as uuidv4 } from "uuid";
 
 import { useAppSelector } from "./useRedux";
@@ -8,11 +9,10 @@ import useAccount from "@/hooks/useAccount";
 export default function useUserToken() {
   const { userToken } = useAppSelector((state) => state.user);
   const { authorized } = useAppSelector((state) => state.auth);
-  const { displayUserDetails } = useAccount();
+  const { getUserAccount } = useAccount();
+  const { data: userDetails } = useQuery("getAccount", getUserAccount);
 
   const dispatch = useAppDispatch();
-
-  const userDetails = displayUserDetails();
 
   console.log("userDetails", userDetails);
 
@@ -28,4 +28,3 @@ export default function useUserToken() {
   }
   return { generateUserToken, authorized };
 }
-

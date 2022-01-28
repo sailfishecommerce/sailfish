@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { SwiperSlide } from "swiper/react";
-import { useQuery } from "react-query";
 
-import useCategory from "@/hooks/useCategory";
+import useCategory, { useCategoryData } from "@/hooks/useCategory";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Category from "../Category";
 import LoadCategory from "../CategoryLoader";
@@ -19,11 +18,7 @@ interface Props {
 export default function FeaturedCategoryCarousel({ controls }: Props) {
   const [categoryArray, setCategoryArray] = useState<any[]>([]);
   const deviceWidth = useMediaQuery("(max-width:600px)");
-  const { listAllCategory } = useCategory();
-  const { data: categories, status } = useQuery(
-    "listAllCategory",
-    listAllCategory
-  );
+  const [categories, status] = useCategoryData();
 
   const arrayType = deviceWidth ? 4 : 4;
   const gridStyle = deviceWidth ? "col-2" : "col-lg-6";
@@ -45,13 +40,13 @@ export default function FeaturedCategoryCarousel({ controls }: Props) {
     if (categories !== undefined) {
       batchCategories();
     }
-  }, [categories]);
+  }, [status]);
 
   return (
     <div className="col-md-7 pt-4 pt-md-0">
-      {status === "error" ? (
+      {categories === null ? (
         "error loading categories"
-      ) : status === "loading" ? (
+      ) : categories === undefined ? (
         <LoadCategory arrayType={arrayType} gridStyle={gridStyle} />
       ) : (
         <SliderView

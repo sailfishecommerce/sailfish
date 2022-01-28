@@ -1,14 +1,24 @@
-import { useQueryClient } from "react-query";
+import useMutationAction from "./useMutationAction";
 
 export default function useShoppingCart() {
-  const queryClient = useQueryClient();
+  const {
+    useRemoveFromCart,
+    dataStatus,
+    useAddItemToCartModal,
+    useUpdateCartItem,
+  } = useMutationAction();
 
-  function getShopCart():any {
-    const cart = queryClient.getQueryData("getCart");
-    return cart;
-  }
+  const { useAddItemToCart } = useMutationAction();
+  const removeCartItem = useRemoveFromCart();
+  const addItemToCart = useAddItemToCart();
+  const addItemToCartModal = useAddItemToCartModal();
+  const updateCartItem = useUpdateCartItem();
 
   return {
-    getShopCart,
+    addItemToCart,
+    dataStatus,
+    removeCartItem,
+    addItemToCartModal,
+    updateCartItem,
   };
 }

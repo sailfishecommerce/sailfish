@@ -13,19 +13,25 @@ export default function usePrefetch() {
   const queryClient = useQueryClient();
 
   async function getCategories() {
-    await queryClient.prefetchQuery("listAllCategory", listAllCategory);
+    await queryClient.fetchQuery("listAllCategory", listAllCategory, {
+      staleTime: Infinity,
+    });
   }
 
   async function fetchCurrencies() {
-    await queryClient.prefetchQuery("currencies", listEnabledCurrencies);
+    await queryClient.fetchQuery("currencies", listEnabledCurrencies, {
+      staleTime: Infinity,
+    });
   }
 
   async function getUserAccountDetails() {
-    await queryClient.prefetchQuery("getAccount", getUserAccount);
+    await queryClient.fetchQuery("getAccount", getUserAccount, {
+      staleTime: Infinity,
+    });
   }
 
   async function getCart() {
-    await queryClient.prefetchQuery("getCart", getACart);
+    await queryClient.fetchQuery("cart", getACart);
   }
 
   return {

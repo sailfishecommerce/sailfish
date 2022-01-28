@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { useCart } from "@/hooks";
+import useShoppingCart from "@/hooks/useShoppingCart";
 import { productOptions, productType } from "@/types";
 import { useState } from "react";
 
@@ -126,8 +126,10 @@ interface ProductQuantityCounterType {
 export function ProductQuantityCounter({
   product,
 }: ProductQuantityCounterType) {
-  const { addItemToCartWithOptions } = useCart();
   const [itemQty, setItemQty] = useState(1);
+  const { dataStatus, addItemToCartModal } = useShoppingCart();
+
+  dataStatus(addItemToCartModal, `${product.name} updated`);
 
   function updateCounter(type: "increment" | "decrement") {
     if (type === "increment") {
@@ -138,7 +140,11 @@ export function ProductQuantityCounter({
   }
 
   function addToCart() {
-    addItemToCartWithOptions(product, itemQty, []);
+    addItemToCartModal.mutate({
+      product,
+      productQty: itemQty,
+      selectedOptions: [],
+    });
   }
 
   return (

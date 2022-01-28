@@ -42,6 +42,7 @@ export default function useToast() {
   const loadToast = () => {
     toastId.current = toast.loading("Processing ...", {
       position: "top-left",
+      closeButton: true,
     });
   };
 

@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/InfiniteHits.tsx", "hooks/useAlgoliaHits.jsx", "pages/shop-temp.jsx", "pages/shop/index.jsx", "components/MarketplaceCategoryRefinementList.jsx", "pages/collections/vendors/[slug].jsx", "components/Image.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/InfiniteHits.tsx", "hooks/useAlgoliaHits.jsx", "pages/shop-temp.jsx", "pages/shop/index.jsx", "components/MarketplaceCategoryRefinementList.jsx", "pages/collections/vendors/[slug].jsx", "components/Image.jsx", "hooks/useMutationAction.ts"],
   "exclude": ["node_modules"]
 }

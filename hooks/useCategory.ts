@@ -1,4 +1,4 @@
-import { useQueryClient } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 import swellClientInit from "@/lib/config";
 
@@ -29,11 +29,18 @@ export default function useCategory() {
     return categories;
   }
 
-
   return {
     listAllCategory,
     getACategory,
     getProductsInACategory,
     allCategories,
   };
+}
+
+export function useCategoryData() {
+  const { listAllCategory } = useCategory();
+  const { data, status } = useQuery("listAllCategory", listAllCategory, {
+    staleTime: Infinity,
+  });
+  return [data, status];
 }

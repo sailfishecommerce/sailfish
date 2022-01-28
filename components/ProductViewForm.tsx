@@ -2,15 +2,14 @@
 import { useCallback } from "react";
 import useProduct from "@/hooks/useProduct";
 import { ProductProps } from "@/types";
-import { useCart } from "@/hooks";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
+import useShoppingCart from "@/hooks/useShoppingCart";
 
 export default function ProductViewForm({
   product,
   forCategory,
 }: ProductProps) {
   const { quickViewHandler, optionHandler } = useProduct(product);
-  const { addItemToCart } = useCart();
   const categoryStyle = forCategory ? "d-flex flex-column" : "d-flex";
   const { productAddedToCart } = useAlgoliaEvents();
   const formOptionBg = useCallback((name: string) => {
@@ -18,9 +17,13 @@ export default function ProductViewForm({
     return style;
   }, []);
 
+  const { dataStatus, addItemToCart } = useShoppingCart();
+
+  dataStatus(addItemToCart, `${product.name} added to cart`);
+
   function onSubmitHandler(e: any) {
     e.preventDefault();
-    addItemToCart(product, 1);
+    addItemToCart.mutate({ product, quantity: 1 });
     productAddedToCart([product.id]);
   }
 

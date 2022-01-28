@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import { useAppSelector } from "@/hooks/useRedux";
 import { CartControl } from "./CartElements";
-import useCart from "@/hooks/useCart";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
 import useVbout from "@/hooks/useVbout";
+import useShoppingCart from "@/hooks/useShoppingCart";
 
 interface SlideCartProductProps {
   item: cartType;
@@ -15,16 +14,17 @@ interface SlideCartProductProps {
 export default function SlideCartProduct({
   item,
 }: SlideCartProductProps): JSX.Element {
-  const { removeFromCart } = useCart();
   const { removeVboutCartItem } = useVbout();
-  const { cart }: any = useAppSelector((state) => state.cart);
+  const { dataStatus, removeCartItem } = useShoppingCart();
 
+  dataStatus(removeCartItem, `${item.product.name} removed from cart`);
+  
   function removeItemFromCart() {
-    removeFromCart(item);
-    removeVboutCartItem({
-      cartId: cart.id,
-      productId: item.id,
-    });
+    removeCartItem.mutate(item);
+    // removeVboutCartItem({
+    //   cartId: cart.id,
+    //   productId: item.id,
+    // });
   }
 
   return (
