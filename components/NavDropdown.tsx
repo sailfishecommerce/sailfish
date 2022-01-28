@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useQuery } from "react-query";
+import { useQueryClient, useQuery } from "react-query";
 import Link from "next/link";
 
 import useCategory from "@/hooks/useCategory";
@@ -90,9 +90,9 @@ function CategoryDropdownList({ category, categories }: Props) {
 }
 
 export default function CategoryDropdown() {
-  const { listAllCategory } = useCategory();
-  const { data, status } = useQuery("listAllCategory", listAllCategory);
-  const topCategories = data?.results?.filter(
+  const { allCategories } = useCategory();
+  const categories = allCategories();
+  const topCategories = categories?.results?.filter(
     (category: categoryType) => !category.topId
   );
 
@@ -102,19 +102,21 @@ export default function CategoryDropdown() {
   function displayCategories(categorySet: categoryType[]) {
     return (
       <div>
-        {status === "error" ? (
+        {categories === null ? (
           "unable to fetch categories"
-        ) : status === "loading" ? (
+        ) : categories === undefined ? (
           "loading categories"
         ) : (
           <div className="d-flex flex-wrap flex-sm-nowrap categorySet">
-            {categorySet.map((category: categoryType) => (
-              <CategoryDropdownList
-                key={category.id}
-                category={category}
-                categories={data?.results}
-              />
-            ))}
+            {categories
+              ? categorySet.map((category: categoryType) => (
+                  <CategoryDropdownList
+                    key={category.id}
+                    category={category}
+                    categories={categories?.results}
+                  />
+                ))
+              : ""}
           </div>
         )}
         <style jsx>

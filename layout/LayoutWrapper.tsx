@@ -1,4 +1,5 @@
-import { PropsWithChildren } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { PropsWithChildren, useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import dynamic from "next/dynamic";
 import Head from "next/head";

@@ -49,7 +49,8 @@ export default function HomepageSlider() {
                   className={`${styles.carouselImg} d-block order-lg-2 me-lg-n5 flex-shrink-0`}
                   alt="Summer Collection"
                   layout="responsive"
-                  slider
+                  slider="true"
+                  priority="true"
                 />
               </div>
               <div className="position-relative  ms-lg-5 py-5 px-4 mb-lg-5 order-lg-1">

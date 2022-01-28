@@ -1,24 +1,20 @@
 import { v4 as uuidv4 } from "uuid";
-import { useQuery } from "react-query";
 
-import swellClientInit from "@/lib/config";
 import { useAppSelector } from "./useRedux";
 import { useAppDispatch } from "@/redux/store";
 import { updateUserDetails } from "@/redux/user-slice";
+import useAccount from "@/hooks/useAccount";
 
 export default function useUserToken() {
   const { userToken } = useAppSelector((state) => state.user);
   const { authorized } = useAppSelector((state) => state.auth);
+  const { displayUserDetails } = useAccount();
 
   const dispatch = useAppDispatch();
-  const { data, status } = useQuery("getAccount", getUserAccount);
 
-  const { swell, initializeSwell } = swellClientInit();
+  const userDetails = displayUserDetails();
 
-  async function getUserAccount() {
-    initializeSwell();
-    return await swell.account.get();
-  }
+  console.log("userDetails", userDetails);
 
   function generateUserToken() {
     if (userToken === null && authorized === false) {
@@ -26,9 +22,10 @@ export default function useUserToken() {
       console.log("generatedUserId", generatedUserId);
       dispatch(updateUserDetails(generatedUserId));
     } else if (authorized) {
-      console.log("user account data", data);
-      dispatch(updateUserDetails(data.id));
+      console.log("user account data", userDetails);
+      dispatch(updateUserDetails(userDetails.id));
     }
   }
-  return { generateUserToken, status, authorized };
+  return { generateUserToken, authorized };
 }
+

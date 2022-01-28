@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import { useCart } from "@/hooks";
 import FormattedPrice from "@/lib/formatPrice";
+import useShoppingCart from "@/hooks/useShoppingCart";
 
 export default function BottomTab() {
-  const { cart }: any = useCart();
+  const { getShopCart } = useShoppingCart();
+
+  const cart = getShopCart();
+
   return (
     <div className="handheld-toolbar">
       <div className="d-table table-layout-fixed w-100">

@@ -1,17 +1,16 @@
-import { useQuery } from "react-query";
-
 import useCategory from "@/hooks/useCategory";
 import PopularCategory from "@/components/PopularCategory";
 import LoadingPopularCategory from "@/components/PopularCategoryLoader";
 
 export default function PopularCategories() {
-  const { listAllCategory } = useCategory();
-  const { data, status } = useQuery("listAllCategory", listAllCategory);
-  const topCategories = data?.results?.filter(
+  const { allCategories } = useCategory();
+  const categories = allCategories();
+  const topCategories = categories?.results?.filter(
     (category: { topId: string }) => !category.topId
   );
 
-  const getFirstThreeCategories = (category: any[]) => category.slice(12, 15);
+  const getFirstThreeCategories = (category: any[]) =>
+    category !== undefined ? category.slice(12, 15) : [];
 
   return (
     <section className="container popularCategories position-relative pt-3 pt-lg-0 pb-5 mt-lg-n10 popularCategory">
@@ -20,9 +19,9 @@ export default function PopularCategories() {
           <div className="card border-0 shadow-lg">
             <div className="card-body px-3 pt-grid-gutter pb-0">
               <div className="row g-0 ps-1">
-                {status === "error" ? (
+                {categories === null ? (
                   "Unable to fetch"
-                ) : status === "loading" ? (
+                ) : categories === undefined ? (
                   <LoadingPopularCategory />
                 ) : (
                   getFirstThreeCategories(topCategories).map(

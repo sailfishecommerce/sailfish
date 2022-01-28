@@ -2,13 +2,14 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 import useSwellProducts from "./useSwellProducts";
-import useRequest from "./useRequest";
+import useCategory from "@/hooks/useCategory";
 
 export default function useAlgoliaIndex() {
   const { allProducts } = useSwellProducts();
+  const { allCategories } = useCategory();
+  const categories = allCategories();
+
   const { data, status } = useQuery("allProducts", allProducts);
-  const { useCategories } = useRequest();
-  const { categoryData, categoryStatus } = useCategories();
 
   function addProductToAlgoliaIndex() {
     axios
@@ -21,7 +22,7 @@ export default function useAlgoliaIndex() {
 
   function addCategoriesToAlgoliaIndex() {
     axios
-      .post("/api/add-products-to-algolia-index", categoryData?.results)
+      .post("/api/add-products-to-algolia-index", categories?.results)
       .then((response) => {
         console.log("response addProductToAlgoliaIndex", response);
       })
@@ -31,7 +32,6 @@ export default function useAlgoliaIndex() {
   return {
     addProductToAlgoliaIndex,
     status,
-    categoryStatus,
     addCategoriesToAlgoliaIndex,
   };
 }

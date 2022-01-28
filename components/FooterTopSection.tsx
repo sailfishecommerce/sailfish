@@ -1,4 +1,3 @@
-import { useQuery } from "react-query";
 import Link from "next/link";
 
 import footerContent from "@/json/footer.json";
@@ -9,13 +8,13 @@ import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
 
 export default function FooterTopSection() {
-  const { listAllCategory } = useCategory();
-  const { data, status } = useQuery("listAllCategory", listAllCategory);
+  const { allCategories } = useCategory();
+  const categories = allCategories();
 
-  const categories = data?.results.slice(12);
+  console.log("categories", categories);
 
-  if (status === "success") {
-    footerContent.section1[0].links = categories;
+  if (categories !== undefined) {
+    footerContent.section1[0].links = categories?.results.slice(12);
   }
   const { addCategoryView } = useVbout();
   const { itemViewed } = useAlgoliaEvents();
@@ -26,11 +25,12 @@ export default function FooterTopSection() {
     addCategoryView({
       id: contentLink.id,
       categoryId: contentLink.slug,
-      categoryName: contentLink.name,
+      categoryName: contentLink?.name,
       categoryLink: `categories/${contentLink.slug}`,
-      categoryImage: contentLink.images[0]?.file?.url,
+      categoryImage: contentLink?.images[0]?.file?.url,
     });
   }
+
   function categoryEvents(contentLink: contentLinkType) {
     vboutCategoryViewHandler(contentLink);
     itemViewed("category_viewed", [contentLink.id]);
@@ -74,9 +74,9 @@ export default function FooterTopSection() {
               ) : (
                 <div key={index} className="col-md-4 col-sm-6">
                   <div className="widget widget-links widget-light pb-2 mb-4">
-                    <h3 className="widget-title text-light">{content.name}</h3>
+                    <h3 className="widget-title text-light">{content?.name}</h3>
                     <ul className="widget-list">
-                      {content.links.map((contentLink) => (
+                      {content?.links?.map((contentLink) => (
                         <li key={contentLink.name} className="widget-list-item">
                           <Link
                             href={`/collections/product-type/${contentLink.slug}`}
@@ -164,7 +164,7 @@ export default function FooterTopSection() {
       <style jsx>
         {`
           .topSection {
-            background-color: #373F50;
+            background-color: #373f50;
           }
           .antispam-container {
             position: absolute;

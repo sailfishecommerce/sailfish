@@ -1,5 +1,6 @@
+import { useQueryClient } from "react-query";
+
 import swellClientInit from "@/lib/config";
-import { useQuery } from "react-query";
 
 export default function useCategory() {
   const { swell, initializeSwell } = swellClientInit();
@@ -21,20 +22,17 @@ export default function useCategory() {
       page: 1,
     });
   }
-  async function useCategoryProducts(slug: string) {
-    const { data, status } = useQuery("useCategoryProducts", () =>
-      getProductsInACategory(slug)
-    );
-    return {
-      data,
-      status,
-    };
+  const queryClient = useQueryClient();
+
+  function allCategories() {
+    const categories: any = queryClient.getQueryData("listAllCategory");
+    return categories;
   }
 
   return {
     listAllCategory,
     getACategory,
     getProductsInACategory,
-    useCategoryProducts,
+    allCategories,
   };
 }

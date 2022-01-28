@@ -1,13 +1,15 @@
 import "../lib/wdyr";
-import { useEffect } from "react";
-import AOS from "aos";
-import { Provider } from "react-redux";
+import "simplebar";
 import { QueryClient, QueryClientProvider } from "react-query";
+import AOS from "aos";
+import { useEffect } from "react";
+import { Provider } from "react-redux";
+import Script from "next/script";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import Script from "next/script";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 import type { AppProps } from "next/app";
-import "simplebar";
 
 import store from "@/redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -46,6 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <PersistGate loading={null} persistor={persistor}>
             <Component {...pageProps} />
           </PersistGate>
+          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </Provider>
     </div>

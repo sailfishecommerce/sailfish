@@ -1,3 +1,5 @@
+import { useQuery } from "react-query";
+
 import { ProductHit, ProductHitList } from "@/components/ProductHit";
 import useCategory from "@/hooks/useCategory";
 import { useAppSelector } from "@/hooks/useRedux";
@@ -9,8 +11,11 @@ interface Props {
 }
 
 export default function CategoryHits({ hits }: Props) {
-  const { useCategoryProducts } = useCategory();
-  const { data }: any = useCategoryProducts(hits.slug);
+  const { getProductsInACategory } = useCategory();
+  const { data, status } = useQuery("useCategoryProducts", () =>
+    getProductsInACategory(hits.slug)
+  );
+  
   //   const filterHits = hits.filter((fhits) => fhits?.images.length !== 0);
   const { productView } = useAppSelector((state) => state.shop);
 

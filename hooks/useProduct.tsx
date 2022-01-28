@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { useQuery } from "react-query";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { quickViewModal } from "@/redux/ui-slice";
 import useCart from "@/hooks/useCart";
@@ -7,12 +6,9 @@ import useProductOptions from "@/hooks/useProductOptions";
 import useVbout from "@/hooks/useVbout";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 import { productType } from "@/types";
-import useSwellCart from "./useSwellCart";
 
 export default function useProduct(product: productType) {
   const { addItemToCart, cart }: any = useCart();
-  const { getACart } = useSwellCart();
-  const { data, status } = useQuery("getCart", getACart);
   const { optionHandler } = useProductOptions();
   const { addProductViewVbout, addCartItemVbout } = useVbout();
   const { itemViewed, productAddedToCart } = useAlgoliaEvents();

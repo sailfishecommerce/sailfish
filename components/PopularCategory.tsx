@@ -34,7 +34,7 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
             blurDataURL={category.images[0].file.url}
             loading="lazy"
             className="d-block rounded mx-1 mb-3"
-            slider
+            slider="true"
           />
           <h3 className="fs-base pt-1 mb-0">{category.name}</h3>
         </a>

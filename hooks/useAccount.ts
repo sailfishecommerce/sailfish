@@ -1,3 +1,4 @@
+import { useQueryClient } from "react-query";
 import swellClientInit from "@/lib/config";
 
 type checkoutData = {
@@ -31,6 +32,8 @@ export default function useAccount() {
   const { swell, initializeSwell } = swellClientInit();
   initializeSwell();
 
+  const queryClient = useQueryClient();
+
   async function createUserAccount(userDetails: userDetailsType) {
     const { firstName, lastName, email, password } = userDetails;
     return await swell.account.create({
@@ -41,6 +44,9 @@ export default function useAccount() {
     });
   }
 
+  async function getUserAccount() {
+    return await swell.account.get();
+  }
   async function signedUserDetails() {
     return await swell.account.get();
   }
@@ -59,6 +65,11 @@ export default function useAccount() {
       email,
       reset_url: `https://livehealthy.hk/password-reset?key={reset_key}`,
     });
+  }
+
+  function displayUserDetails(): any {
+    const userDetails = queryClient.getQueryData("getAccount");
+    return userDetails;
   }
 
   async function recoverPassword(password: string, reset_key: string) {
@@ -124,6 +135,8 @@ export default function useAccount() {
     createUserAccount,
     signedUserDetails,
     loginUser,
+    getUserAccount,
+    displayUserDetails,
     logoutUser,
     forgotPassword,
     createUserAccountAtCheckout,

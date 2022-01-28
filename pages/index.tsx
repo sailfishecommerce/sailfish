@@ -16,19 +16,32 @@ import { createCartVbout } from "@/redux/integration-slice";
 import Metatag from "@/components/Metatag";
 import TrendingProducts from "@/components/TrendingProduct";
 import ShopByBrandCarousel from "@/components/ShopByBrandCarousel";
-import { emptyCart, getCart, listCurrencies, listProducts } from "@/lib/cart";
 import useUserToken from "@/hooks/useUserToken";
+import { useQueryClient } from "react-query";
+import usePrefetch from "@/hooks/usePrefetch";
+import useShoppingCart from "@/hooks/useShoppingCart";
 
 export default function Index({ products }: any) {
   const { createVboutCart } = useVbout();
+  const { getShopCart } = useShoppingCart();
+  const { getCategories, fetchCurrencies, getUserAccountDetails, getCart } =
+    usePrefetch();
+
+  getCategories();
+  fetchCurrencies();
+  getUserAccountDetails();
+  getCart();
+
   const dispatch = useAppDispatch();
   const vboutSlice = useAppSelector((state) => state.integrations);
-  const { cart }: any = useCart();
-  const { generateUserToken, authorized } = useUserToken();
+  const cart = getShopCart();
 
-  useEffect(() => {
-    generateUserToken();
-  }, [authorized]);
+  const { generateUserToken, authorized } = useUserToken();
+  const queryClient = useQueryClient();
+
+  // useEffect(() => {
+  //   generateUserToken();
+  // }, [authorized]);
 
   const vboutContent = {
     id: cart?.id,

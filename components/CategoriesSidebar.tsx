@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQueryClient, useQuery } from "react-query";
 
 import CategoryItem from "@/components/CategoryItem";
 import useCategory from "@/hooks/useCategory";
@@ -23,20 +23,16 @@ interface CategoriesSidebar {
 
 export default function CategoriesSidebar({ categorySlug }: CategoriesSidebar) {
   const { filter, onChangeFilter } = useFilter();
-  const { listAllCategory } = useCategory();
   const { getAllAttributes } = useSwellProducts();
-  const { data: allCategories, status } = useQuery(
-    "listAllCategory",
-    listAllCategory
-  );
+  const { allCategories } = useCategory();
+  const data: any = allCategories();
+
   const { data: attributeData, status: attributeStatus } = useQuery(
     "getAllAttributes",
     getAllAttributes
   );
-  const subCategories = allCategories?.results.filter(
-    (category: any) => category.topId
-  );
-  const topCategories = allCategories?.results.filter(
+  const subCategories = data?.results.filter((category: any) => category.topId);
+  const topCategories = data?.results.filter(
     (category: any) => !category.topId
   );
   const validAttributes = attributeData?.results.filter(
