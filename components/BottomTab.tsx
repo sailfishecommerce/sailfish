@@ -1,13 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-
+import useCart from "@/hooks/useCart";
 import FormattedPrice from "@/lib/formatPrice";
-import useShoppingCart from "@/hooks/useShoppingCart";
 
 export default function BottomTab() {
-  const { getShopCart } = useShoppingCart();
-
-  const cart = getShopCart();
+  const { useCartData } = useCart();
+  const { data: cart } = useCartData();
 
   return (
     <div className="handheld-toolbar">

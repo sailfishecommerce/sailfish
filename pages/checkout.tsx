@@ -21,7 +21,8 @@ export default function Checkout() {
   const { userDetail, authorized } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const { airwallex, airwallexPaymentIntent } = useAirwallex();
-  const { cart } = useCart();
+  const { useCartData } = useCart();
+  const { data: cart } = useCartData();
 
   useEffect(() => {
     generateAirwallexAccessToken();
