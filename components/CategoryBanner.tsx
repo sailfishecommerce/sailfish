@@ -42,8 +42,8 @@ export default function CategoryBanner({ controls }: CategoryBannerProps) {
                 className="categoryBanner"
                 src="/img/shop/featured_category_image.webp"
                 alt="category banner"
-                height="400"
-                width="500"
+                height={400}
+                width={500}
               />
             </div>
           </a>

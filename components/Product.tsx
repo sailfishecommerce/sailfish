@@ -59,9 +59,9 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
       : product.images[0]?.file?.url;
 
   return (
-    <div className="col-md-4 col-sm-6 mb-4">
+    <div className="col-md-4 col-6 mb-4 p-0 p-md-1">
       <DynamicProductMetatags product={product} />
-      <div className="card product-card p-2">
+      <div className="card product-card p-0 p-md-2">
         <div className="d-flex justify-content-between">
           {product.hkd_compare_at_price > 0 && (
             <div className="discount-price mt-2">
@@ -123,11 +123,11 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
           </h3>
           <div className="d-flex justify-content-between">
             <ul className="product-price d-flex flex-column align-items-baseline">
-              <li className="text-accent fs-lg">
+              <li className="text-accent fs-sm fs-lg">
                 <FormattedPrice price={product.price} isProduct />
               </li>
               {product.hkd_compare_at_price > 0 && (
-                <del className="small text-accent fs-ms">
+                <del className="small text-accent fs-xs">
                   <FormattedPrice
                     price={product.hkd_compare_at_price}
                     oldPrice
@@ -192,6 +192,12 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
             .productLink img {
               margin: auto;
               display: flex;
+            }
+            h3.product-title {
+              width: 150px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         `}

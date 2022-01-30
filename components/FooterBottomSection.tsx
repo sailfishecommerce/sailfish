@@ -82,13 +82,15 @@ export default function FooterBottomSection() {
                   </a>
                 ))}
               </div>
-              <Image
-                className="d-inline-block"
-                src="/img/cards-alt.webp"
-                width={200}
-                height={35}
-                alt="Payment methods"
-              />
+              <div className="imgContainer">
+                <Image
+                  className="d-inline-block"
+                  src="/img/cards-alt.webp"
+                  width={200}
+                  height={35}
+                  alt="Payment methods"
+                />
+              </div>
             </div>
           </div>
           <div className="pb-4 fs-xs text-light opacity-50 text-center text-md-start">
@@ -118,6 +120,20 @@ export default function FooterBottomSection() {
           }
           .text-primary.content-icon {
             font-size: 2.25em;
+          }
+
+          @media (min-width: 768px) {
+            .imgContainer {
+              float: right;
+            }
+          }
+          @media (max-width: 768px) {
+            .imgContainer {
+              display: flex;
+              /* align-items: center; */
+              /* margin: auto; */
+              justify-content: center;
+            }
           }
         `}
       </style>

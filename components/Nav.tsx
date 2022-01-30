@@ -3,7 +3,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
-import useSwellCart from "@/hooks/useSwellCart";
 import Image from "@/components/Image";
 import useCart from "@/hooks/useCart";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
@@ -48,12 +47,24 @@ export default function Nav() {
           <div className="container position-relative">
             <Link href="/" passHref>
               <a className="navbar-brand d-none d-sm-block flex-shrink-0">
-                <Image src="/logo.webp" alt="logo" height={70} width={200} />
+                <Image
+                  src="/logo.webp"
+                  alt="logo"
+                  layout="responsive"
+                  height={70}
+                  width={200}
+                />
               </a>
             </Link>
             <Link href="/" passHref>
               <a className="navbar-brand d-sm-none flex-shrink-0 me-2">
-                <Image src="/logo.webp" alt="logo" height={50} width={70} />
+                <Image
+                  src="/logo.webp"
+                  layout="responsive"
+                  alt="logo"
+                  height={50}
+                  width={150}
+                />
               </a>
             </Link>
             {largerDeviceWidth && <SearchBar />}

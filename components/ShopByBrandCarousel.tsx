@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
 
+import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "@/components/Image";
 import brands from "@/json/brand.json";
 import "swiper/css";
@@ -10,6 +11,8 @@ import "swiper/css/navigation";
 import styles from "@/styles/ShopByBrandCarousel.module.css";
 
 export default function ShopByBrandCarousel() {
+  const tabWidth = useMediaQuery("(max-width:768px)");
+
   const responsiveConfig = {
     0: {
       slidesPerView: 2,
@@ -29,6 +32,10 @@ export default function ShopByBrandCarousel() {
       spaceBetween: 50,
     },
   };
+
+  const imageSize = tabWidth
+    ? { height: 40, width: 120 }
+    : { height: 60, width: 200 };
 
   return (
     <section className="container py-lg-4 mb-4">
@@ -54,15 +61,13 @@ export default function ShopByBrandCarousel() {
                   className={`${styles.brandLink} d-flex bg-white shadow-sm rounded-3 py-3 py-sm-4`}
                   href="#"
                 >
-                  <div
-                    style={{ height: "100px", width: "200px" }}
-                    className="brandContainer d-flex justify-content-center align-items-center mx-auto"
-                  >
+                  <div className="brandContainer d-flex justify-content-center align-items-center mx-auto">
                     <Image
                       src={brand.img}
                       alt={brand.name}
-                      height={80}
-                      width={200}
+                      height={imageSize.height}
+                      width={imageSize.width}
+                      layout="responsive"
                     />
                   </div>
                 </a>
@@ -74,7 +79,8 @@ export default function ShopByBrandCarousel() {
       <style jsx>
         {`
           .brandContainer {
-            width: 100px;
+            width: 200px;
+            height: 100px;
           }
         `}
       </style>

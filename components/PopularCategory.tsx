@@ -35,6 +35,7 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
             loading="lazy"
             className="d-block rounded mx-1 mb-3"
             slider="true"
+            layout="responsive"
           />
           <h3 className="fs-base pt-1 mb-0">{category.name}</h3>
         </a>
@@ -60,6 +61,11 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
             color: #fb696a;
           }
           @media (max-width: 768px) {
+            .imgLink {
+              height: 300px;
+              width: 320px;
+              margin: 10px;
+            }
             .imgLink img {
               width: 100%;
               height: 250px;

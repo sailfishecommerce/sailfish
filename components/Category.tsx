@@ -36,7 +36,7 @@ export default function Category({ category }: CategoryProps): JSX.Element {
           <Link href={`/collections/product-type/${category.slug}`} passHref>
             <a
               onClick={() => selectedFooterCategory(category.name)}
-              className="card-img-top d-block overflow-hidden"
+              className="categoryImgLink card-img-top d-block overflow-hidden"
             >
               <Image
                 height={300}
@@ -78,6 +78,10 @@ export default function Category({ category }: CategoryProps): JSX.Element {
           @media (max-width: 768px) {
             .category {
               padding: 0px 5px !important;
+            }
+            .categoryImgLink {
+              height: 150px;
+              width: 180px;
             }
           }
         `}

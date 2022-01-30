@@ -1,6 +1,13 @@
 import Image from "@/components/Image";
+import useMediaQuery from "@/hooks/useMediaQuery";
+
 
 export default function Banners() {
+  const tabWidth = useMediaQuery("(max-width:768px)");
+  const bannerSize = tabWidth
+    ? { height: 200, width: 400 }
+    : { height: 300, width: 500 };
+
   return (
     <section className="container pb-4 mb-md-3">
       <div className="row">
@@ -19,8 +26,9 @@ export default function Banners() {
               className="d-block ms-auto"
               src="/img/shop/catalog/banner.webp"
               alt="Shop Converse"
-              height={300}
-              width={600}
+              height={bannerSize.height}
+              width={bannerSize.width}
+              layout="responsive"
             />
           </div>
         </div>
