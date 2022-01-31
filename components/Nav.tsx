@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 
 import Image from "@/components/Image";
 import useCart from "@/hooks/useCart";
@@ -12,6 +13,7 @@ import { useAuth } from "@/hooks";
 import SearchBar from "@/components/SearchBar";
 import useScroll from "@/hooks/useScroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import MobileCategoryList from "./MobileCategoryList";
 import FormattedPrice from "@/lib/formatPrice";
 import styles from "@/styles/ui.module.css";
 
@@ -23,6 +25,7 @@ export default function Nav() {
   const { userLogout } = useAuth();
   const { useCartData } = useCart();
   const router = useRouter();
+  const [toggleCollection, setToggleCollection] = useState(false);
   const { scroll } = useScroll();
   const scrollUp = Number(scroll) > 400 ? true : false;
   const navStyle = scrollUp ? "navbar-sticky navbar-stuck" : "navbar-sticky";
@@ -34,6 +37,10 @@ export default function Nav() {
 
   function toggleAuthModalHandler() {
     dispatch(toggleAuthModal());
+  }
+
+  function onCollectionMenuHandler() {
+    setToggleCollection(!toggleCollection);
   }
 
   function toggleSlideCartMobile() {
@@ -168,12 +175,18 @@ export default function Nav() {
                   <a
                     className="nav-link dropdown-toggle ps-lg-0"
                     href="#"
+                    onClick={onCollectionMenuHandler}
                     data-bs-toggle="dropdown"
                   >
                     <i className="ci-view-grid me-2"></i>
                     Collections
                   </a>
-                  <CategoryDropdown />
+                  {largerDeviceWidth ? (
+                    <CategoryDropdown />
+                  ) : (
+                    !largerDeviceWidth &&
+                    toggleCollection && <MobileCategoryList />
+                  )}
                 </li>
               </ul>
               <ul className="navbar-nav">
