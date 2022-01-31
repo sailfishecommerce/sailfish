@@ -31,7 +31,7 @@ function PopularCategoryLoader(props: any) {
       style={loaderStyle}
       backgroundColor="#b5a6a6"
       foregroundColor="#ecebeb"
-      className="m-2 col-12 col-md-4"
+      className="m-2"
       {...props}
     >
       <rect

@@ -48,6 +48,9 @@ export default function PopularCategories() {
           .popularCategories {
             z-index: 10;
           }
+          .card-body {
+            height: 260px;
+          }
           @media (max-width: 768px) {
             .popularCategories,
             .card-body {
