@@ -1,4 +1,5 @@
 import Link from "next/link";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 import Image from "@/components/Image";
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
@@ -17,17 +18,21 @@ interface PopularCategoryProps {
 
 export default function PopularCategory({ category }: PopularCategoryProps) {
   const selectedFooterCategory = useMarketplaceCategory();
+  const tabWidth = useMediaQuery("(max-width:768px)");
+  const size = tabWidth
+    ? { height: 250, width: 300 }
+    : { height: 250, width: 250 };
 
   return (
-    <div className="popularCategory col-sm-4 px-2 mb-grid-gutter">
+    <div className="popularCategory col-12 col-md-4 px-2 mb-grid-gutter">
       <Link href={`/collections/product-type/${category.slug}`} passHref>
         <a
           onClick={() => selectedFooterCategory(category.name)}
-          className="imgLink d-block text-center text-decoration-none me-1"
+          className="imgLink d-flex flex-column text-center text-decoration-none me-1"
         >
           <Image
-            height={320}
-            width={350}
+            height={size.height}
+            width={size.width}
             src={category.images[0].file.url}
             alt={category.name}
             placeholder="blur"
@@ -60,14 +65,10 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
           .popularCategory:hover h3 {
             color: #fb696a;
           }
-          @media (max-width: 768px) {
+          @media (max-width: 768px) {            
             .imgLink {
-              height: 300px;
-              width: 320px;
-              margin: 10px;
-            }
-            .imgLink img {
               width: 100%;
+              margin: 10px;
               height: 250px;
             }
           }

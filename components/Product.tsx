@@ -59,9 +59,9 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
       : product.images[0]?.file?.url;
 
   return (
-    <div className="col-md-4 col-6 mb-4 p-0 p-md-1">
+    <div className="col-md-4 col-6 mb-4 p-0 p-md-1 product">
       <DynamicProductMetatags product={product} />
-      <div className="card product-card p-0 p-md-2">
+      <div className="card product-card p-1 p-md-2">
         <div className="d-flex justify-content-between">
           {product.hkd_compare_at_price > 0 && (
             <div className="discount-price mt-2">

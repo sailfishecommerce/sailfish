@@ -19,7 +19,7 @@ export default function PopularCategories() {
         <div className="col-xl-8 col-lg-9">
           <div className="card border-0 shadow-lg">
             <div className="card-body px-3 pt-grid-gutter pb-0">
-              <div className="row g-0 ps-1">
+              <div className="row g-0 popularCategoriesRow">
                 {status === "error" ? (
                   "Unable to fetch"
                 ) : status === "loading" ? (
@@ -49,8 +49,18 @@ export default function PopularCategories() {
             z-index: 10;
           }
           @media (max-width: 768px) {
+            .popularCategories,
+            .card-body {
+              width: 100%;
+              min-height: 900px;
+              max-height: 950px;
+            }
             section.popularCategory {
+              margin-bottom: 30px;
               margin-top: -70px;
+            }
+            .popularCategoriesRow {
+              flex-directio: column;
             }
           }
         `}

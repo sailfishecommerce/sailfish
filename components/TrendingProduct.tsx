@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { memo, useCallback, useRef } from "react";
 import { useVirtual } from "react-virtual";
+
 import Product from "./Product";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { productType } from "@/types";
 
 interface PropsType {
@@ -9,30 +11,22 @@ interface PropsType {
 }
 
 function TrendingProductsCatalog({ products }: PropsType) {
-  const parentRef: any = useRef();
+  const mobileView = useMediaQuery("(max-width:768px)");
 
-  const rowVirtualizerFixed = useVirtual({
-    size: products.length,
-    parentRef,
-    estimateSize: useCallback(() => 200, []),
-    overscan: 6,
-  });
+  function updateProductSize(productData: any[]) {
+    const productSize = mobileView ? productData.slice(0, 14) : productData;
+    console.log("productSize", productSize.length);
+    return productSize;
+  }
 
   return (
     <section className="container pt-md-3 pb-0 mb-md-3 w-100">
       <h2 className="text-center trending">Trending products</h2>
-      <div
-        ref={parentRef}
-        // style={{ height: `${rowVirtualizerFixed.totalSize}px` }}
-        className="row pt-4 mx-n2"
-      >
-        {rowVirtualizerFixed.virtualItems.map((virtualRow: any) => (
-          <Product
-            key={virtualRow.index}
-            product={products[virtualRow.index]}
-            algoliaEvent="click"
-          />
+      <div className="row pt-4 mx-n2">
+        {updateProductSize(products).map((product: productType) => (
+          <Product key={product.id} product={product} algoliaEvent="click" />
         ))}
+
         <div className="text-center pt-1 mt-1 mb-3">
           <Link href="/shop" passHref>
             <a className="btn btn-outline-accent">
