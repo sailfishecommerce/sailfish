@@ -86,7 +86,7 @@ const MProduct = ({
           </a>
         </Link>
         <div className="card-body py-3">
-          <Link href={`/collections/vendors?vendor=${product.vendor}`} passHref>
+          <Link href={`/collections/vendors/${product.vendor}`} passHref>
             <a className="product-meta d-block fs-xs pb-1">{product.vendor}</a>
           </Link>
           <h3 className="product-title fs-sm">

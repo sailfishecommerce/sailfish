@@ -23,13 +23,13 @@ export default function ProductBanner({ product }: Props) {
                 </Link>
               </li>
               <li className="breadcrumb-item text-nowrap">
-                {/* <Link href="/shop" passHref> */}
-                <a>Shop</a>
-                {/* </Link> */}
+                <Link href="/shop" passHref>
+                  <a>Shop</a>
+                </Link>
               </li>
               <li className="breadcrumb-item text-nowrap">
                 <Link
-                  href={`/collections/vendors?vendor=${product.vendor}`}
+                  href={`/collections/vendors/${product.vendor}`}
                   passHref
                 >
                   <a>{product.vendor}</a>

@@ -76,7 +76,7 @@ export default function FooterTopSection() {
                       {content?.links?.map((contentLink: any) => (
                         <li key={contentLink.name} className="widget-list-item">
                           <Link
-                            href={`/collections/product-type?name=${contentLink.name}?id=${contentLink.id}`}
+                            href={`/collections/product-type/${contentLink.name}?id=${contentLink.id}`}
                             passHref
                           >
                             <a
