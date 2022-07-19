@@ -23,30 +23,14 @@ const DynamicProductMetatags = dynamic(
 );
 declare function tcjs(trigger: string, type: string, name: string): any;
 
-const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
+const MProduct = ({
+  product,
+  forCategory,
+  algoliaEvent,
+  className,
+}: ProductProps) => {
   const { productViewEvent } = useProduct(product);
   const [inHover, setHover] = useState(false);
-  // const { clickedProductAfterSearch, itemClicked, itemViewed } =
-  //   useAlgoliaEvents();
-
-  // function itemClickedAndViewed(objectIDs: string[], id: string[]) {
-  //   const itemId = objectIDs[0] !== undefined ? objectIDs : id;
-  //   itemClicked("product clicked", itemId);
-  //   itemViewed("product viewed", itemId);
-  // }
-
-  // function trackAlgoliaEvents(
-  //   queryID: string | any,
-  //   objectIDs: string[] | any,
-  //   position: number[] | any,
-  //   id: string[]
-  // ) {
-  //   algoliaEvent === "search"
-  //     ? clickedProductAfterSearch(queryID, objectIDs, position)
-  //     : algoliaEvent === "click"
-  //     ? itemClickedAndViewed(objectIDs, id)
-  //     : null;
-  // }
 
   const linkURL =
     algoliaEvent === "search"
@@ -58,12 +42,16 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
       ? product.images[1]?.file?.url
       : product.images[0]?.file?.url;
 
+  const productClassName = className
+    ? className
+    : "col-md-4 col-6 mb-4 p-0 p-md-1";
+
   return (
-    <div className="col-md-4 col-6 mb-4 p-0 p-md-1 product">
+    <div className={`${productClassName}  product`}>
       <DynamicProductMetatags product={product} />
       <div className="card product-card p-1 p-md-2">
         <div className="d-flex justify-content-between">
-          {product.hkd_compare_at_price > 0 && (
+          {product.compare_at_price > 0 && (
             <div className="discount-price mt-2">
               {discountPrice(product)} %
             </div>
@@ -79,17 +67,7 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
           </button>
         </div>
         <Link href={linkURL} passHref>
-          <a
-            // onClick={() =>
-            //   trackAlgoliaEvents(
-            //     product?.__queryID,
-            //     [product.objectID],
-            //     [product.__position],
-            //     [product.id]
-            //   )
-            // }
-            className="productLink card-img-top d-block overflow-hidden"
-          >
+          <a className="productLink card-img-top d-block overflow-hidden">
             <div
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
@@ -124,15 +102,11 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
           <div className="d-flex justify-content-between">
             <ul className="product-price d-flex flex-column align-items-baseline">
               <li className="text-accent fs-sm fs-lg">
-                <FormattedPrice price={product.price} isProduct />
+                <FormattedPrice price={product.sale_price} />
               </li>
-              {product.hkd_compare_at_price > 0 && (
+              {product.compare_at_price > 0 && (
                 <del className="small text-accent fs-xs">
-                  <FormattedPrice
-                    price={product.hkd_compare_at_price}
-                    oldPrice
-                    isProduct
-                  />
+                  <FormattedPrice price={product.price} />
                 </del>
               )}
             </ul>
@@ -157,6 +131,8 @@ const MProduct = ({ product, forCategory, algoliaEvent }: ProductProps) => {
             height: 220px;
             display: flex;
             margin: auto;
+            align-items: center;
+            justify-content: center;
           }
           .productImage img.productImage:hover {
             transform: scale(1.03) !important;

@@ -2,6 +2,7 @@ export type productType = {
   name: string;
   description?: string | any;
   attributes?: any;
+  className?: string;
   meta_title?: string;
   content: {
     maxQuantity: number;
@@ -30,6 +31,8 @@ export type productType = {
   rating: number;
   product_type?: string;
   hkd_compare_at_price: number;
+  compare_at_price: number;
+  sale_price: number;
   category: string;
   oldPrice?: number;
   origPrice?: number;
@@ -372,6 +375,7 @@ export interface CartItemProps {
 export interface ProductProps {
   product: productType;
   forCategory?: boolean;
+  className?: string;
   algoliaEvent?: "search" | "click" | "filter";
 }
 
