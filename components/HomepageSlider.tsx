@@ -20,14 +20,14 @@ export default function HomepageSlider() {
     mouseDrag: true,
     speed: 500,
     loop: true,
-    autoplay: true,
+    autoplay: false,
     autoplayHoverPause: true,
     autoplayButtonOutput: false,
   };
 
   return (
     <section
-      className={`${styles.tnsCarousel} tns-carousel tns-controls-lg mb-4 mb-lg-5 w-100`}
+      className={`${styles.tnsCarousel} tns-carousel tns-controls-lg mb-4 mb-lg-5 w-full`}
     >
       <TinySlider settings={settings}>
         {sliderContent.map((item, index) => (
@@ -39,38 +39,40 @@ export default function HomepageSlider() {
             key={index}
           >
             <div className="px-lg-5 sliderItem">
-              <div
-                className={`${styles.imageContainer} justify-content-between align-items-center ps-lg-4 d-block order-lg-2 me-lg-5`}
-              >
-                <Image
-                  src={item.sliderImg}
-                  height={300}
-                  width={400}
-                  className={`${styles.carouselImg} d-block order-lg-2 me-lg-n5 flex-shrink-0`}
-                  alt="Summer Collection"
-                  layout="responsive"
-                  slider="true"
-                  priority="true"
-                />
-              </div>
-              <div className="position-relative  ms-lg-5 py-5 px-4 mb-lg-5 order-lg-1">
-                <div className="pb-lg-5 mb-lg-5 text-center text-lg-start text-lg-nowrap">
-                  <h3 className="h2 text-light fw-light pb-1 from-start">
-                    {item.sliderCaption}
-                  </h3>
-                  <h2 className="text-light display-5 from-start delay-1">
-                    {item.sliderTitle}
-                  </h2>
-                  <p className="fs-lg text-light pb-3 from-start delay-2">
-                    {item.sliderDescription}
-                  </p>
-                  <div className="d-table scale-up delay-4 mx-auto mx-lg-0">
-                    <Link href="/shop" passHref>
-                      <a className="btn btn-primary">
-                        Shop Now
-                        <i className="ci-arrow-right ms-2 me-n1"></i>
-                      </a>
-                    </Link>
+              <div className="content container d-flex align-items-center flex-row">
+                <div
+                  className={`w-50 justify-content-between align-items-center d-block order-lg-2`}
+                >
+                  <Image
+                    src={item.sliderImg}
+                    height={140}
+                    width={200}
+                    className={`${styles.carouselImg} d-block order-lg-2 me-lg-n5 flex-shrink-0`}
+                    alt="Summer Collection"
+                    layout="responsive"
+                    slider="true"
+                    priority="true"
+                  />
+                </div>
+                <div className="w-50 position-relative order-lg-1">
+                  <div className="pb-lg-5 mb-lg-5 text-center text-lg-start text-lg-nowrap">
+                    <h3 className="h2 text-light fw-light pb-1 from-start">
+                      {item.sliderCaption}
+                    </h3>
+                    <h2 className="text-light display-5 from-start delay-1">
+                      {item.sliderTitle}
+                    </h2>
+                    <p className="fs-lg text-light pb-3 from-start delay-2">
+                      {item.sliderDescription}
+                    </p>
+                    <div className="d-table scale-up delay-4 mx-auto mx-lg-0">
+                      <Link href="/shop" passHref>
+                        <a className="btn btn-primary">
+                          Shop Now
+                          <i className="ci-arrow-right ms-2 me-n1"></i>
+                        </a>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
