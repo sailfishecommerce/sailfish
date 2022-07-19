@@ -73,21 +73,21 @@ export default function FooterTopSection() {
                   <div className="widget widget-links widget-light pb-2 mb-4">
                     <h3 className="widget-title text-light">{content?.name}</h3>
                     <ul className="widget-list">
-                      {content?.links?.map((contentLink) => (
+                      {content?.links?.map((contentLink: any) => (
                         <li key={contentLink.name} className="widget-list-item">
-                          {/* <Link
-                            href={`/collections/product-type/${contentLink.slug}?collection-id=${contentLink.id}`}
+                          <Link
+                            href={`/collections/product-type?name=${contentLink.name}?id=${contentLink.id}`}
                             passHref
-                          > */}
-                          <a
-                            onClick={() =>
-                              selectedFooterCategory(contentLink.name)
-                            }
-                            className="widget-list-link"
                           >
-                            {contentLink.name}
-                          </a>
-                          {/* </Link> */}
+                            <a
+                              onClick={() =>
+                                selectedFooterCategory(contentLink.name)
+                              }
+                              className="widget-list-link"
+                            >
+                              {contentLink.name}
+                            </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>

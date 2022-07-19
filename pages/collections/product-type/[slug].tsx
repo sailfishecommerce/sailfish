@@ -6,11 +6,18 @@ import { categoryType } from "@/types";
 import CollectionMarketplace from "@/components/CollectionMarketplace";
 import getStoreCategories from "@/lib/getStoreCategories";
 import styles from "@/styles/shop.module.css";
+import filterProducts from "@/lib/filterProducts";
+import getAStoreCategory from "@/lib/getAStoreCategory";
 
 interface collectionProps {
   collection: categoryType;
+  productTypeProducts: any[];
 }
-export default function Category({ collection }: collectionProps): JSX.Element {
+export default function Category({
+  productTypeProducts,
+  collection,
+}: collectionProps): JSX.Element {
+  console.log("productTypeProducts", productTypeProducts);
   return (
     <Applayout
       title={`${collection.name} | Free Delivery to HK | Live healthy Online Store`}
@@ -64,29 +71,20 @@ export default function Category({ collection }: collectionProps): JSX.Element {
   );
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const storeCategories: any[] = await getStoreCategories();
+export async function getServerSideProps(context: any) {
+  const productTypeName = context.query.slug;
+  const categoryId = context.query.id;
 
-  const collection = storeCategories?.filter(
-    (collection: { slug: any }) => collection?.slug === params.slug
-  );
+  const productTypeProducts = await filterProducts({
+    product_type_2: productTypeName,
+  });
+
+  const storeCategory: any[] = await getAStoreCategory(categoryId);
 
   return {
     props: {
-      collection: collection[0],
+      productTypeProducts,
+      collection: storeCategory,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const storeCategories: any[] = await getStoreCategories();
-
-  return {
-    paths:
-      storeCategories?.map(
-        (collection: { slug: any }) =>
-          `/collections/product-type/${collection.slug}`
-      ) || [],
-    fallback: false,
   };
 }

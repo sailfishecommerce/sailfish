@@ -86,14 +86,9 @@ const MProduct = ({
           </a>
         </Link>
         <div className="card-body py-3">
-          {/* <Link
-            href={`/collections/vendors/${replaceSpaceWithHypen(
-              product.vendor
-            )}`}
-            passHref
-          > */}
-          <a className="product-meta d-block fs-xs pb-1">{product.vendor}</a>
-          {/* </Link> */}
+          <Link href={`/collections/vendors?vendor=${product.vendor}`} passHref>
+            <a className="product-meta d-block fs-xs pb-1">{product.vendor}</a>
+          </Link>
           <h3 className="product-title fs-sm">
             <Link href={`/products/${product.slug}?id=${product.id}`} passHref>
               <a onClick={productViewEvent}>{product.name}</a>

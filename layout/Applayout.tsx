@@ -5,8 +5,8 @@ import dynamic from "next/dynamic";
 
 import LayoutWrapper from "./LayoutWrapper";
 import useLoading from "@/hooks/useLoading";
+import Header from "@/components/Header";
 
-const Header = dynamic(() => import("../components/Header"));
 const Footer = dynamic(() => import("../components/Footer"));
 const LoadingBar = dynamic(() => import("../components/loadingBar"));
 

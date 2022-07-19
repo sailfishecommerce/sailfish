@@ -32,21 +32,27 @@ function CategoryDropdownList({ category, categories }: Props) {
     <div className="categoryDropdownList">
       <div className="mega-dropdown-column pt-3 pt-sm-4 px-2 px-lg-3">
         <div className="widget widget-links">
-          {/* <Link href={`/collections/product-type/${category.slug}`} passHref> */}
-          <a
-            onClick={() => linkHandler(category)}
-            className="categoryImg d-flex flex-column overflow-hidden rounded-3 mb-3"
+          <Link
+            href={`/collections/product-type/${category.name}?id=${category.id}`}
+            passHref
           >
-            <img src={category.images[0].file.url} alt={category.name} />
-            <h6 className="fs-base my-2">{category.name}</h6>
-          </a>
-          {/* </Link> */}
+            <a
+              onClick={() => linkHandler(category)}
+              className="categoryImg d-flex flex-column overflow-hidden rounded-3 mb-3"
+            >
+              <img src={category.images[0].file.url} alt={category.name} />
+              <h6 className="fs-base my-2">{category.name}</h6>
+            </a>
+          </Link>
           <ul className="widget-list">
             {displayThreeSubCat.map((cat) => (
               <li key={cat.id} className="widget-list-item mb-1">
-                {/* <Link href={`/collections/product-type/${cat.slug}`} passHref> */}
-                <a className="widget-list-link">{cat.name}</a>
-                {/* </Link> */}
+                <Link
+                  href={`/collections/product-type/${category.name}?id=${category.id}`}
+                  passHref
+                >
+                  <a className="widget-list-link">{cat.name}</a>
+                </Link>
               </li>
             ))}
           </ul>

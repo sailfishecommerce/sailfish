@@ -7,6 +7,7 @@ import RatingStar from "./RatingStar";
 
 interface CategoryProps {
   category: {
+    id: string;
     name: string;
     slug: string;
     images: {
@@ -33,30 +34,33 @@ export default function Category({ category }: CategoryProps): JSX.Element {
           <i className="ci-heart"></i>
         </button>
         {category?.images && (
-          // <Link href={`/collections/product-type/${category.slug}`} passHref>
-          <a
-            onClick={() => selectedFooterCategory(category.name)}
-            className="categoryImgLink card-img-top d-block overflow-hidden"
+          <Link
+            href={`/collections/product-type/${category.name}?id=${category.id}`}
+            passHref
           >
-            <Image
-              height={300}
-              width={400}
-              className="categoryImg"
-              src={category.images[0].file.url}
-              alt={category.images[0].name}
-              blurDataURL={category.images[0].file.url}
-              loading="lazy"
-              layout="responsive"
-            />
-          </a>
-          // </Link>
+            <a
+              onClick={() => selectedFooterCategory(category.name)}
+              className="categoryImgLink card-img-top d-block overflow-hidden"
+            >
+              <Image
+                height={300}
+                width={400}
+                className="categoryImg"
+                src={category.images[0].file.url}
+                alt={category.images[0].name}
+                blurDataURL={category.images[0].file.url}
+                loading="lazy"
+                layout="responsive"
+              />
+            </a>
+          </Link>
         )}
         <div className="card-body py-2">
           <h3 className="product-title fs-sm">
             {/* <Link href={`/collections/${category.slug}`} passHref> */}
-              <a onClick={() => selectedFooterCategory(category.name)}>
-                {category.name}
-              </a>
+            <a onClick={() => selectedFooterCategory(category.name)}>
+              {category.name}
+            </a>
             {/* </Link> */}
           </h3>
           <RatingStar rate={5} />

@@ -67,15 +67,11 @@ export default function QuickViewModal({ product }: QuickViewModalProps) {
               <div className="price-group mb-2 d-flex justify-content-between align-items-center">
                 <div className="d-flex price align-items-center">
                   <div className="text-accent me-2 fs-lg">
-                    <FormattedPrice price={productToView.price} isProduct />
+                    <FormattedPrice price={productToView.sale_price} />
                   </div>
-                  {productToView.hkd_compare_at_price > 0 && (
+                  {productToView.compare_at_price > 0 && (
                     <del className="small text-accent fs-ms">
-                      <FormattedPrice
-                        price={productToView.hkd_compare_at_price}
-                        oldPrice
-                        isProduct
-                      />
+                      <FormattedPrice price={productToView.compare_at_price} />
                     </del>
                   )}
                 </div>

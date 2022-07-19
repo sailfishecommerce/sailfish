@@ -13,7 +13,10 @@ interface CheckoutSidebarProps {
 function OrderSummaryItem({ item }: any) {
   return (
     <div className="d-flex align-items-center py-2 border-bottom">
-      <Link href={`/products/${item.product.slug}?id=${item.product.id}`} passHref>
+      <Link
+        href={`/products/${item.product.slug}?id=${item.product.id}`}
+        passHref
+      >
         <a className="d-block flex-shrink-0">
           <img
             src={item.product.images[0].file.url}
@@ -24,7 +27,10 @@ function OrderSummaryItem({ item }: any) {
       </Link>
       <div className="ps-2">
         <h6 className="widget-product-title">
-          <Link href={`/products/${item.product.slug}?id=${item.product.id}`} passHref>
+          <Link
+            href={`/products/${item.product.slug}?id=${item.product.id}`}
+            passHref
+          >
             <a>{item.product.name}</a>
           </Link>
         </h6>
@@ -46,7 +52,7 @@ export default function CheckoutSidebar({ cart }: CheckoutSidebarProps) {
     <aside className="col-lg-4 pt-4 pt-lg-0 ps-xl-5">
       <div className="bg-white rounded-3 shadow-lg p-4 ms-lg-auto">
         <div className="py-2 px-xl-2">
-          <div className="widget mb-3">
+          <div className="widget mb-3 order-summary">
             <h2 className="widget-title text-center">Order summary</h2>
             {cart &&
               cart.items.map((item: itemType, index: number) => (
@@ -110,6 +116,14 @@ export default function CheckoutSidebar({ cart }: CheckoutSidebarProps) {
           </form>
         </div>
       </div>
+      <style jsx>
+        {`
+          .order-summary {
+            overflow-y: scroll;
+            height: 400px;
+          }
+        `}
+      </style>
     </aside>
   );
 }

@@ -31,23 +31,6 @@ export default function Index({ products }: any) {
     generateUserToken();
   }, [authorized]);
 
-  // const vboutContent = {
-  //   id: cart?.id,
-  //   cartId: cart?.id,
-  //   email: cart?.account?.email,
-  //   customerInfo: {
-  //     firstname: cart?.account?.firstname,
-  //     lastname: cart?.account?.lastname,
-  //   },
-  // };
-
-  // useEffect(() => {
-  //   if (cart !== null && !vboutSlice?.vbout.createCart) {
-  //     dispatch(createCartVbout());
-  //     createVboutCart(vboutContent);
-  //   }
-  // }, [cart]);
-
   return (
     <Applayout title="Live healthy Store - Quality Australian Products - Free Shipping to HK">
       <Metatag />

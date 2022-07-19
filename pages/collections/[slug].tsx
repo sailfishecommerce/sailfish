@@ -5,6 +5,7 @@ import Applayout from "@/layout/Applayout";
 import { categoryType } from "@/types";
 import CollectionMarketplace from "@/components/CollectionMarketplace";
 import getStoreCategories from "@/lib/getStoreCategories";
+import getAStoreCategory from "@/lib/getAStoreCategory";
 
 interface collectionProps {
   collection: categoryType;
@@ -61,28 +62,13 @@ export default function Category({ collection }: collectionProps): JSX.Element {
   );
 }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const storeCategories: any[] = await getStoreCategories();
-
-  const collection = storeCategories?.filter(
-    (collection: { slug: any }) => collection?.slug === params.slug
-  );
+export async function getServerSideProps(context: any) {
+  const categoryId = context.query.id;
+  const storeCategory: any[] = await getAStoreCategory(categoryId);
 
   return {
     props: {
-      collection: collection[0],
+      collection: storeCategory,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const storeCategories: any[] = await getStoreCategories();
-
-  return {
-    paths:
-      storeCategories?.map(
-        (collection: { slug: any }) => `/collections/${collection.slug}`
-      ) || [],
-    fallback: false,
   };
 }
