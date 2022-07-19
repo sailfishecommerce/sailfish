@@ -190,11 +190,11 @@ export default function Nav() {
                 </li>
               </ul>
               <ul className="navbar-nav">
-                {menuLink.map((menu) => {
+                {menuLink.map((menu, index) => {
                   const style = router.asPath === menu.link ? "active" : "";
                   return (
                     <li
-                      key={menu.link}
+                      key={`${menu.link}-${index}`}
                       className={`nav-item dropdown ${style}`}
                     >
                       <Link href={menu.link} passHref>

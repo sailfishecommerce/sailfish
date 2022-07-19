@@ -47,16 +47,12 @@ export default function ProductDetail({ product }: Props) {
         <div className="mb-3 d-flex align-items-center justify-content-between">
           <div className="d-flex align-items-center">
             <span className="h3 fw-normal text-accent me-1">
-              <FormattedPrice price={product.price} isProduct />
+              <FormattedPrice price={product.sale_price} />
             </span>
-            {product.hkd_compare_at_price > 0 && (
+            {product.compare_at_price > 0 && (
               <span className="h5 fw-normal text-accent mx-2">
                 <del>
-                  <FormattedPrice
-                    price={product.hkd_compare_at_price}
-                    oldPrice
-                    isProduct
-                  />
+                  <FormattedPrice price={product.price} />
                 </del>
               </span>
             )}

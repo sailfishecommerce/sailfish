@@ -54,7 +54,7 @@ export default function RewardChat() {
             bottom: 100px;
             width: 400px;
             z-index: 5000;
-            height: 700px;
+            height: 60%;
             overflow: hidden;
           }
           .reward-card-group {
