@@ -19,12 +19,12 @@ export default function CategoryBanner({ controls }: CategoryBannerProps) {
         <div className="d-flex justify-content-between px-grid-gutter py-grid-gutter">
           <div>
             <h3 className="mb-1">Shop for medicine</h3>
-            <Link href="/shop" passHref>
-              <a className="fs-md text-white">
-                Get started now
-                <i className="ci-arrow-right fs-xs align-middle ms-1"></i>
-              </a>
-            </Link>
+            {/* <Link href="/shop" passHref> */}
+            <a className="fs-md text-white">
+              Get started now
+              <i className="ci-arrow-right fs-xs align-middle ms-1"></i>
+            </a>
+            {/* </Link> */}
           </div>
           <div className="d-flex">
             <button className="control" ref={navigationPrevRef} type="button">
@@ -35,19 +35,19 @@ export default function CategoryBanner({ controls }: CategoryBannerProps) {
             </button>
           </div>
         </div>
-        <Link href="/shop" passHref>
-          <a className="d-none d-md-block mt-auto">
-            <div className="d-block w-100">
-              <Image
-                className="categoryBanner"
-                src="/img/shop/featured_category_image.webp"
-                alt="category banner"
-                height={400}
-                width={500}
-              />
-            </div>
-          </a>
-        </Link>
+        {/* <Link href="/shop" passHref> */}
+        <a className="d-none d-md-block mt-auto">
+          <div className="d-block w-100">
+            <Image
+              className="categoryBanner"
+              src="/img/shop/featured_category_image.webp"
+              alt="category banner"
+              height={400}
+              width={500}
+            />
+          </div>
+        </a>
+        {/* </Link> */}
       </div>
       <style jsx>
         {`

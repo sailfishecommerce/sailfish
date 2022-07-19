@@ -16,7 +16,7 @@ interface MarketplaceProps {
   vendor: any;
 }
 
-export default function VendorView({ category, vendor }: MarketplaceProps) {  
+export default function VendorView({ category, vendor }: MarketplaceProps) {
   return (
     <InstantSearch
       indexName="New_Livehealthy_products_index"
@@ -43,9 +43,9 @@ export default function VendorView({ category, vendor }: MarketplaceProps) {
                   <li className="breadcrumb-item link">{category?.name}</li>
                 ) : (
                   <li className="breadcrumb-item link">
-                    <Link href="/shop" passHref>
-                      <a>Shop</a>
-                    </Link>
+                    {/* <Link href="/shop" passHref> */}
+                    <a>Shop</a>
+                    {/* </Link> */}
                   </li>
                 )}
                 <li

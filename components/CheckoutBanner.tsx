@@ -6,7 +6,10 @@ interface CheckoutBannerProps {
   breadcrumb: string;
 }
 
-export default function CheckoutBanner({ title, breadcrumb }: CheckoutBannerProps) {
+export default function CheckoutBanner({
+  title,
+  breadcrumb,
+}: CheckoutBannerProps) {
   return (
     <div className="page-title-overlap bg-dark pt-4 w-100">
       <div className="container d-lg-flex justify-content-between py-2 py-lg-3">
@@ -21,9 +24,9 @@ export default function CheckoutBanner({ title, breadcrumb }: CheckoutBannerProp
                 </Link>
               </li>
               <li className="breadcrumb-item text-nowrap">
-                <Link href="/shop" passHref>
-                  <a>Shop</a>
-                </Link>
+                {/* <Link href="/shop" passHref> */}
+                <a>Shop</a>
+                {/* </Link> */}
               </li>
               <li
                 className="breadcrumb-item text-nowrap active"

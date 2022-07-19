@@ -1,7 +1,7 @@
 import Applayout from "@/layout/Applayout";
 import ProductOverview from "@/components/ProductOverview";
-import fetchAllSwellProducts from "@/lib/processPageproduct";
 import ProductMetatag from "@/components/ProductMetatag";
+import getAProduct from "@/lib/getAProduct";
 
 interface ProductPage {
   pageProduct: any;
@@ -15,34 +15,12 @@ export default function ProductPage({ pageProduct }: ProductPage) {
   );
 }
 
-type propsType = {
-  params: { slug: string };
-};
-
-export async function getStaticProps({ params }: propsType) {
-  const productData: any = await fetchAllSwellProducts();
-  const results: any = await Promise.all(productData);
-
-  const pageProduct = results[0].filter(
-    (product: { slug: any }) => product?.slug === params.slug
-  );
+export async function getServerSideProps(context: any) {
+  const productData: any = await getAProduct(context.query.id);
 
   return {
     props: {
-      pageProduct: pageProduct[0],
+      pageProduct: productData,
     },
-  };
-}
-
-export async function getStaticPaths() {
-  const productData: any = await fetchAllSwellProducts();
-
-  const results: any = await Promise.all(productData);
-
-  return {
-    paths:
-      results[0].map((product: { slug: any }) => `/products/${product.slug}`) ||
-      [],
-    fallback: false,
   };
 }

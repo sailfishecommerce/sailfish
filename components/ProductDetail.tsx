@@ -67,16 +67,16 @@ export default function ProductDetail({ product }: Props) {
         </div>
         <ProductForm product={product} />
         <div className="d-flex flex-column flex-start align-items-start">
-          <Link
+          {/* <Link
             href={`/collections/vendors/${replaceSpaceWithHypen(
               product.vendor
             )}`}
             passHref
-          >
-            <a className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0">
-              + All {product.vendor} products
-            </a>
-          </Link>
+          > */}
+          <a className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0">
+            + All {product.vendor} products
+          </a>
+          {/* </Link> */}
           <button
             onClick={toggleModal}
             className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0"

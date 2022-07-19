@@ -33,31 +33,31 @@ export default function Category({ category }: CategoryProps): JSX.Element {
           <i className="ci-heart"></i>
         </button>
         {category?.images && (
-          <Link href={`/collections/product-type/${category.slug}`} passHref>
-            <a
-              onClick={() => selectedFooterCategory(category.name)}
-              className="categoryImgLink card-img-top d-block overflow-hidden"
-            >
-              <Image
-                height={300}
-                width={400}
-                className="categoryImg"
-                src={category.images[0].file.url}
-                alt={category.images[0].name}
-                blurDataURL={category.images[0].file.url}
-                loading="lazy"
-                layout="responsive"
-              />
-            </a>
-          </Link>
+          // <Link href={`/collections/product-type/${category.slug}`} passHref>
+          <a
+            onClick={() => selectedFooterCategory(category.name)}
+            className="categoryImgLink card-img-top d-block overflow-hidden"
+          >
+            <Image
+              height={300}
+              width={400}
+              className="categoryImg"
+              src={category.images[0].file.url}
+              alt={category.images[0].name}
+              blurDataURL={category.images[0].file.url}
+              loading="lazy"
+              layout="responsive"
+            />
+          </a>
+          // </Link>
         )}
         <div className="card-body py-2">
           <h3 className="product-title fs-sm">
-            <Link href={`/collections/${category.slug}`} passHref>
+            {/* <Link href={`/collections/${category.slug}`} passHref> */}
               <a onClick={() => selectedFooterCategory(category.name)}>
                 {category.name}
               </a>
-            </Link>
+            {/* </Link> */}
           </h3>
           <RatingStar rate={5} />
         </div>

@@ -13,7 +13,7 @@ interface CheckoutSidebarProps {
 function OrderSummaryItem({ item }: any) {
   return (
     <div className="d-flex align-items-center py-2 border-bottom">
-      <Link href={`/products/${item.product.slug}`} passHref>
+      <Link href={`/products/${item.product.slug}?id=${item.product.id}`} passHref>
         <a className="d-block flex-shrink-0">
           <img
             src={item.product.images[0].file.url}
@@ -24,7 +24,7 @@ function OrderSummaryItem({ item }: any) {
       </Link>
       <div className="ps-2">
         <h6 className="widget-product-title">
-          <Link href={`/products/${item.product.slug}`} passHref>
+          <Link href={`/products/${item.product.slug}?id=${item.product.id}`} passHref>
             <a>{item.product.name}</a>
           </Link>
         </h6>

@@ -17,14 +17,14 @@ export default function MobileCategoryList() {
         ? "loading collections"
         : livehealthyCategories(categories.results).map((category: any) => (
             <li key={category.name} className="widget-list-item">
-              <Link href={`/collections/${category.slug}`} passHref>
-                <a
-                  onClick={() => selectedFooterCategory(category.name)}
-                  className="widget-list-link"
-                >
-                  {category.name}
-                </a>
-              </Link>
+              {/* <Link href={`/collections/${category.slug}`} passHref> */}
+              <a
+                onClick={() => selectedFooterCategory(category.name)}
+                className="widget-list-link"
+              >
+                {category.name}
+              </a>
+              {/* </Link> */}
             </li>
           ))}
     </ul>

@@ -35,7 +35,7 @@ const MProduct = ({
   const linkURL =
     algoliaEvent === "search"
       ? `/products/${product.slug}?query-id=${product.__queryID}`
-      : `/products/${product.slug}`;
+      : `/products/${product.slug}?id=${product.id}`;
 
   const productImage =
     inHover && product.images.length > 1
@@ -86,16 +86,16 @@ const MProduct = ({
           </a>
         </Link>
         <div className="card-body py-3">
-          <Link
+          {/* <Link
             href={`/collections/vendors/${replaceSpaceWithHypen(
               product.vendor
             )}`}
             passHref
-          >
-            <a className="product-meta d-block fs-xs pb-1">{product.vendor}</a>
-          </Link>
+          > */}
+          <a className="product-meta d-block fs-xs pb-1">{product.vendor}</a>
+          {/* </Link> */}
           <h3 className="product-title fs-sm">
-            <Link href={`/products/${product.slug}`} passHref>
+            <Link href={`/products/${product.slug}?id=${product.id}`} passHref>
               <a onClick={productViewEvent}>{product.name}</a>
             </Link>
           </h3>

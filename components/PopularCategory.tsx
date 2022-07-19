@@ -25,26 +25,26 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
 
   return (
     <div className="popularCategory col-12 col-md-4 px-2 mb-grid-gutter">
-      <Link href={`/collections/product-type/${category.slug}`} passHref>
-        <a
-          onClick={() => selectedFooterCategory(category.name)}
-          className="imgLink d-flex flex-column text-center text-decoration-none me-1"
-        >
-          <Image
-            height={size.height}
-            width={size.width}
-            src={category.images[0].file.url}
-            alt={category.name}
-            placeholder="blur"
-            blurDataURL={category.images[0].file.url}
-            loading="lazy"
-            className="d-block rounded mx-1 mb-3"
-            slider="true"
-            layout="responsive"
-          />
-          <h3 className="fs-base pt-1 mb-0">{category.name}</h3>
-        </a>
-      </Link>
+      {/* <Link href={`/collections/product-type/${category.slug}`} passHref> */}
+      <a
+        onClick={() => selectedFooterCategory(category.name)}
+        className="imgLink d-flex flex-column text-center text-decoration-none me-1"
+      >
+        <Image
+          height={size.height}
+          width={size.width}
+          src={category.images[0].file.url}
+          alt={category.name}
+          placeholder="blur"
+          blurDataURL={category.images[0].file.url}
+          loading="lazy"
+          className="d-block rounded mx-1 mb-3"
+          slider="true"
+          layout="responsive"
+        />
+        <h3 className="fs-base pt-1 mb-0">{category.name}</h3>
+      </a>
+      {/* </Link> */}
       <style jsx>
         {`
           .popularCategory img {
@@ -65,7 +65,7 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
           .popularCategory:hover h3 {
             color: #fb696a;
           }
-          @media (max-width: 768px) {            
+          @media (max-width: 768px) {
             .imgLink {
               width: 100%;
               margin: 10px;

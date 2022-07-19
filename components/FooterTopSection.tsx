@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import footerContent from "@/json/footer.json";
-import  { useCategoryData } from "@/hooks/useCategory";
+import { useCategoryData } from "@/hooks/useCategory";
 import { contentLinkType } from "@/types";
 import useVbout from "@/hooks/useVbout";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
@@ -53,14 +53,14 @@ export default function FooterTopSection() {
                         {groupedContent.links.map(
                           (contentLink: any, index: number) => (
                             <li key={index} className="widget-list-item">
-                              <Link href={`/${contentLink.slug}`} passHref>
-                                <a
-                                  onClick={() => categoryEvents(contentLink)}
-                                  className="widget-list-link"
-                                >
-                                  {contentLink.name}
-                                </a>
-                              </Link>
+                              {/* <Link href={`/${contentLink.slug}`} passHref> */}
+                              <a
+                                onClick={() => categoryEvents(contentLink)}
+                                className="widget-list-link"
+                              >
+                                {contentLink.name}
+                              </a>
+                              {/* </Link> */}
                             </li>
                           )
                         )}
@@ -75,19 +75,19 @@ export default function FooterTopSection() {
                     <ul className="widget-list">
                       {content?.links?.map((contentLink) => (
                         <li key={contentLink.name} className="widget-list-item">
-                          <Link
-                            href={`/collections/product-type/${contentLink.slug}`}
+                          {/* <Link
+                            href={`/collections/product-type/${contentLink.slug}?collection-id=${contentLink.id}`}
                             passHref
+                          > */}
+                          <a
+                            onClick={() =>
+                              selectedFooterCategory(contentLink.name)
+                            }
+                            className="widget-list-link"
                           >
-                            <a
-                              onClick={() =>
-                                selectedFooterCategory(contentLink.name)
-                              }
-                              className="widget-list-link"
-                            >
-                              {contentLink.name}
-                            </a>
-                          </Link>
+                            {contentLink.name}
+                          </a>
+                          {/* </Link> */}
                         </li>
                       ))}
                     </ul>

@@ -20,7 +20,7 @@ export function CategoriesList({
   function searchItems(e: any) {
     searchForItems(e.currentTarget.value);
   }
- 
+
   return (
     <div className="widget widget-categories mb-4 pb-0 border-bottom">
       <h3 className="widget-title">Product Type</h3>
@@ -38,23 +38,21 @@ export function CategoriesList({
           items.map((item: itemType) => (
             <div key={item.label} className="accordion-item">
               <h3 className="text-sm">
-                <Link
+                {/* <Link
                   href={`/collections/${replaceSpaceWithHypen(item.value)}`}
                   passHref
-                >
-                  <a className="cat-link">
-                    {isFromSearch ? (
-                      <Highlight attribute="label" hit={item} />
-                    ) : (
-                      <>
-                        {item.label}
-                        <span className="mx-2 badge bg-danger">
-                          {item.count}
-                        </span>
-                      </>
-                    )}
-                  </a>
-                </Link>
+                > */}
+                <a className="cat-link">
+                  {isFromSearch ? (
+                    <Highlight attribute="label" hit={item} />
+                  ) : (
+                    <>
+                      {item.label}
+                      <span className="mx-2 badge bg-danger">{item.count}</span>
+                    </>
+                  )}
+                </a>
+                {/* </Link> */}
               </h3>
             </div>
           ))

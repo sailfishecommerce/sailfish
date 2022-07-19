@@ -69,7 +69,7 @@ export default function CheckoutComplete() {
                 You will be receiving an email shortly with confirmation of your
                 order.
               </p>
-              <Link href="/shop" passHref>
+              <Link href="/" passHref>
                 <a className="btn btn-secondary mt-3 me-3">Go back shopping</a>
               </Link>
               <Link href="/order-tracking" passHref>

@@ -66,12 +66,12 @@ export default function HomepageSlider() {
                       {item.sliderDescription}
                     </p>
                     <div className="d-table scale-up delay-4 mx-auto mx-lg-0">
-                      <Link href="/shop" passHref>
+                      {/* <Link href="/shop" passHref> */}
                         <a className="btn btn-primary">
                           Shop Now
                           <i className="ci-arrow-right ms-2 me-n1"></i>
                         </a>
-                      </Link>
+                      {/* </Link> */}
                     </div>
                   </div>
                 </div>

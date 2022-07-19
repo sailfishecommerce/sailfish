@@ -8,7 +8,7 @@
       "buttons": [
         {
           "text": "View products",
-          "link": "/shop",
+          "link": "/",
           "color": "btn-primary"
         }
       ]
@@ -21,7 +21,7 @@
       "buttons": [
         {
           "text": "Shipping details",
-          "link": "/shop",
+          "link": "/",
           "color": "btn-accent"
         }
       ]

@@ -23,19 +23,19 @@ export default function ProductBanner({ product }: Props) {
                 </Link>
               </li>
               <li className="breadcrumb-item text-nowrap">
-                <Link href="/shop" passHref>
-                  <a>Shop</a>
-                </Link>
+                {/* <Link href="/shop" passHref> */}
+                <a>Shop</a>
+                {/* </Link> */}
               </li>
               <li className="breadcrumb-item text-nowrap">
-                <Link
+                {/* <Link
                   href={`/collections/vendors/${replaceSpaceWithHypen(
                     product.vendor
                   )}`}
                   passHref
-                >
-                  <a>{product.vendor}</a>
-                </Link>
+                > */}
+                <a>{product.vendor}</a>
+                {/* </Link> */}
               </li>
               <li
                 className="breadcrumb-item text-nowrap active"

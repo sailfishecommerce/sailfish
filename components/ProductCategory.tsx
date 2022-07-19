@@ -60,9 +60,9 @@ export default function ProductCategory({
                   </Link>
                 </li>
                 <li className="breadcrumb-item text-nowrap">
-                  <Link href="/shop" passHref>
-                    <a>Shop</a>
-                  </Link>
+                  {/* <Link href="/shop" passHref> */}
+                  <a>Shop</a>
+                  {/* </Link> */}
                 </li>
                 <li className="breadcrumb-item active text-nowrap">
                   <a>{category.name}</a>

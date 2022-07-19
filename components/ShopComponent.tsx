@@ -16,7 +16,6 @@ export default function ShopComponent() {
   const { allProducts } = useSwellProducts();
   const { data, status } = useQuery("allProducts", allProducts);
   const { productView } = useAppSelector((state) => state.shop);
-  console.log("");
   return (
     <div>
       <div className="page-title-overlap bg-dark pt-4">
@@ -30,9 +29,9 @@ export default function ShopComponent() {
                   </Link>
                 </li>
                 <li className="breadcrumb-item text-nowrap">
-                  <Link href="/shop" passHref>
-                    <a>Shop</a>
-                  </Link>
+                  {/* <Link href="/shop" passHref> */}
+                  <a>Shop</a>
+                  {/* </Link> */}
                 </li>
               </ol>
             </nav>

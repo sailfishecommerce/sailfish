@@ -10,14 +10,14 @@ export default function BottomTab() {
   return (
     <div className="handheld-toolbar">
       <div className="d-table table-layout-fixed w-100">
-        <Link href="/shop" passHref>
+        {/* <Link href="/shop" passHref> */}
           <a className="d-table-cell handheld-toolbar-item">
             <span className="handheld-toolbar-icon">
               <i className="ci-store"></i>
             </span>
             <span className="handheld-toolbar-label">Shop</span>
           </a>
-        </Link>
+        {/* </Link> */}
         <a
           className="d-table-cell handheld-toolbar-item"
           data-bs-toggle="collapse"
