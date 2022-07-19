@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { InstantSearch, Configure } from "react-instantsearch-dom";
+import { InstantSearch, Configure } from "react-instantsearch-hooks-web";
 import Link from "next/link";
 import searchClient from "@/lib/algoliaConfig";
 
@@ -19,7 +19,7 @@ interface MarketplaceProps {
 export default function VendorView({ category, vendor }: MarketplaceProps) {
   return (
     <InstantSearch
-      indexName="New_Livehealthy_products_index"
+      indexName="LIVEHEALTHY_PRODUCTION_INDEX"
       searchClient={searchClient}
     >
       <Configure

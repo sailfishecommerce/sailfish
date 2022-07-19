@@ -27,6 +27,7 @@ export default function PopularCategories() {
                 ) : (
                   getFirstThreeCategories(topCategories).map(
                     (category: {
+                      id: string;
                       name: any;
                       images: { file: { url: string } }[];
                       slug: string;
