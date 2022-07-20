@@ -9,12 +9,6 @@
         "count": 1
       },
       {
-        "name": "Wishlist",
-        "link": "/account-wishlist",
-        "icon": "ci-heart",
-        "count": 3
-      },
-      {
         "name": "Support tickets",
         "link": "/account-tickets",
         "icon": "ci-help",
