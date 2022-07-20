@@ -29,14 +29,14 @@ export default function Categories({ categoryMarketplace }: CategoriesProps) {
           {categoryMarketplace ? (
             <MarketplaceCategoriesRefinementList
               searchable={true}
-              attribute="product_type"
+              attribute="product_type_2"
             />
           ) : (
             <CategoriesRefinementList
               showMoreLimit={100}
               showMore={true}
               searchable={true}
-              attribute="product_type"
+              attribute="product_type_2"
             />
           )}
           <VendorRefinementList

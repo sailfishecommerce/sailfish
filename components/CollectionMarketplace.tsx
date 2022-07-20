@@ -13,14 +13,16 @@ interface MarketplaceProps {
     name: string;
     slug: string;
   };
+  category: string;
 }
 
 export default function CollectionMarketplace({
   collection,
+  category,
 }: MarketplaceProps) {
   return (
     <InstantSearch
-      indexName="New_Livehealthy_products_index"
+      indexName="LIVEHEALTHY_PRODUCTION_INDEX"
       searchClient={searchClient}
     >
       <Configure

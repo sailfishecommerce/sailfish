@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 
 import Image from "@/components/Image";
@@ -19,11 +19,19 @@ export default function ProductList({ product }: ProductProps) {
     quickViewHandler,
     optionHandler,
   } = useProduct(product);
+  const [inHover, setHover] = useState(false);
 
   const labelBg = useCallback((name: string) => {
     const style = { backgroundColor: name.toLowerCase() };
     return style;
   }, []);
+
+  const productImage =
+    typeof product.images === "object" && typeof product.images[0] === "string"
+      ? product.images[0]
+      : inHover && product.images.length > 1
+      ? product.images[1]?.file?.url
+      : product.images[0]?.file?.url;
 
   return (
     <>
@@ -41,20 +49,25 @@ export default function ProductList({ product }: ProductProps) {
         <div className="d-sm-flex align-items-center">
           <Link href={`/products/${product.slug}`} passHref>
             <a onClick={productViewEvent} className="product-list-thumb">
-              <Image
-                height={300}
-                width={300}
-                src={product.images[0]?.file?.url}
-                alt={
-                  product?.image_alt_text
-                    ? product?.image_alt_text[0]
-                    : product.name
-                }
+              <div
                 className="productImage"
-                placeholder="blur"
-                blurDataURL={product.images[0]?.file?.url}
-                loading="lazy"
-              />
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+              >
+                <Image
+                  height={200}
+                  width={200}
+                  src={productImage}
+                  alt={
+                    product?.image_alt_text
+                      ? product?.image_alt_text[0]
+                      : product.name
+                  }
+                  placeholder="blur"
+                  blurDataURL={productImage}
+                  loading="lazy"
+                />
+              </div>
             </a>
           </Link>
           <div className="card-body py-2">

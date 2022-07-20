@@ -23,7 +23,7 @@ function CategoryProducts({ category }: Props) {
     <section className="container pt-md-3 pb-0 mb-md-3 w-100">
       <h2 className="h3 text-start">{category} products</h2>
       <InstantSearch
-        indexName="New_Livehealthy_products_index"
+        indexName="LIVEHEALTHY_PRODUCTION_INDEX"
         searchClient={searchClient}
       >
         <Configure
@@ -34,7 +34,7 @@ function CategoryProducts({ category }: Props) {
         />
         <RefinedCategory
           defaultRefinement={[category]}
-          attribute="product_type"
+          attribute="product_type_2"
         />
         <HitProduct />
       </InstantSearch>

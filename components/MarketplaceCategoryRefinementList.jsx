@@ -4,17 +4,6 @@ import { Highlight, connectRefinementList } from "react-instantsearch-dom";
 import LoadCategorySidebar from "@/components/CategorySidebarLoader";
 import { useRouter } from "next/router";
 
-const categories = {
-  "personal-care": "Personal Care",
-  medicines: "Medicines",
-  beauty: "Beauty",
-  "medical-aids": "Medical Aids",
-  "hair-colours": "Hair Colours",
-  "veterinary-and-pet-care": "Veterinary and Pet Care",
-  confectionery: "Confectionery",
-  health: "Health",
-};
-
 export function CategoriesList({
   items,
   isFromSearch,
@@ -23,16 +12,15 @@ export function CategoriesList({
 }) {
   const { query } = useRouter();
   const queryString = query.slug;
-  const selectedCategory = categories[queryString];
 
-  const filteredItem = items.filter((item) => item.label === selectedCategory);
+  const filteredItem = items.filter((item) => item.label === queryString);
 
   function searchItems(e) {
     searchForItems(e.currentTarget.value);
   }
 
   useEffect(() => {
-    refine([selectedCategory]);
+    refine([queryString]);
   }, []);
 
   return (

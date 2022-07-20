@@ -32,7 +32,7 @@ export default function useAlgoliaEvents() {
     aa("clickedObjectIDsAfterSearch", {
       userToken,
       eventName: "Product clicked after a search",
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       queryID,
       objectIDs,
       positions,
@@ -43,7 +43,7 @@ export default function useAlgoliaEvents() {
     aa("viewedObjectIDs", {
       eventName,
       userToken,
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       objectIDs,
     });
   }
@@ -52,7 +52,7 @@ export default function useAlgoliaEvents() {
     aa("viewedFilters", {
       eventName: "filter_viewed",
       userToken,
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       filters,
     });
   }
@@ -61,7 +61,7 @@ export default function useAlgoliaEvents() {
     aa("clickedFilters", {
       eventName: "filter_clicked",
       userToken,
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       filters,
     });
   }
@@ -70,7 +70,7 @@ export default function useAlgoliaEvents() {
     aa("convertedObjectIDs", {
       eventName: "product_added_to_cart",
       userToken,
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       objectIDs,
     });
   }
@@ -81,7 +81,7 @@ export default function useAlgoliaEvents() {
   ) {
     aa("convertedObjectIDsAfterSearch", {
       userToken,
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       eventName: "product_added_to_cart_after_search",
       queryID,
       objectIDs,
@@ -92,7 +92,7 @@ export default function useAlgoliaEvents() {
     aa("clickedObjectIDs", {
       eventName,
       userToken,
-      index: "New_Livehealthy_products_index",
+      index: "LIVEHEALTHY_PRODUCTION_INDEX",
       objectIDs,
     });
   }

@@ -81,7 +81,7 @@ const CustomCurrentRefinements = ({ items, refine, createURL }: any) => {
 
 function categoryName(label: string) {
   switch (label) {
-    case "product_type":
+    case "product_type_2":
       return "Category";
     case "vendor":
       return "Vendor";

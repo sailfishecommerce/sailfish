@@ -6,7 +6,7 @@ import { HitProduct } from "@/components/ProductHit";
 export default function HomepageHits() {
   return (
     <InstantSearch
-      indexName="New_Livehealthy_products_index"
+      indexName="LIVEHEALTHY_PRODUCTION_INDEX"
       searchClient={searchClient}
     >
       <Configure

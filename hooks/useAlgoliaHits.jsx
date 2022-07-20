@@ -2,7 +2,7 @@ import instantsearch from "instantsearch.js";
 import searchClient from "@/lib/algoliaConfig";
 
 var liveHealthyIndex = instantsearch({
-  indexName: "New_Livehealthy_products_index",
+  indexName: "LIVEHEALTHY_PRODUCTION_INDEX",
   searchClient: searchClient,
 });
 
@@ -18,7 +18,7 @@ const customRefinementList =
 export default function useAlgoliaHits() {
   const liveHealthyCategories = liveHealthyIndex.addWidgets([
     customRefinementList({
-      attribute: "product_type",
+      attribute: "product_type_2",
     }),
   ]);
 

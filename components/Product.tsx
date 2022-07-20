@@ -32,13 +32,17 @@ const MProduct = ({
   const { productViewEvent } = useProduct(product);
   const [inHover, setHover] = useState(false);
 
+  console.log("product", product);
+
   const linkURL =
     algoliaEvent === "search"
       ? `/products/${product.slug}?query-id=${product.__queryID}`
       : `/products/${product.slug}?id=${product.id}`;
 
   const productImage =
-    inHover && product.images.length > 1
+    typeof product.images === "object" && typeof product.images[0] === "string"
+      ? product.images[0]
+      : inHover && product.images.length > 1
       ? product.images[1]?.file?.url
       : product.images[0]?.file?.url;
 
@@ -177,7 +181,7 @@ const MProduct = ({
   );
 };
 
-const Product = memo(MProduct);
+const Product: any = memo(MProduct);
 export default Product;
 
 Product.whyDidYouRender = true;

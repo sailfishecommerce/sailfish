@@ -67,7 +67,7 @@ export default function SearchBar() {
 
   return (
     <InstantSearch
-      indexName="New_Livehealthy_products_index"
+      indexName="LIVEHEALTHY_PRODUCTION_INDEX"
       searchClient={algoliasearchClient}
     >
       <Configure clickAnalytics distinct enablePersonalization />

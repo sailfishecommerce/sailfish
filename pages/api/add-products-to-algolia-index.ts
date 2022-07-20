@@ -9,7 +9,7 @@ export default function AddProductToAlgoliaIndiceHandler(
     "CZT5MA7JLJ",
     `${process.env.NEXT_PUBLIC_ALGOLIA_ADMIN_API_KEY}`
   );
-  const index = client.initIndex("New_Livehealthy_products_index");
+  const index = client.initIndex("LIVEHEALTHY_PRODUCTION_INDEX");
 
   console.log("req.method", req.method, "req.body", req.body);
 

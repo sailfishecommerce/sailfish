@@ -9,8 +9,12 @@ import getAStoreCategory from "@/lib/getAStoreCategory";
 
 interface collectionProps {
   collection: categoryType;
+  category: string;
 }
-export default function Category({ collection }: collectionProps): JSX.Element {
+export default function Category({
+  collection,
+  category,
+}: collectionProps): JSX.Element {
   return (
     <Applayout
       title={`${collection.name} | Free Delivery to HK | Live healthy Online Store`}
@@ -57,18 +61,21 @@ export default function Category({ collection }: collectionProps): JSX.Element {
           content={collection.meta_description}
         />
       </Head>
-      <CollectionMarketplace collection={collection} />
+      <CollectionMarketplace collection={collection} category={category} />
     </Applayout>
   );
 }
 
 export async function getServerSideProps(context: any) {
   const categoryId = context.query.id;
+  const category = context.query.slug;
+
   const storeCategory: any[] = await getAStoreCategory(categoryId);
 
   return {
     props: {
       collection: storeCategory,
+      category,
     },
   };
 }

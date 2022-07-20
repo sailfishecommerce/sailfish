@@ -19,7 +19,7 @@ const pathToSearchState = (path) =>
 
 const DEFAULT_PROPS = {
   searchClient,
-  indexName: "New_Livehealthy_products_index",
+  indexName: "LIVEHEALTHY_PRODUCTION_INDEX",
 };
 
 function getCategorySlug(name) {
@@ -32,35 +32,35 @@ function getCategoryName(slug) {
 
 const createURL = (state) => {
   const isDefaultRoute =
-    !state.query &&
-    state.page === 1 &&
-    state.refinementList &&
-    state.refinementList?.vendor.length === 0 &&
-    state.refinementList?.tags.length === 0 &&
+    !state?.query &&
+    state?.page === 1 &&
+    state?.refinementList &&
+    state?.refinementList?.vendor?.length === 0 &&
+    state.refinementList?.tags?.length === 0 &&
     state?.menu &&
-    !state.menu?.product_type;
+    !state.menu?.product_type_2;
 
-  const categoryPath = state.menu?.product_type
-    ? `${getCategorySlug(state.menu.product_type)}/`
+  const categoryPath = state.menu?.product_type_2
+    ? `${getCategorySlug(state.menu.product_type_2)}/`
     : "";
 
   const queryParameters = {};
 
-  if (state.query) {
+  if (state?.query) {
     queryParameters.query = encodeURIComponent(state.query);
   }
 
-  if (state.page !== 1) {
-    queryParameters.page = state.page;
+  if (state?.page !== 1) {
+    queryParameters.page = state?.page;
   }
 
-  if (state.refinementList.vendor) {
+  if (state?.refinementList?.vendor) {
     queryParameters.vendor = [state.refinementList.vendor].map(
       encodeURIComponent
     );
   }
 
-  if (state.refinementList.tags) {
+  if (state.refinementList?.tags) {
     queryParameters.tags = [state.refinementList.tags].map(encodeURIComponent);
   }
 
@@ -104,7 +104,7 @@ const urlToSearchState = (location) => {
     query: decodeURIComponent(query),
     page,
     menu: {
-      product_type: decodeURIComponent(category),
+      product_type_2: decodeURIComponent(category),
     },
     refinementList: {
       vendor: allVendors.map(decodeURIComponent),
@@ -155,10 +155,8 @@ class Shop extends Component {
       },
     };
 
-    console.log("searchStateValuesearchStateValue", searchStateValue);
-
     this.debouncedSetState = setTimeout(() => {
-      const href = searchStateToURL(searchState);
+      const href = searchStateToURL(searchStateValue);
 
       this.props.router.push(href, href, {
         shallow: true,
@@ -174,8 +172,6 @@ class Shop extends Component {
     });
   };
   render() {
-    console.log("this.state", this.state);
-
     return (
       <Applayout
         title="Shop for quality imported products from Australia. Choose from over 10,000 genuine health, personal care, confectionery, beauty and baby care products. Get vitamins, health and food supplements, cosmetics, confectionery, quit smoking aids, hair colours, baby food and much more. Owned & operated by HK'ers"

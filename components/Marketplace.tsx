@@ -18,7 +18,7 @@ interface MarketplaceProps {
 export default function Marketplace({ category }: MarketplaceProps) {
   return (
     <InstantSearch
-      indexName="New_Livehealthy_products_index"
+      indexName="LIVEHEALTHY_PRODUCTION_INDEX"
       searchClient={searchClient}
     >
       <Configure

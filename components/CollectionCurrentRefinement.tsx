@@ -1,6 +1,7 @@
 import { connectCurrentRefinements } from "react-instantsearch-dom";
 
 const CollectionRefinements = ({ items, refine, createURL }: any) => {
+  console.log("items-refinement", items);
   return (
     <ul className="currentRefinement">
       {items.map(
@@ -84,7 +85,7 @@ const CollectionRefinements = ({ items, refine, createURL }: any) => {
 
 function categoryName(label: string) {
   switch (label) {
-    case "product_type":
+    case "product_type_2":
       return "Category";
     case "vendor":
       return "Vendor";
