@@ -52,6 +52,12 @@ function TrendingProductsCatalog({ products }: PropsType) {
             grid-template-columns: repeat(4, 1fr);
           }
           @media (max-width: 768px) {
+            .grid-wrapper {
+              margin: auto;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
             h2.trending {
               font-size: 18px;
             }
@@ -66,7 +72,7 @@ function TrendingProductsCatalog({ products }: PropsType) {
             }
             .productGrid {
               display: grid;
-              grid-template-columns: repeat(2, 170px);
+              grid-template-columns: repeat(2, 180px);
             }
           }
           @media (max-width: 330px) {

@@ -28,15 +28,12 @@ export default function ProductBanner({ product }: Props) {
                 </Link>
               </li>
               <li className="breadcrumb-item text-nowrap">
-                <Link
-                  href={`/collections/vendors/${product.vendor}`}
-                  passHref
-                >
+                <Link href={`/collections/vendors/${product.vendor}`} passHref>
                   <a>{product.vendor}</a>
                 </Link>
               </li>
               <li
-                className="breadcrumb-item text-nowrap active"
+                className="breadcrumb-item text-nowrap active productName"
                 aria-current="page"
               >
                 {product.name}
@@ -52,6 +49,15 @@ export default function ProductBanner({ product }: Props) {
         {`
           .productName {
             font-size: 16px;
+          }
+          @media (max-width: 768px) {
+            .breadcrumb-item,
+            .breadcrumb-item a {
+              font-size: 13px;
+            }
+            .productName {
+              overflow: hidden;
+            }
           }
         `}
       </style>

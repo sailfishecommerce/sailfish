@@ -288,7 +288,7 @@ body::-webkit-scrollbar-thumb,
     width: 30px;
   }
 
-  .tm-alpaca-container {
+  div.tm-alpaca-container {
     display: none !important;
   }
 
