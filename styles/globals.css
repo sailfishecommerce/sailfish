@@ -288,6 +288,10 @@ body::-webkit-scrollbar-thumb,
     width: 30px;
   }
 
+  .tm-alpaca-container {
+    display: none !important;
+  }
+
   .brand-row .swiper-button-next::after,
   .brand-row .swiper-button-prev::after,
   .otherProductCarousel .swiper-button-prev::after,

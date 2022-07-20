@@ -23,15 +23,17 @@ function TrendingProductsCatalog({ products }: PropsType) {
   return (
     <section className="container pt-md-3 pb-0 mb-md-3 d-flex flex-column align-items-center">
       <h2 className="text-center trending">Trending products</h2>
-      <div className="pt-4 mx-n2 productGrid">
-        {updateProductSize(products).map((product: productType) => (
-          <Product
-            key={product.id}
-            product={product}
-            algoliaEvent="click"
-            className="p-2"
-          />
-        ))}
+      <div className="grid-wrapper">
+        <div className="pt-4 mx-n2 productGrid">
+          {updateProductSize(products).map((product: productType) => (
+            <Product
+              key={product.id}
+              product={product}
+              algoliaEvent="click"
+              className="p-2"
+            />
+          ))}
+        </div>
       </div>
       <div className="text-center pt-1 mt-1 mb-3">
         <Link href="/shop" passHref>
@@ -56,6 +58,15 @@ function TrendingProductsCatalog({ products }: PropsType) {
             .productGrid {
               display: grid;
               grid-template-columns: repeat(2, 1fr);
+            }
+          }
+          @media (max-width: 380px) {
+            h2.trending {
+              font-size: 18px;
+            }
+            .productGrid {
+              display: grid;
+              grid-template-columns: repeat(2, 170px);
             }
           }
           @media (max-width: 330px) {

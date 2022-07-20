@@ -36,7 +36,7 @@ const MProduct = ({
   const productDimension = smallerMobileDevice
     ? { height: 200, width: 250 }
     : mobileDevice
-    ? { height: 80, width: 100 }
+    ? { height: 80, width: 80 }
     : { height: 300, width: 300 };
 
   console.log("product", product);

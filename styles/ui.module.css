@@ -1,7 +1,7 @@
 header.header {
-  height: 250px;
-  max-height: 270px;
-  min-height: 230px;
+  /* height: 250px; */
+  /* max-height: 270px; */
+  min-height: 220px;
 }
 
 .uiElement:hover span div {
