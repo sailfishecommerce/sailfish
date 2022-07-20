@@ -185,6 +185,11 @@ const MProduct = ({
               height: unset;
             }
           }
+          @media (max-width: 450px) {
+            div.reviewRating.d-flex {
+              display: none !important;
+            }
+          }
         `}
       </style>
     </div>
