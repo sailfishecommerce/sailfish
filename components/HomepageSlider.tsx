@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
 import dynamic from "next/dynamic";
 
 import Image from "@/components/Image";
@@ -39,9 +38,9 @@ export default function HomepageSlider() {
             key={index}
           >
             <div className="px-lg-5 sliderItem">
-              <div className="content container d-flex align-items-center flex-row">
+              <div className="content container d-flex align-items-center flex-column flex-lg-row">
                 <div
-                  className={`w-50 justify-content-between align-items-center d-block order-lg-2`}
+                  className={`w-100 w-lg-50 mb-4 mb-lg-0 justify-content-between align-items-center d-block order-lg-2`}
                 >
                   <Image
                     src={item.sliderImg}
@@ -67,10 +66,10 @@ export default function HomepageSlider() {
                     </p>
                     <div className="d-table scale-up delay-4 mx-auto mx-lg-0">
                       {/* <Link href="/shop" passHref> */}
-                        <a className="btn btn-primary">
-                          Shop Now
-                          <i className="ci-arrow-right ms-2 me-n1"></i>
-                        </a>
+                      <a className="btn btn-primary">
+                        Shop Now
+                        <i className="ci-arrow-right ms-2 me-n1"></i>
+                      </a>
                       {/* </Link> */}
                     </div>
                   </div>

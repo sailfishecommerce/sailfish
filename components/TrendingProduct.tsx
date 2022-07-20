@@ -53,6 +53,10 @@ function TrendingProductsCatalog({ products }: PropsType) {
             h2.trending {
               font-size: 18px;
             }
+            .productGrid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+            }
           }
         `}
       </style>

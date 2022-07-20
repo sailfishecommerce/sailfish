@@ -25,14 +25,14 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
     : { height: 250, width: 250 };
 
   return (
-    <div className="popularCategory col-12 col-md-4 px-2 mb-grid-gutter">
+    <div className="popularCategory col-12 col-md-4 px-2 d-flex justify-content-center align-items-center border border-sm-2 rounded  border-lg-0 mb-2 mb-lg-0">
       <Link
         href={`/collections/product-type/${category.name}?id=${category.id}`}
         passHref
       >
         <a
           onClick={() => selectedFooterCategory(category.name)}
-          className="imgLink d-flex flex-column text-center text-decoration-none me-1"
+          className="imgLink d-flex w-75 w-lg-100 flex-column text-center text-decoration-none me-1"
         >
           <Image
             height={size.height}
