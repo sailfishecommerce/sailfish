@@ -12,6 +12,7 @@ import useCurrency from "@/hooks/useCurrency";
 import discountPrice from "@/lib/discountPrice";
 import useProductPrice from "@/hooks/useProductPrice";
 import FormattedPrice from "@/lib/formatPrice";
+import useMediaQuery from "@/hooks/useMediaQuery";
 // import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 
 const DynamicProductViewForm = dynamic(
@@ -31,6 +32,7 @@ const MProduct = ({
 }: ProductProps) => {
   const { productViewEvent } = useProduct(product);
   const [inHover, setHover] = useState(false);
+  const mobileDevice = useMediaQuery("(max-width:768px)");
 
   console.log("product", product);
 
