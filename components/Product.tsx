@@ -7,8 +7,6 @@ import Image from "@/components/Image";
 import { ProductProps } from "@/types";
 import useProduct from "@/hooks/useProduct";
 import RatingStar from "./RatingStar";
-import { replaceSpaceWithHypen } from "@/lib/formatString";
-import useCurrency from "@/hooks/useCurrency";
 import discountPrice from "@/lib/discountPrice";
 import useProductPrice from "@/hooks/useProductPrice";
 import FormattedPrice from "@/lib/formatPrice";
@@ -33,6 +31,13 @@ const MProduct = ({
   const { productViewEvent } = useProduct(product);
   const [inHover, setHover] = useState(false);
   const mobileDevice = useMediaQuery("(max-width:768px)");
+  const smallerMobileDevice = useMediaQuery("(max-width:330px)");
+
+  const productDimension = smallerMobileDevice
+    ? { height: 200, width: 250 }
+    : mobileDevice
+    ? { height: 80, width: 100 }
+    : { height: 300, width: 300 };
 
   console.log("product", product);
 
@@ -80,8 +85,8 @@ const MProduct = ({
               className="productImage"
             >
               <Image
-                height={300}
-                width={300}
+                height={productDimension.height}
+                width={productDimension.width}
                 src={productImage}
                 alt={product?.image_alt_text[0]}
                 placeholder="blur"
@@ -101,7 +106,7 @@ const MProduct = ({
             </Link>
           </h3>
           <div className="d-flex justify-content-between">
-            <ul className="product-price d-flex flex-column align-items-baseline">
+            <ul className="product-price d-flex flex-column align-items-baseline mb-0">
               <li className="text-accent fs-sm fs-lg">
                 <FormattedPrice price={product.sale_price} />
               </li>
@@ -114,7 +119,7 @@ const MProduct = ({
             <div className="reviewRating d-flex flex-column">
               <RatingStar rate={product.rating} />
               {product.review_rating ? (
-                <p className="widget-product-meta">
+                <p className="widget-product-meta mb-0">
                   ({product.review_rating} reviews)
                 </p>
               ) : (
@@ -175,6 +180,9 @@ const MProduct = ({
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
+            }
+            .productImage {
+              height: unset;
             }
           }
         `}
