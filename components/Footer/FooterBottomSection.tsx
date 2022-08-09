@@ -64,6 +64,8 @@ export default function FooterBottomSection() {
                 {footerBottomContent.social.map((data, index) => (
                   <a
                     key={`${data.name}-${index}`}
+                    rel="noreferrer"
+                    target="_blank"
                     className={`btn-social bs-light bs-${data.name} ms-2 mb-2`}
                     href={data.link}
                   >

@@ -13,11 +13,14 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 // import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 
 const DynamicProductViewForm = dynamic(
-  () => import("../components/ProductViewForm")
+  () =>
+    import(
+      /* webpackChunkName: 'ProductViewForm' */ "@/components/ProductViewForm"
+    )
 );
 
 const DynamicProductMetatags = dynamic(
-  () => import("../components/ProductMeta")
+  () => import(/* webpackChunkName: 'ProductMeta' */ "@/components/ProductMeta")
 );
 declare function tcjs(trigger: string, type: string, name: string): any;
 

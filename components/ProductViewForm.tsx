@@ -17,9 +17,7 @@ export default function ProductViewForm({
     return style;
   }, []);
 
-  const { dataStatus, addItemToCart } = useShoppingCart();
-
-  dataStatus(addItemToCart, `${product.name} added to cart`);
+  const { addItemToCart } = useShoppingCart();
 
   function onSubmitHandler(e: any) {
     e.preventDefault();

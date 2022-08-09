@@ -6,7 +6,6 @@ import { memo } from "react";
 import useCart from "@/hooks/useCart";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
-import useVbout from "@/hooks/useVbout";
 import Image from "@/components/Image";
 import useShoppingCart from "@/hooks/useShoppingCart";
 
@@ -15,17 +14,10 @@ interface CartWidgetProps {
 }
 
 function CartWidget({ cart }: CartWidgetProps) {
-  const { removeVboutCartItem } = useVbout();
-  const { dataStatus, removeCartItem } = useShoppingCart();
-
-  dataStatus(removeCartItem, `${cart.product.name} removed from cart`);
+  const { removeCartItem } = useShoppingCart();
 
   function removeItemFromCart() {
     removeCartItem.mutate(cart);
-    // removeVboutCartItem({
-    //   cartId: cart.id,
-    //   productId: cart.productId,
-    // });
   }
 
   return (

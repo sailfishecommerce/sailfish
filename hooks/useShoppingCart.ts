@@ -1,12 +1,8 @@
-import useMutationAction from "./useMutationAction";
+import useMutationAction from "@/hooks/useMutationAction";
 
 export default function useShoppingCart() {
-  const {
-    useRemoveFromCart,
-    dataStatus,
-    useAddItemToCartModal,
-    useUpdateCartItem,
-  } = useMutationAction();
+  const { useRemoveFromCart, useAddItemToCartModal, useUpdateCartItem } =
+    useMutationAction();
 
   const { useAddItemToCart } = useMutationAction();
   const removeCartItem = useRemoveFromCart();
@@ -16,7 +12,6 @@ export default function useShoppingCart() {
 
   return {
     addItemToCart,
-    dataStatus,
     removeCartItem,
     addItemToCartModal,
     updateCartItem,

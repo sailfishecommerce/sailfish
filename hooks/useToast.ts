@@ -1,5 +1,6 @@
 import { ReactText, useRef } from "react";
 import { toast } from "react-toastify";
+import type { MutableRefObject } from "react";
 
 import useLoading from "@/hooks/useLoading";
 
@@ -66,6 +67,26 @@ export default function useToast() {
       autoClose: 5000,
     });
 
+  const loadingToast = (toastId: MutableRefObject<any>) => {
+    toastId.current = toast("Processing ...", {
+      isLoading: true,
+      autoClose: false,
+    });
+  };
+  const updateToast = (
+    toastId: MutableRefObject<any>,
+    toastType?: any,
+    message?: string
+  ) => {
+    const autoCloseStatus = toastType === "success" ? 800 : false;
+    return toast.update(toastId.current, {
+      type: toastType,
+      autoClose: autoCloseStatus,
+      render: message,
+      isLoading: false,
+    });
+  };
+
   return {
     isLoading,
     isSuccessful,
@@ -73,5 +94,7 @@ export default function useToast() {
     loadToast,
     successToast,
     errorToast,
+    loadingToast,
+    updateToast,
   };
 }

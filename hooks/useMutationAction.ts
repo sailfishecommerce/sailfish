@@ -1,9 +1,13 @@
 import { useMutation, useQueryClient } from "react-query";
+import { useRef } from "react";
+
 import { useToast } from "@/hooks";
-import useSwellCart from "./useSwellCart";
+import useSwellCart from "@/hooks/useSwellCart";
 
 export default function useMutationAction() {
   const queryClient = useQueryClient();
+  const toastID = useRef(null);
+  const { loadingToast, updateToast } = useToast();
   const {
     updateCartItemQuantity,
     applyGiftCode,
@@ -11,14 +15,22 @@ export default function useMutationAction() {
     addToCartModal,
     removeCartItem,
   } = useSwellCart();
-  const { errorToast, loadToast, successToast } = useToast();
 
   function useUpdateCartItem() {
     return useMutation(
       ({ product, quantity }: any) => updateCartItemQuantity(product, quantity),
       {
+        onMutate: () => {
+          loadingToast(toastID);
+        },
         onSettled: () => {
           queryClient.invalidateQueries("cart");
+        },
+        onSuccess: () => {
+          updateToast(toastID, "success", "product updated");
+        },
+        onError: () => {
+          updateToast(toastID, "error", "error updating product");
         },
       }
     );
@@ -28,8 +40,17 @@ export default function useMutationAction() {
     return useMutation(
       ({ product, quantity }: any) => addToCart(product, quantity),
       {
+        onMutate: () => {
+          loadingToast(toastID);
+        },
         onSettled: () => {
           queryClient.invalidateQueries("cart");
+        },
+        onSuccess: (_, variables) => {
+          updateToast(toastID, "success", `${variables.product.name} added`);
+        },
+        onError: () => {
+          updateToast(toastID, "error", "error adding product");
         },
       }
     );
@@ -37,20 +58,19 @@ export default function useMutationAction() {
 
   function useRemoveFromCart() {
     return useMutation((item: any) => removeCartItem(item), {
+      onMutate: () => {
+        loadingToast(toastID);
+      },
       onSettled: () => {
         queryClient.invalidateQueries("cart");
       },
+      onSuccess: (_, variables, context) => {
+        updateToast(toastID, "success", `${variables.product.name} removed`);
+      },
+      onError: () => {
+        updateToast(toastID, "error", "error removing product");
+      },
     });
-  }
-
-  function dataStatus(mutationKey: any, success: string, error?: string) {
-    const errorData = error ? error : mutationKey.error;
-
-    return mutationKey.status === "error"
-      ? errorToast(errorData)
-      : mutationKey.status === "loading"
-      ? loadToast()
-      : successToast(success);
   }
 
   function useAddItemToCartModal() {
@@ -61,6 +81,15 @@ export default function useMutationAction() {
         onSettled: () => {
           queryClient.invalidateQueries("cart");
         },
+        onMutate: () => {
+          loadingToast(toastID);
+        },
+        onSuccess: (_, variables, context) => {
+          updateToast(toastID, "success", `${variables.product.name} added`);
+        },
+        onError: () => {
+          updateToast(toastID, "error", "error adding product");
+        },
       }
     );
   }
@@ -69,7 +98,6 @@ export default function useMutationAction() {
     useUpdateCartItem,
     useAddItemToCart,
     useRemoveFromCart,
-    dataStatus,
     useAddItemToCartModal,
   };
 }
