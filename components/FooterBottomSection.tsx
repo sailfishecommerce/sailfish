@@ -58,17 +58,6 @@ export default function FooterBottomSection() {
                   high-quality Australian goods.
                 </p>
               </div>
-              <div className="widget widget-links widget-light">
-                <ul className="widget-list d-flex flex-wrap justify-content-center justify-content-md-start flex-row flex-column-sm">
-                  {footerBottomContent.pageLinks.map((content) => (
-                    <li key={content.name} className="widget-list-item me-4">
-                      <a className="widget-list-link" href={content.link}>
-                        {content.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
             <div className="col-md-6 text-center text-md-end mb-4">
               <div className="mb-3">

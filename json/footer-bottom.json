@@ -2,41 +2,19 @@
   "social": [
     {
       "name": "twitter",
-      "link": "#"
+      "link": "https://twitter.com/livehealthyhq"
     },
     {
       "name": "instagram",
-      "link": "#"
+      "link": "https://www.instagram.com/livehealthyhq"
     },
     {
       "name": "pinterest",
-      "link": "#"
+      "link": "https://in.pinterest.com/LiveHealthyHQ"
     },
     {
-      "name": "youtube",
-      "link": "#"
-    }
-  ],
-  "pageLinks": [
-    {
-      "name": "Outlets",
-      "link": "#"
-    },
-    {
-      "name": "Affiliates",
-      "link": "#"
-    },
-    {
-      "name": "Support",
-      "link": "#"
-    },
-    {
-      "name": "Privacy",
-      "link": "#"
-    },
-    {
-      "name": "Terms of use",
-      "link": "#"
+      "name": "facebook",
+      "link": "https://web.facebook.com/LiveHealthyHQ?_rdc=1&_rdr"
     }
   ],
   "features": [

@@ -51,7 +51,7 @@ export default function RewardChat() {
             box-shadow: 0 0 13px 0 rgb(0 0 0 / 9%);
             position: fixed;
             right: 20px;
-            bottom: 100px;
+            bottom: 70px;
             width: 400px;
             z-index: 5000;
             height: 60%;

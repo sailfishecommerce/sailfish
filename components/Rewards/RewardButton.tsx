@@ -8,7 +8,7 @@ interface Props {
 export default function RewardButton({ showChat, onClick }: Props) {
   return (
     <>
-      <button onClick={onClick} className="rewardButton">
+      <button onClick={onClick} className={`rewardButton ${showChat}`}>
         {!showChat ? (
           <span className="imgContainer">
             <img src="/img/cartLoveIcon.png" alt="shopping cart with rewards" />{" "}
@@ -19,8 +19,12 @@ export default function RewardButton({ showChat, onClick }: Props) {
         )}
       </button>
       <style jsx>{`
+        button.rewardButton.true {
+          width: 30px;
+          justify-content: center;
+        }
         button.rewardButton {
-          height: 60px;
+          height: 30px;
           max-width: 140px;
           color: white;
           padding: 20px;
@@ -29,6 +33,7 @@ export default function RewardButton({ showChat, onClick }: Props) {
           align-items: center;
           background-color: #f79f24;
           border: none;
+          opacity: 1;
           position: absolute;
           right: 30px;
           bottom: 0px;
