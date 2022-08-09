@@ -1,6 +1,6 @@
 import { useCategoryData } from "@/hooks/useCategory";
 import PopularCategory from "@/components/Category/PopularCategory";
-import LoadingPopularCategory from "@/components/PopularCategoryLoader";
+import LoadingPopularCategory from "@/components/Loader/PopularCategoryLoader";
 
 export default function PopularCategories() {
   const [data, status] = useCategoryData();

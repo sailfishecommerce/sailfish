@@ -4,7 +4,7 @@ import Link from "next/link";
 import searchClient from "@/lib/algoliaConfig";
 
 import AlgoliaCurrentRefinement from "@/components/AlgoliaWidgets/AlgoliaCurrentRefinement";
-import ShopBannerToolbar from "../ShopBannerToolbar";
+import ShopBannerToolbar from "../Banner/ShopBannerToolbar";
 import InfiniteProductHits from "../InfiniteHits";
 import VendorCategories from "@/components/Category/VendorCategories";
 

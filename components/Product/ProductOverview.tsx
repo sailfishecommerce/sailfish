@@ -2,7 +2,7 @@ import ProductBanner from "@/components/Product/ProductBanner";
 import ProductDescription from "@/components/Product/ProductDescription";
 import ProductGalleryDetails from "@/components/Product/ProductGalleryDetails";
 import ProductReview from "@/components/Product/ProductReview";
-import RelatedProducts from "@/components/RelatedProducts";
+import RelatedProducts from "@/components/Product/RelatedProducts";
 
 interface ProductOverviewProps {
   pageProduct?: any;

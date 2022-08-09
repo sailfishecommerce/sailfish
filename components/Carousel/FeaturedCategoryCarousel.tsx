@@ -6,7 +6,7 @@ import useCategory, { useCategoryData } from "@/hooks/useCategory";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Category from "../Category";
 import LoadCategory from "../Loader/CategoryLoader";
-import SliderView from "../SliderView";
+import SliderView from "../View/SliderView";
 
 interface Props {
   controls: {

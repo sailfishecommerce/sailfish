@@ -6,14 +6,14 @@ import blogContent from "@/json/blog.json";
 import BlogArticleExcerpt from "@/components/Blog/BlogArticleExcerpt";
 
 const BlogSlider = dynamic(
-  () => import("../components/Carousel/BlogGridCarousel"),
+  () => import("@/components/Carousel/BlogGridCarousel"),
   {
     ssr: false,
   }
 );
 
 const DynamicBlogPagination = dynamic(
-  () => import("../components/BlogListPagination")
+  () => import("@/components/Blog/BlogListPagination")
 );
 
 export default function Blog() {

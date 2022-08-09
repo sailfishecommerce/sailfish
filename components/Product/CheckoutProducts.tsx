@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import useCart from "@/hooks/useCart";
-import { cartType, productType } from "@/types";
-import { CheckoutNote } from "./SlideCartNote";
+import type { productType } from "@/types";
+import { CheckoutNote } from "@/components/Cart/SlideCartNote";
 
 interface CartProductProps {
   product: productType;

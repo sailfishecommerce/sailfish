@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { updateProductView } from "@/redux/shop-slice";
-import AlgoliaSortby from "./AlgoliaSortby";
+import AlgoliaSortby from "@/components/AlgoliaWidgets/AlgoliaSortby";
 
 export default function ShopBannerToolbar() {
   const dispatch = useAppDispatch();

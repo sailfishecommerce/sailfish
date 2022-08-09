@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import AlgoliaCurrentRefinement from "@/components/AlgoliaCurrentRefinement";
 import Categories from "@/components/Category/Categories";
-import ShopBannerToolbar from "./ShopBannerToolbar";
+import ShopBannerToolbar from "./Banner/ShopBannerToolbar";
 import InfiniteProductHits from "./InfiniteHits";
 import { useRouter } from "next/router";
 

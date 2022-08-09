@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useRef } from "react";
 
-import CategoryBanner from "./CategoryBanner";
-import FeaturedCategoryCarousel from "./Carousel/FeaturedCategoryCarousel";
+import CategoryBanner from "@/components/Banner/CategoryBanner";
+import FeaturedCategoryCarousel from "@/components/Carousel/FeaturedCategoryCarousel";
 
 export default function FeaturedCategory() {
   const navigationPrevRef = useRef(null);
