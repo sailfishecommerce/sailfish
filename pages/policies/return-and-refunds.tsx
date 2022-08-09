@@ -1,8 +1,8 @@
 import Applayout from "@/layout/Applayout";
 
-export default function ReturnandRefunds() {
+export default function ReturnAndRefunds() {
   return (
-    <Applayout title="Shipping and Delivery">
+    <Applayout title="Return and Refunds">
       <h2>return-and-refunds</h2>
     </Applayout>
   );
