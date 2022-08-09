@@ -18,7 +18,7 @@ import displayAppModal from "@/lib/displayAppModal";
 
 const SlideCart = dynamic(() => import("../components/SlideCart"));
 const NextNProgress = dynamic(() => import("../components/Nprogress"));
-const LoadingBar = dynamic(() => import("../components/loadingBar"));
+const LoadingBar = dynamic(() => import("../components/Loader/loadingBar"));
 const SpinnerOverlay = dynamic(() => import("../components/SpinnerOverlay"));
 const AuthModal = dynamic(() => import("../components/modal/AuthModal"));
 const QuickViewModal = dynamic(

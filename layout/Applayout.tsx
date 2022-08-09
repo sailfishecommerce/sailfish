@@ -7,8 +7,8 @@ import LayoutWrapper from "./LayoutWrapper";
 import useLoading from "@/hooks/useLoading";
 import Header from "@/components/Header";
 
-const Footer = dynamic(() => import("../components/Footer"));
-const LoadingBar = dynamic(() => import("../components/loadingBar"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const LoadingBar = dynamic(() => import("@/components/Loader/loadingBar"));
 
 interface Applayout {
   title: string;
