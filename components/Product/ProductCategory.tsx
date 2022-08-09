@@ -128,8 +128,6 @@ export default function ProductCategory({
                         />
                       </div>
                     </div>
-                    <hr className="my-3" />
-                    <ShopPagination />
                   </div>
                 ) : (
                   <img

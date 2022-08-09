@@ -4,9 +4,9 @@ import Link from "next/link";
 import searchClient from "@/lib/algoliaConfig";
 
 import Categories from "@/components/Category/Categories";
-import ShopBannerToolbar from "./Banner/ShopBannerToolbar";
-import InfiniteProductHits from "./InfiniteHits";
-import CollectionCurrentRefinements from "./AlgoliaWidgets/CollectionCurrentRefinement";
+import ShopBannerToolbar from "../Banner/ShopBannerToolbar";
+import InfiniteProductHits from "../AlgoliaWidgets/InfiniteHits";
+import CollectionCurrentRefinements from "../AlgoliaWidgets/CollectionCurrentRefinement";
 
 interface MarketplaceProps {
   collection?: {
@@ -16,7 +16,7 @@ interface MarketplaceProps {
   category: string;
 }
 
-export default function CollectionMarketplace({
+export default function CollectionMarketplaceView({
   collection,
   category,
 }: MarketplaceProps) {

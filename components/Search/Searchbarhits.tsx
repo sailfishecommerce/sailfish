@@ -14,7 +14,7 @@ import {
 import Image from "@/components/Image";
 import { useAppDispatch } from "@/redux/store";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
-import FormattedPrice from "@/components/FormattedPrice";
+import FormattedPrice from "@/components/Widgets/FormattedPrice";
 
 interface SearchHitsProps {
   hits: hitType[];

@@ -1,4 +1,4 @@
-import { SpinnerRoller } from "@/components/spinnerLoader";
+import { SpinnerRoller } from "@/components/Loader/SpinnerLoader";
 
 interface buttonProps {
   disable: boolean;

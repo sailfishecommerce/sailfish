@@ -2,12 +2,12 @@
 import { useEffect, useState } from "react";
 import { InstantSearch, Configure } from "react-instantsearch-dom";
 import Link from "next/link";
-
-import AlgoliaCurrentRefinement from "@/components/AlgoliaCurrentRefinement";
-import Categories from "@/components/Category/Categories";
-import ShopBannerToolbar from "./Banner/ShopBannerToolbar";
-import InfiniteProductHits from "./InfiniteHits";
 import { useRouter } from "next/router";
+
+import AlgoliaCurrentRefinement from "@/components/AlgoliaWidgets/AlgoliaCurrentRefinement";
+import Categories from "@/components/Category/Categories";
+import ShopBannerToolbar from "@/components/Banner/ShopBannerToolbar";
+import InfiniteProductHits from "../AlgoliaWidgets/InfiniteHits";
 
 interface MarketplaceProps {
   searchState: any;
@@ -23,7 +23,7 @@ interface MarketplaceProps {
   };
 }
 
-export default function MarketplaceTemp(
+export default function MarketplaceView(
   props: any,
   {
     category,

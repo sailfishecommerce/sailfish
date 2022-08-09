@@ -5,7 +5,7 @@ import searchClient from "@/lib/algoliaConfig";
 
 import AlgoliaCurrentRefinement from "@/components/AlgoliaWidgets/AlgoliaCurrentRefinement";
 import ShopBannerToolbar from "../Banner/ShopBannerToolbar";
-import InfiniteProductHits from "../InfiniteHits";
+import InfiniteProductHits from "../AlgoliaWidgets/InfiniteHits";
 import VendorCategories from "@/components/Category/VendorCategories";
 
 interface MarketplaceProps {

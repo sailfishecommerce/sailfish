@@ -8,7 +8,7 @@ import {
 import ProductPanel from "@/components/Product/ProductPanel";
 import { productType } from "@/types";
 import FormattedPrice from "@/lib/formatPrice";
-import Rating from "@/components/Rating";
+import Rating from "@/components/Widgets/Rating";
 import ProductForm from "@/components/Product/ProductForm";
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const DynamicContactModal = dynamic(
-  () => import("@/components/ContactForMoreModal")
+  () => import("@/components/Modal/ContactForMoreModal")
 );
 
 export default function ProductDetail({ product }: Props) {

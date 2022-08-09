@@ -10,10 +10,10 @@ import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { toggleAuthModal, toggleSlideCart } from "@/redux/ui-slice";
 import menuLink from "@/json/menu.json";
 import { useAuth } from "@/hooks";
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/components/Search/SearchBar";
 import useScroll from "@/hooks/useScroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import MobileCategoryList from "./MobileCategoryList";
+import MobileCategoryList from "../Category/MobileCategoryList";
 import FormattedPrice from "@/lib/formatPrice";
 import styles from "@/styles/ui.module.css";
 

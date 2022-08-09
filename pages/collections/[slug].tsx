@@ -3,7 +3,7 @@ import Head from "next/head";
 
 import Applayout from "@/layout/Applayout";
 import { categoryType } from "@/types";
-import CollectionMarketplace from "@/components/CollectionMarketplace";
+import CollectionMarketplace from "@/components/View/CollectionMarketplaceView";
 import getStoreCategories from "@/lib/getStoreCategories";
 import getAStoreCategory from "@/lib/getAStoreCategory";
 

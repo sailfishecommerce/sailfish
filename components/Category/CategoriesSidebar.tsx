@@ -2,9 +2,9 @@ import { useQueryClient, useQuery } from "react-query";
 
 import CategoryItem from "@/components/CategoryItem";
 import useCategory from "@/hooks/useCategory";
-import PriceSlider from "@/components/PriceSlider";
+import PriceSlider from "@/components/Slider/PriceSlider";
 import FilterBySize from "@/components/FilterBySize";
-import FilterByColor from "@/components/FilterByColor";
+import FilterByColor from "@/components/Widgets/FilterByColor";
 import LoadCategorySidebar from "@/components/CategorySidebarLoader";
 import { attributeType, categorySlugType } from "@/types";
 import useSwellProducts from "@/hooks/useSwellProducts";

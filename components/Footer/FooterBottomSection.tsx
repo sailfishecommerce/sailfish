@@ -2,8 +2,9 @@
 import Link from "next/link";
 
 import footerBottomContent from "@/json/footer-bottom.json";
-import CurrencyLanguageDropdown from "@/components/CurrencyLanguageDropdown";
-import Image from "@/components/Image";
+import CurrencyLanguageDropdown from "@/components/View/CurrencyLanguageView";
+import Image from "@/components/Widgets/Image";
+import SocialIcons from "@/components/SocialIcons";
 
 export default function FooterBottomSection() {
   return (
@@ -60,19 +61,7 @@ export default function FooterBottomSection() {
               </div>
             </div>
             <div className="col-md-6 text-center text-md-end mb-4">
-              <div className="mb-3">
-                {footerBottomContent.social.map((data, index) => (
-                  <a
-                    key={`${data.name}-${index}`}
-                    rel="noreferrer"
-                    target="_blank"
-                    className={`btn-social bs-light bs-${data.name} ms-2 mb-2`}
-                    href={data.link}
-                  >
-                    <i className={`ci-${data.name}`}></i>
-                  </a>
-                ))}
-              </div>
+              <SocialIcons />
               <div className="imgContainer">
                 <Image
                   className="d-inline-block"

@@ -2,7 +2,7 @@
 import { useRef, MutableRefObject } from "react";
 
 import useStripeElement from "@/hooks/useStripeElement";
-import { Button } from "@/components/UIElement";
+import { Button } from "@/components/Button";
 import SpinnerRipple from "@/components/spinnerLoader";
 import styles from "@/styles/ui.module.css";
 

@@ -1,5 +1,5 @@
 import useCoupon from "@/hooks/useCoupon";
-import { Button } from "@/components/UIElement";
+import { Button } from "@/components/Button";
 import styles from "@/styles/ui.module.css";
 import useShoppingCart from "@/hooks/useShoppingCart";
 

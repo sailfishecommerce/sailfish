@@ -17,12 +17,12 @@ import useModal from "@/hooks/useModal";
 import displayAppModal from "@/lib/displayAppModal";
 
 const SlideCart = dynamic(() => import("../components/Cart/SlideCart"));
-const NextNProgress = dynamic(() => import("../components/Nprogress"));
+const NextNProgress = dynamic(() => import("../components/Loader/Nprogress"));
 const LoadingBar = dynamic(() => import("../components/Loader/loadingBar"));
 const SpinnerOverlay = dynamic(() => import("../components/Loader/SpinnerOverlay"));
-const AuthModal = dynamic(() => import("../components/modal/AuthModal"));
+const AuthModal = dynamic(() => import("../components/Modal/AuthModal"));
 const QuickViewModal = dynamic(
-  () => import("../components/modal/QuickViewModal")
+  () => import("../components/Modal/QuickViewModal")
 );
 
 export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {

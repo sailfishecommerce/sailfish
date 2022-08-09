@@ -2,9 +2,9 @@
 import dynamic from "next/dynamic";
 import Applayout from "@/layout/Applayout";
 import ContactBanner from "@/components/Banner/ContactBanner";
-import ContactusCard from "@/components/ContactusCard";
+import ContactusCard from "@/components/Cards/ContactusCard";
 
-const DynamicContactMap = dynamic(() => import("../components/ContactMap"));
+const DynamicContactMap = dynamic(() => import("../components/Map/ContactMap"));
 const DynamicContactForm = dynamic(() => import("../components/Form/ContactForm"));
 const DynamicPartnerOutlet = dynamic(
   () => import("../components/PartnerOutlet")

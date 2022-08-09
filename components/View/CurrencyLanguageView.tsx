@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import { useQuery, useQueryClient } from "react-query";
-import { Dropdown } from "react-bootstrap";
 import { memo } from "react";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
@@ -14,7 +13,7 @@ interface Props {
   position?: string;
 }
 
-function CurrencyLanguageDropdownComponent({ position }: Props) {
+function CurrencyLanguageViewComponent({ position }: Props) {
   const dispatch = useAppDispatch();
   const { isLoading, isSuccessful, hasError } = useToast();
   const { selectCurrencies } = useCurrency();
@@ -50,8 +49,8 @@ function CurrencyLanguageDropdownComponent({ position }: Props) {
   );
 }
 
-const CurrencyLanguageDropdown = memo(CurrencyLanguageDropdownComponent);
+const CurrencyLanguageView = memo(CurrencyLanguageViewComponent);
 
-export default CurrencyLanguageDropdown;
+export default CurrencyLanguageView;
 
-CurrencyLanguageDropdown.whyDidYouRender = true;
+CurrencyLanguageView.whyDidYouRender = true;

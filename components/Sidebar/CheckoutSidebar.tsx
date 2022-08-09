@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import { Button } from "@/components/UIElement";
+import { Button } from "@/components/Button";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType, itemType } from "@/types";
 import useCoupon from "@/hooks/useCoupon";

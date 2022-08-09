@@ -1,11 +1,11 @@
 import { Formik } from "formik";
 import Link from "next/link";
 
-import SocailIcons from "../SocailIcons";
+import SocialIcons from "@/components/SocialIcons";
 import { useAuth } from "@/hooks";
-import { signinFormSchema } from "./AuthSchema";
+import { signinFormSchema } from "@/components/Form/AuthSchema";
 import formContent from "@/json/AccountAuthform.json";
-import { displayFormElement } from "./FormElement";
+import { displayFormElement } from "@/components/Form/FormElement";
 
 export default function AccountSigninForm() {
   const { signIn } = useAuth();
@@ -18,7 +18,7 @@ export default function AccountSigninForm() {
             <h3 className="d-inline-block align-middle fs-base fw-medium mb-2 me-2">
               With social account:
             </h3>
-            <SocailIcons />
+            <SocialIcons />
           </div>
           <hr />
           <h3 className="fs-base pt-4 pb-2">Or using form below</h3>

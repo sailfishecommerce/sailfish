@@ -1,4 +1,4 @@
-import AppModal from "@/components/modal/AppModal";
+import AppModal from "@/components/Modal/AppModal";
 import SignupForm from "../SignupForm";
 import SigninForm from "../Form/SigninForm";
 import { modalType } from "@/types";

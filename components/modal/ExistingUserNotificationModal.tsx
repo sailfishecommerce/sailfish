@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 
 import Image from "@/components/Image";
-import AppModal from "@/components/modal/AppModal";
+import AppModal from "@/components/Modal/AppModal";
 import useModal from "@/hooks/useModal";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { toggleAuthModal } from "@/redux/ui-slice";
