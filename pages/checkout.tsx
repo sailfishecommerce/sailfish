@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 import Applayout from "@/layout/Applayout";
 import useAirwallex from "@/hooks/useAirwallex";
-import CheckoutBanner from "@/components/CheckoutBanner";
+import CheckoutBanner from "@/components/Banner/CheckoutBanner";
 import { useAppSelector, useAppDispatch } from "@/hooks/useRedux";
 import useCart from "@/hooks/useCart";
 import { clientSecretValidity } from "@/lib/airwallex-payment";
@@ -14,7 +14,7 @@ const DynamicCheckoutSidebar = dynamic(
   () => import("../components/CheckoutSidebar")
 );
 
-const DynamicCheckoutForm = dynamic(() => import("../components/CheckoutForm"));
+const DynamicCheckoutForm = dynamic(() => import("../components/Form/CheckoutForm"));
 
 export default function Checkout() {
   const { generateAirwallexAccessToken } = useAirwallex();

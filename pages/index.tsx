@@ -5,7 +5,7 @@ import swell from "swell-node";
 import swellNodeInit from "@/lib/swellNode";
 import FeaturedCategory from "@/components/FeaturedCategory";
 import InfoCards from "@/components/InfoCards";
-import PopularCategories from "@/components/PopularCategories";
+import PopularCategories from "@/components/Category/PopularCategories";
 import Banners from "@/components/Banner";
 import Applayout from "@/layout/Applayout";
 import HomepageSlider from "@/components/HomepageSlider";

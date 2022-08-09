@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import dynamic from "next/dynamic";
 import Applayout from "@/layout/Applayout";
-import ContactBanner from "@/components/ContactBanner";
+import ContactBanner from "@/components/Banner/ContactBanner";
 import ContactusCard from "@/components/ContactusCard";
 
 const DynamicContactMap = dynamic(() => import("../components/ContactMap"));
-const DynamicContactForm = dynamic(() => import("../components/ContactForm"));
+const DynamicContactForm = dynamic(() => import("../components/Form/ContactForm"));
 const DynamicPartnerOutlet = dynamic(
   () => import("../components/PartnerOutlet")
 );

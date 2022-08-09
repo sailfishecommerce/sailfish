@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 
 import Applayout from "@/layout/Applayout";
 import passwordResetForm from "@/json/password-reset.json";
-import { displayFormElement } from "@/components/FormElement";
-import { forgotPasswordSchema } from "@/components/AuthSchema";
+import { displayFormElement } from "@/components/Form/FormElement";
+import { forgotPasswordSchema } from "@/components/Form/AuthSchema";
 import { useAccount, useLoading, useToast } from "@/hooks";
 
 export default function AccountPasswordRecovery() {

@@ -16,10 +16,10 @@ import "react-toastify/dist/ReactToastify.css";
 import useModal from "@/hooks/useModal";
 import displayAppModal from "@/lib/displayAppModal";
 
-const SlideCart = dynamic(() => import("../components/SlideCart"));
+const SlideCart = dynamic(() => import("../components/Cart/SlideCart"));
 const NextNProgress = dynamic(() => import("../components/Nprogress"));
 const LoadingBar = dynamic(() => import("../components/Loader/loadingBar"));
-const SpinnerOverlay = dynamic(() => import("../components/SpinnerOverlay"));
+const SpinnerOverlay = dynamic(() => import("../components/Loader/SpinnerOverlay"));
 const AuthModal = dynamic(() => import("../components/modal/AuthModal"));
 const QuickViewModal = dynamic(
   () => import("../components/modal/QuickViewModal")

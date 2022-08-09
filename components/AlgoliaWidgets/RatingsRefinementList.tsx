@@ -1,6 +1,6 @@
 import { connectRefinementList } from "react-instantsearch-dom";
 
-import RatingStar from "./RatingStar";
+import RatingStar from "../RatingStar";
 
 export default function RatingsRefinementList({
   items,

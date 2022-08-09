@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import CategoriesSidebar from "@/components/CategoriesSidebar";
+import CategoriesSidebar from "@/components/Category/CategoriesSidebar";
 import ProductList from "@/components/Product/ProductList";
-import SpinnerRipple from "@/components/spinnerLoader";
+import SpinnerRipple from "@/components/Loader/SpinnerLoader";
 import { categorySlugType, categoryType, productType } from "@/types";
 import useCategory from "@/hooks/useCategory";
 import Product from "@/components/Product";

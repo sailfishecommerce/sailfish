@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import Link from "next/link";
 
-import SocailIcons from "./SocailIcons";
+import SocailIcons from "../SocailIcons";
 import { useAuth } from "@/hooks";
 import { signinFormSchema } from "./AuthSchema";
 import formContent from "@/json/AccountAuthform.json";

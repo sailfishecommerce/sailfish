@@ -3,10 +3,10 @@ import { InstantSearch, Configure } from "react-instantsearch-hooks-web";
 import Link from "next/link";
 import searchClient from "@/lib/algoliaConfig";
 
-import AlgoliaCurrentRefinement from "@/components/AlgoliaCurrentRefinement";
-import ShopBannerToolbar from "./ShopBannerToolbar";
-import InfiniteProductHits from "./InfiniteHits";
-import VendorCategories from "./VendorCategories";
+import AlgoliaCurrentRefinement from "@/components/AlgoliaWidgets/AlgoliaCurrentRefinement";
+import ShopBannerToolbar from "../ShopBannerToolbar";
+import InfiniteProductHits from "../InfiniteHits";
+import VendorCategories from "@/components/Category/VendorCategories";
 
 interface MarketplaceProps {
   category?: {

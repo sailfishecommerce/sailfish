@@ -1,8 +1,8 @@
-import { CustomRangeSlider } from "./AlgoliaPriceRange";
-import { VendorRefinementList } from "./VendorRefinementList";
-import { RatingsList } from "./RatingsRefinementList";
-import { TagsRefinementList } from "./TagsRefinementList";
-import { SingleVendorRefinementList } from "./SingleVendorRefinementList";
+import { CustomRangeSlider } from "@/components/AlgoliaWidgets/AlgoliaPriceRange";
+import { VendorRefinementList } from "@/components//AlgoliaWidgets/VendorRefinementList";
+import { RatingsList } from "@/components//AlgoliaWidgets/RatingsRefinementList";
+import { TagsRefinementList } from "@/components/AlgoliaWidgets/TagsRefinementList";
+import { SingleVendorRefinementList } from "@/components/AlgoliaWidgets/SingleVendorRefinementList";
 
 interface props {
   vendorView: boolean;

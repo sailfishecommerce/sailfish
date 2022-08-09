@@ -1,6 +1,6 @@
 import Metatag from "@/components/Metatag";
 import Applayout from "@/layout/Applayout";
-import VendorView from "@/components/VendorView";
+import VendorView from "@/components/View/VendorView";
 import styles from "@/styles/shop.module.css";
 import filterProducts from "@/lib/filterProducts";
 

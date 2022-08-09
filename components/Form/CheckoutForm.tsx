@@ -1,5 +1,5 @@
 import { useState, memo } from "react";
-import CheckoutPaymentMethod from "@/components/CheckoutPaymentMethod";
+import CheckoutPaymentMethod from "@/components/Payment/CheckoutPaymentMethod";
 import ShippingCheckoutForm from "@/components/ShippingCheckoutForm";
 
 function CheckoutFormComponent() {

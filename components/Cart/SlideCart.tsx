@@ -4,7 +4,7 @@ import Link from "next/link";
 import FormattedPrice from "@/lib/formatPrice";
 import { useAppDispatch } from "@/hooks/useRedux";
 import { displayCheckoutModalAction } from "@/redux/ui-slice";
-import { CartDiscount } from "./CartElements";
+import { CartDiscount } from "../CartElements";
 import SlideCartNote from "./SlideCartNote";
 import SlideCartProduct from "./SlideCartProduct";
 import styles from "@/styles/ui.module.css";

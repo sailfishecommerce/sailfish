@@ -4,7 +4,7 @@ import { InstantSearch, Configure } from "react-instantsearch-dom";
 import Link from "next/link";
 
 import AlgoliaCurrentRefinement from "@/components/AlgoliaCurrentRefinement";
-import Categories from "@/components/Categories";
+import Categories from "@/components/Category/Categories";
 import ShopBannerToolbar from "./ShopBannerToolbar";
 import InfiniteProductHits from "./InfiniteHits";
 import { useRouter } from "next/router";

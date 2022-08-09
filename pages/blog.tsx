@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import Applayout from "@/layout/Applayout";
 import blogContent from "@/json/blog.json";
-import BlogArticleExcerpt from "@/components/BlogArticleExcerpt";
+import BlogArticleExcerpt from "@/components/Blog/BlogArticleExcerpt";
 
 const BlogSlider = dynamic(
   () => import("../components/Carousel/BlogGridCarousel"),

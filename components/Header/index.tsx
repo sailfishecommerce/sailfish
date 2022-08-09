@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import Topbar from "@/components/Topbar";
+import Topbar from "@/components/Header/Topbar";
 import Nav from "@/components/Nav";
 import styles from "@/styles/ui.module.css";
 

@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
 
 import { accordionButtonStyle } from "@/lib/single-Checkout";
-import BankTransferPaymentMethod from "./BankTransferPaymentMethod";
-import AirwallexPaymentMethod from "./AirwallexPaymentMethod";
-import PaymentWithStripe from "./PaymentWithStripe";
+import BankTransferPaymentMethod from "@/components/Payment/BankTransferPaymentMethod";
+import AirwallexPaymentMethod from "@/components/Airwallex/AirwallexPaymentMethod";
+import PaymentWithStripe from "@/components/Payment/PaymentWithStripe";
 
 interface CheckoutPaymentMethodProps {
   formStages: {

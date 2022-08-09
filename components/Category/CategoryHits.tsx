@@ -4,7 +4,7 @@ import { ProductHit, ProductHitList } from "@/components/Product/ProductHit";
 import useCategory from "@/hooks/useCategory";
 import { useAppSelector } from "@/hooks/useRedux";
 import { hitType } from "@/types";
-import ShopLoader from "@/components/ShopLoader";
+import ShopLoader from "@/components/Loader/ShopLoader";
 
 interface Props {
   hits?: any;

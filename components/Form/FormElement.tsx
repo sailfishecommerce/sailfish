@@ -2,9 +2,11 @@ import { useState } from "react";
 import { FormikProps } from "formik";
 import dynamic from "next/dynamic";
 
-const SelectCountries = dynamic(() => import("./SelectCountries"));
+const SelectCountries = dynamic(
+  () => import("@/components/Form/SelectCountries")
+);
 const SearchLocationInput = dynamic(
-  () => import("../components/SearchLocationInput")
+  () => import("@/components/Form/SearchLocationInput")
 );
 
 type inputContentType = {

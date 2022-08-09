@@ -3,8 +3,8 @@ import { Formik } from "formik";
 
 import { useAccount, useLoading } from "@/hooks";
 import Applayout from "@/layout/Applayout";
-import { passwordRecoverySchema } from "@/components/AuthSchema";
-import { displayFormElement } from "@/components/FormElement";
+import { passwordRecoverySchema } from "@/components/Form/AuthSchema";
+import { displayFormElement } from "@/components/Form/FormElement";
 import passwordResetForm from "@/json/password-reset.json";
 
 type stateType = { status: any; email?: string };

@@ -1,4 +1,4 @@
-import SpinnerRipple from "./spinnerLoader";
+import SpinnerRipple from "@/components/Loader/SpinnerLoader";
 
 export default function SpinnerOverlay() {
   return (

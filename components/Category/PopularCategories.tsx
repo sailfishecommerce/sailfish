@@ -1,5 +1,5 @@
 import { useCategoryData } from "@/hooks/useCategory";
-import PopularCategory from "@/components/PopularCategory";
+import PopularCategory from "@/components/Category/PopularCategory";
 import LoadingPopularCategory from "@/components/PopularCategoryLoader";
 
 export default function PopularCategories() {

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-import { CartControl } from "./CartElements";
+import { CartControl } from "@/components/Cart/CartElements";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
 import useVbout from "@/hooks/useVbout";

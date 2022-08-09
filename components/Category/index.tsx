@@ -3,7 +3,7 @@ import Image from "@/components/Image";
 import Link from "next/link";
 
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
-import RatingStar from "./RatingStar";
+import RatingStar from "@/components/RatingStar";
 
 interface CategoryProps {
   category: {

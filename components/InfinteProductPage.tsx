@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import { useAppSelector } from "@/hooks/useRedux";
-import ShopLoader from "@/components/ShopLoader";
+import ShopLoader from "@/components/Loader/ShopLoader";
 import ProductList from "@/components/Product/ProductList";
 import Product from "@/components/Product";
 import { productType } from "@/types";

@@ -1,9 +1,9 @@
-import { CustomRangeSlider } from "./AlgoliaPriceRange";
-import { VendorRefinementList } from "./VendorRefinementList";
-import { CategoriesRefinementList } from "./CategoriesRefinementList";
-import { RatingsList } from "./RatingsRefinementList";
-import { MarketplaceCategoriesRefinementList } from "./MarketplaceCategoryRefinementList";
-import { TagsRefinementList } from "./TagsRefinementList";
+import { CustomRangeSlider } from "@/components/AlgoliaWidgets/AlgoliaPriceRange";
+import { VendorRefinementList } from "../AlgoliaWidgets/VendorRefinementList";
+import { CategoriesRefinementList } from "@/components/Category/CategoriesRefinementList";
+import { RatingsList } from "../AlgoliaWidgets/RatingsRefinementList";
+import { MarketplaceCategoriesRefinementList } from "../MarketplaceCategoryRefinementList";
+import { TagsRefinementList } from "../AlgoliaWidgets/TagsRefinementList";
 
 interface CategoriesProps {
   categoryMarketplace?: boolean;
@@ -23,7 +23,7 @@ export default function Categories({ categoryMarketplace }: CategoriesProps) {
             type="button"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
-          ></button> 
+          ></button>
         </div>
         <div className="offcanvas-body py-grid-gutter px-lg-grid-gutter">
           {categoryMarketplace ? (

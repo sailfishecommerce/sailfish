@@ -3,7 +3,7 @@ import { connectInfiniteHits } from "react-instantsearch-dom";
 import { ProductHit, ProductHitList } from "@/components/Product/ProductHit";
 import { useAppSelector } from "@/hooks/useRedux";
 import { hitType } from "@/types";
-import ShopLoader from "@/components/ShopLoader";
+import ShopLoader from "@/components/Loader/ShopLoader";
 
 interface Props {
   hits: hitType[];

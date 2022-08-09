@@ -1,6 +1,6 @@
 import AppModal from "@/components/modal/AppModal";
 import SignupForm from "../SignupForm";
-import SigninForm from "../SigninForm";
+import SigninForm from "../Form/SigninForm";
 import { modalType } from "@/types";
 import authData from "@/json/auth-modal.json";
 

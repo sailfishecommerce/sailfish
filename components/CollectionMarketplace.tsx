@@ -3,7 +3,7 @@ import { InstantSearch, Configure } from "react-instantsearch-dom";
 import Link from "next/link";
 import searchClient from "@/lib/algoliaConfig";
 
-import Categories from "@/components/Categories";
+import Categories from "@/components/Category/Categories";
 import ShopBannerToolbar from "./ShopBannerToolbar";
 import InfiniteProductHits from "./InfiniteHits";
 import CollectionCurrentRefinements from "./CollectionCurrentRefinement";
