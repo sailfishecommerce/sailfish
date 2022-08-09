@@ -6,7 +6,7 @@ import {
 } from "react-instantsearch-dom";
 
 import searchClient from "@/lib/algoliaConfig";
-import { HitProduct } from "@/components/ProductHit";
+import { HitProduct } from "@/components/Product/ProductHit";
 
 interface Props {
   category: string;

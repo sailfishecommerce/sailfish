@@ -1,7 +1,7 @@
-import ProductBanner from "@/components/ProductBanner";
-import ProductDescription from "@/components/ProductDescription";
-import ProductGalleryDetails from "@/components/ProductGalleryDetails";
-import ProductReview from "@/components/ProductReview";
+import ProductBanner from "@/components/Product/ProductBanner";
+import ProductDescription from "@/components/Product/ProductDescription";
+import ProductGalleryDetails from "@/components/Product/ProductGalleryDetails";
+import ProductReview from "@/components/Product/ProductReview";
 import RelatedProducts from "@/components/RelatedProducts";
 
 interface ProductOverviewProps {

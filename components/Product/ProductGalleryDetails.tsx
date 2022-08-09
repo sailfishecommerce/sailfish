@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { PropsWithChildren } from "react";
 
-import { productType } from "../types";
-import ProductGallery from "@/components/ProductGallery";
-import ProductDetail from "@/components/ProductDetail";
+import type { productType } from "@/types";
+import ProductGallery from "@/components/Product/ProductGallery";
+import ProductDetail from "@/components/Product/ProductDetail";
 
 interface Props {
   product: productType;

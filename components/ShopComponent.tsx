@@ -10,7 +10,7 @@ import ShopBannerToolbar from "@/components/ShopBannerToolbar";
 import ShopPagination from "@/components/ShopPagination";
 import useSwellProducts from "@/hooks/useSwellProducts";
 import { useAppSelector } from "@/hooks/useRedux";
-import ProductList from "@/components/ProductList";
+import ProductList from "@/components/Product/ProductList";
 
 export default function ShopComponent() {
   const { allProducts } = useSwellProducts();

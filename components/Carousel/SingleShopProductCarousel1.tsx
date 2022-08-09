@@ -16,7 +16,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/keyboard";
 import "swiper/css/mousewheel";
-import ProductCarouselView from "../ProductCarouselView";
+import ProductCarouselView from "@/components/Product/ProductCarouselView";
 
 interface Props {
   otherProducts: productType[];

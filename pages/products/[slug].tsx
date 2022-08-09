@@ -1,6 +1,6 @@
 import Applayout from "@/layout/Applayout";
-import ProductOverview from "@/components/ProductOverview";
-import ProductMetatag from "@/components/ProductMetatag";
+import ProductOverview from "@/components/Product/ProductOverview";
+import ProductMetatag from "@/components/Product/ProductMetatag";
 import getAProduct from "@/lib/getAProduct";
 
 interface ProductPage {

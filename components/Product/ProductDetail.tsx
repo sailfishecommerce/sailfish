@@ -1,21 +1,22 @@
-import Link from "next/link";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-import { PaymentNote, ShareProductLink } from "@/components/ProductView";
-import ProductPanel from "@/components/ProductPanel";
+import {
+  PaymentNote,
+  ShareProductLink,
+} from "@/components/Product/ProductView";
+import ProductPanel from "@/components/Product/ProductPanel";
 import { productType } from "@/types";
 import FormattedPrice from "@/lib/formatPrice";
-import Rating from "./Rating";
-import ProductForm from "./ProductForm";
-import { replaceSpaceWithHypen } from "@/lib/formatString";
+import Rating from "@/components/Rating";
+import ProductForm from "@/components/Product/ProductForm";
 
 interface Props {
   product: productType;
 }
 
 const DynamicContactModal = dynamic(
-  () => import("../components/ContactForMoreModal")
+  () => import("@/components/ContactForMoreModal")
 );
 
 export default function ProductDetail({ product }: Props) {
@@ -63,11 +64,6 @@ export default function ProductDetail({ product }: Props) {
         </div>
         <ProductForm product={product} />
         <div className="d-flex flex-column flex-start align-items-start">
-          {/* <Link href={`/collections/vendors/${product.vendor}`} passHref>
-            <a className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0">
-              + All {product.vendor} products
-            </a>
-          </Link> */}
           <button
             onClick={toggleModal}
             className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0"

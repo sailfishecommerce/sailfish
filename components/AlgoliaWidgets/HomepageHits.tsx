@@ -1,7 +1,7 @@
 import { Configure, InstantSearch } from "react-instantsearch-dom";
 import searchClient from "@/lib/algoliaConfig";
 
-import { HitProduct } from "@/components/ProductHit";
+import { HitProduct } from "@/components/Product/ProductHit";
 
 export default function HomepageHits() {
   return (

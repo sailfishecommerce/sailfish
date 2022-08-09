@@ -4,10 +4,10 @@ import { Modal } from "react-bootstrap";
 
 import FormattedPrice from "@/lib/formatPrice";
 import { quickViewModal } from "@/redux/ui-slice";
-import Rating from "../Rating";
-import ProductForm from "../ProductForm";
+import Rating from "@/components/Rating";
+import ProductForm from "@/components/Product/ProductForm";
 import { useAppDispatch } from "@/hooks/useRedux";
-import ProductGallery from "@/components/ProductGallery";
+import ProductGallery from "@/components/Product/ProductGallery";
 import discountPrice from "@/lib/discountPrice";
 
 interface QuickViewModalProps {

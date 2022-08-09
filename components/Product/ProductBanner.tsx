@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import { replaceSpaceWithHypen } from "@/lib/formatString";
-import { productType } from "../types";
+import type { productType } from "@/types";
 
 interface Props {
   product: productType;

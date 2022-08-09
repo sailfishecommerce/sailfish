@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { connectInfiniteHits } from "react-instantsearch-dom";
-import { ProductHit, ProductHitList } from "@/components/ProductHit";
+import { ProductHit, ProductHitList } from "@/components/Product/ProductHit";
 import { useAppSelector } from "@/hooks/useRedux";
 import { hitType } from "@/types";
-import ShopLoader from "./ShopLoader";
+import ShopLoader from "@/components/ShopLoader";
 
 interface Props {
   hits: hitType[];

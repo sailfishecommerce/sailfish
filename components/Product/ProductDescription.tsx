@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { productType } from "../types";
+import type { productType } from "@/types";
 
 interface Props {
   product: productType;
