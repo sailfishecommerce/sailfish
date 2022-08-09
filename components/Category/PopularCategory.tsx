@@ -1,7 +1,7 @@
 import Link from "next/link";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
 
 interface PopularCategoryProps {
@@ -54,7 +54,7 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
           .popularCategory img {
             height: 200px;
           }
-          .popularCategory  a:hover {
+          .popularCategory a:hover {
             -webkit-transform: scale(1.03);
             -moz-transform: scale(1.03);
             -ms-transform: scale(1.03);

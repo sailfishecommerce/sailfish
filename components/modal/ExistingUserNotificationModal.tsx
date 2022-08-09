@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import AppModal from "@/components/Modal/AppModal";
 import useModal from "@/hooks/useModal";
 import { useAppDispatch } from "@/hooks/useRedux";

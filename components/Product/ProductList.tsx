@@ -2,9 +2,9 @@
 import { useCallback, useState } from "react";
 import Link from "next/link";
 
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import FormattedPrice from "@/lib/formatPrice";
-import RatingStar from "@/components/RatingStar";
+import RatingStar from "@/components/Widgets/RatingStar";
 import { productType } from "@/types";
 import useProduct from "@/hooks/useProduct";
 

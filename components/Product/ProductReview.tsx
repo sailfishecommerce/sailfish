@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-import ReviewBar from "@/components/ReviewBar";
+import ReviewBar from "@/components/Widgets/ReviewBar";
 
 interface Props {
   rating: number;

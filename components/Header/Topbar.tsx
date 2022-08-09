@@ -3,7 +3,7 @@ import { Dropdown } from "react-bootstrap";
 import Link from "next/link";
 
 import TopHeaderSlider from "@/components/Carousel/TopHeaderSlider";
-import CurrencyLanguageDropdown from "@/components/View/CurrencyLanguageView";
+import CurrencyLanguageDropdown from "@/components/Views/CurrencyLanguageView";
 import styles from "@/styles/Topbar.module.css";
 
 export default function Topbar() {

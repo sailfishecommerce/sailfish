@@ -1,4 +1,4 @@
-import DisplayTextView from "@/components/View/DisplayTextView";
+import DisplayTextView from "@/components/Views/DisplayTextView";
 
 interface TextViewInterface {
   content: {

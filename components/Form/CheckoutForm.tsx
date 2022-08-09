@@ -1,6 +1,6 @@
 import { useState, memo } from "react";
 import CheckoutPaymentMethod from "@/components/Payment/CheckoutPaymentMethod";
-import ShippingCheckoutForm from "@/components/ShippingCheckoutForm";
+import ShippingCheckoutForm from "@/components/Form/ShippingCheckoutForm";
 
 function CheckoutFormComponent() {
   const [formStages, setFormStages] = useState<any>({

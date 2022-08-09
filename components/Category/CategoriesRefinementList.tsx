@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { Highlight, connectMenu } from "react-instantsearch-dom";
-import LoadCategorySidebar from "@/components/CategorySidebarLoader";
-import { replaceSpaceWithHypen } from "@/lib/formatString";
+import LoadCategorySidebar from "@/components/Loader/CategorySidebarLoader";
 
 type itemType = {
   label: string;
@@ -12,7 +10,7 @@ type itemType = {
 
 export function CategoriesList({
   items,
-  isFromSearch,
+  isFromSearch, 
   refine,
   searchForItems,
   createURL,

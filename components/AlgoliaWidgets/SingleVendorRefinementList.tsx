@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { Highlight, connectRefinementList } from "react-instantsearch-dom";
-import LoadCategorySidebar from "@/components/CategorySidebarLoader";
+import { connectRefinementList } from "react-instantsearch-dom";
 import { useRouter } from "next/router";
 import toTitleCase, { replaceHypenWithSpace } from "@/lib/formatString";
 

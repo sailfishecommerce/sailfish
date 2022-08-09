@@ -2,7 +2,8 @@
 import { useEffect } from "react";
 import { Highlight, connectRefinementList } from "react-instantsearch-dom";
 import { useRouter } from "next/router";
-import LoadCategorySidebar from "@/components/CategorySidebarLoader";
+
+import LoadCategorySidebar from "@/components/Loader/CategorySidebarLoader";
 
 export function VendorList({
   items,

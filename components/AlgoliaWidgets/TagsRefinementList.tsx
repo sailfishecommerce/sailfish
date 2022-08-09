@@ -1,5 +1,6 @@
 import { Highlight, connectRefinementList } from "react-instantsearch-dom";
-import LoadCategorySidebar from "@/components/CategorySidebarLoader";
+
+import LoadCategorySidebar from "@/components/Loader/CategorySidebarLoader";
 
 export function TagsList({
   items,

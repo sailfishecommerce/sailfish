@@ -2,7 +2,7 @@ import { SearchBox, InstantSearch, Configure } from "react-instantsearch-dom";
 import { useRef, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import SearchbarHits from "@/components/Searchbarhits";
+import SearchbarHits from "@/components/Search/Searchbarhits";
 import searchClient from "@/lib/algoliaConfig";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import useVbout from "@/hooks/useVbout";

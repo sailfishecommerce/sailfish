@@ -1,11 +1,10 @@
 import { Component } from "react";
 import { withRouter } from "next/router";
 import qs from "qs";
-import { findResultsState } from "react-instantsearch-dom/server";
 
 import searchClient from "@/lib/algoliaConfig";
 import Applayout from "@/layout/Applayout";
-import MarketplaceTemp from "@/components/MarketplaceTemp";
+import MarketplaceView from "@/components/Views/MarketplaceView";
 import styles from "@/styles/shop.module.css";
 const updateAfter = 700;
 
@@ -122,6 +121,9 @@ class Shop extends Component {
   static async getInitialProps({ asPath }) {
     const searchState = pathToSearchState(asPath);
     console.log("asPath", asPath, "searchState", searchState);
+    const findResultsState = await (
+      await import("react-instantsearch-dom/server")
+    ).findResultsState;
     const resultsState = await findResultsState(MarketplaceTemp, {
       ...DEFAULT_PROPS,
       searchState,
@@ -178,7 +180,7 @@ class Shop extends Component {
         local
       >
         <div className={styles.shop}>
-          <MarketplaceTemp
+          <MarketplaceView
             {...DEFAULT_PROPS}
             searchState={this.props.searchState}
             resultsState={this.props.resultsState}

@@ -1,6 +1,6 @@
 import Applayout from "@/layout/Applayout";
 import AccountSigninForm from "@/components/Form/AccountSigninForm";
-import AccountSignupForm from "@/components/AccountSignupForm";
+import AccountSignupForm from "@/components/Form/AccountSignupForm";
 
 export default function MyAccountPage() {
   return (

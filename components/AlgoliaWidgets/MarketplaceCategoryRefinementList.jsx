@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { Highlight, connectRefinementList } from "react-instantsearch-dom";
-import LoadCategorySidebar from "@/components/CategorySidebarLoader";
+import LoadCategorySidebar from "@/components/Loader/CategorySidebarLoader";
 import { useRouter } from "next/router";
 
 export function CategoriesList({

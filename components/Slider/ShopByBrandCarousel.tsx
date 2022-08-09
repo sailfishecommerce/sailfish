@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import brands from "@/json/brand.json";
 import "swiper/css";
 import "swiper/css/autoplay";

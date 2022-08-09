@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 import footerBottomContent from "@/json/footer-bottom.json";
-import CurrencyLanguageDropdown from "@/components/View/CurrencyLanguageView";
+import CurrencyLanguageDropdown from "@/components/Views/CurrencyLanguageView";
 import Image from "@/components/Widgets/Image";
 import SocialIcons from "@/components/SocialIcons";
 

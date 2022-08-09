@@ -26,8 +26,6 @@ export default function AirwallexCard({
   const router = useRouter();
   const { loadToast, successToast, errorToast } = useToast();
 
-  console.log("intent_id", intent_id, "client_secret", client_secret);
-
   useEffect(() => {
     if (errorMessage.length > 0) {
       errorToast(errorMessage);

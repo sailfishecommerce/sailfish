@@ -3,7 +3,7 @@ import Link from "next/link";
 import aa from "search-insights";
 import { connectHitInsights, Highlight } from "react-instantsearch-dom";
 
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 import { hitType } from "@/types";
 

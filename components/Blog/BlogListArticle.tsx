@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import blogContentData from "@/json/blog-list-sidebar.json";
 
 const DynamicBlogPagination = dynamic(
-  () => import("../components/BlogListPagination")
+  () => import("@/components/Blog/BlogListPagination")
 );
 
 export default function BlogListArticle() {

@@ -1,9 +1,9 @@
 import { Formik } from "formik";
 
 import { useAuth } from "@/hooks";
-import { signupFormSchema } from "./AuthSchema";
+import { signupFormSchema } from "@/components/Form/AuthSchema";
 import formContent from "@/json/AccountAuthform.json";
-import { mapContent } from "./ContactForMoreForm";
+import { mapContent } from "@/components/Form/ContactForMoreForm";
 
 export default function AccountSignupForm() {
   const { signUp } = useAuth();

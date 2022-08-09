@@ -2,12 +2,12 @@
 import dynamic from "next/dynamic";
 
 import Applayout from "@/layout/Applayout";
-import BloglistBanner from "@/components/BloglistBanner";
-import BlogListArticle from "@/components/BlogListArticle";
-import BloglistSidebar from "@/components/BloglistSidebar";
+import BloglistBanner from "@/components/Blog/BloglistBanner";
+import BlogListArticle from "@/components/Blog/BlogListArticle";
+import BloglistSidebar from "@/components/Blog/BloglistSidebar";
 
 const BlogSlider = dynamic(
-  () => import("../components/Carousel/BlogGridCarousel"),
+  () => import("@/components/Carousel/BlogGridCarousel"),
   {
     ssr: false,
   }

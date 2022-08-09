@@ -1,5 +1,5 @@
 import useAirwallex from "@/hooks/useAirwallex";
-import { AirwallexDropin } from "@/components";
+import AirwallexDropin from "@/components/Airwallex/AirwallexDropin";
 import { useEffect } from "react";
 
 export default function AirwallexPaymentMethod() {

@@ -1,4 +1,4 @@
-import PolicyView from "@/components/View/PolicyView";
+import PolicyView from "@/components/Views/PolicyView";
 import Applayout from "@/layout/Applayout";
 
 export default function PrivacyPolicy() {

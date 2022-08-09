@@ -11,10 +11,12 @@ import { clientSecretValidity } from "@/lib/airwallex-payment";
 import { updateClientSecretStatus } from "@/redux/airwallex-slice";
 
 const DynamicCheckoutSidebar = dynamic(
-  () => import("../components/CheckoutSidebar")
+  () => import("@/components/Sidebar/CheckoutSidebar")
 );
 
-const DynamicCheckoutForm = dynamic(() => import("../components/Form/CheckoutForm"));
+const DynamicCheckoutForm = dynamic(
+  () => import("../components/Form/CheckoutForm")
+);
 
 export default function Checkout() {
   const { generateAirwallexAccessToken } = useAirwallex();

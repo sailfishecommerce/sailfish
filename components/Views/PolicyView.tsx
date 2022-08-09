@@ -10,7 +10,7 @@ interface Props {
 const DynamicCustomercareView = dynamic(
   () =>
     import(
-      /* webpackChunkName: 'CustomercareView' */ "@/components/View/CustomercareView"
+      /* webpackChunkName: 'CustomercareView' */ "@/components/Views/CustomercareView"
     )
 );
 

@@ -1,6 +1,5 @@
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import useMediaQuery from "@/hooks/useMediaQuery";
-
 
 export default function Banners() {
   const tabWidth = useMediaQuery("(max-width:768px)");

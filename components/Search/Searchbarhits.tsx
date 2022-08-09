@@ -11,7 +11,7 @@ import {
   updateSearchData,
   updateViewSearch,
 } from "@/redux/algolia-slice";
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import { useAppDispatch } from "@/redux/store";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
 import FormattedPrice from "@/components/Widgets/FormattedPrice";
