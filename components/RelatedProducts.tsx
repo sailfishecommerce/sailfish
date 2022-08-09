@@ -41,7 +41,6 @@ export default function RelatedProducts({ hit }: Props) {
       ) : (
         <>
           <ProductSlider
-            randomColor
             products={relatedProducts}
             title="Customers also purchased"
             productClassName="border border-gray-200 mr-6 rounded-lg"
@@ -52,7 +51,6 @@ export default function RelatedProducts({ hit }: Props) {
               productName={hit?.name}
               products={alsoBoughtProducts}
               productClassName="border border-gray-200 mr-6 rounded-lg"
-              randomColor={true}
             />
           )}
         </>

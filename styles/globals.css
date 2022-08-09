@@ -16,6 +16,10 @@ a {
   box-sizing: border-box;
 }
 
+.productSlider .splide__track {
+  height: 550px;
+}
+
 .brand-row .swiper-button-next,
 .brand-row .swiper-button-prev {
   border-radius: 50%;
