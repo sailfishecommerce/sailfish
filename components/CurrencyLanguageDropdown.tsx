@@ -19,7 +19,7 @@ function CurrencyLanguageDropdownComponent({ position }: Props) {
   const { isLoading, isSuccessful, hasError } = useToast();
   const { selectCurrencies } = useCurrency();
   const queryClient = useQueryClient();
-  const currencies:any = queryClient.getQueryData("currencies");
+  const currencies: any = queryClient.getQueryData("currencies");
 
   const { currency } = useAppSelector((state) => state.currencyLanguage);
   const footerStyle = position === "bottom" ? styles.bottom : "";
@@ -39,38 +39,14 @@ function CurrencyLanguageDropdownComponent({ position }: Props) {
   }
 
   return (
-    <Dropdown
-      className={`${styles.dropdown} ${footerStyle} topbar-text dropdown disable-autohide`}
+    <div
+      className={`${styles.dropdown} ${footerStyle} border border-primary py-2 px-4 topbar-text`}
     >
-      <Dropdown.Toggle
-        className={`${styles.dropdownToggle} topbar-link dropdown-toggle`}
-      >
+      <div className={`${styles.dropdownToggle} topbar-link`}>
         <img className="me-2" src="/img/flags/en.png" width="20" alt="en" />
         {`En / ${currency}`}
-      </Dropdown.Toggle>
-      {status === "error" ? (
-        "unable to load currencies"
-      ) : status === "loading" ? (
-        "loading currencies"
-      ) : (
-        <Dropdown.Menu>
-          <Dropdown.Item>
-            <select
-              onChange={selectCurrency}
-              className="form-select form-select-sm"
-            >
-              <option>Select Currency</option>
-              {currencies &&
-                currencies?.map((currency: any) => (
-                  <option key={currency.code} value={currency.code}>
-                    {currency.symbol} {currency.code}
-                  </option>
-                ))}
-            </select>
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      )}
-    </Dropdown>
+      </div>
+    </div>
   );
 }
 

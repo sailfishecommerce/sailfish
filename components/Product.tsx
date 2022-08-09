@@ -38,8 +38,6 @@ const MProduct = ({
     ? { height: 80, width: 80 }
     : { height: 300, width: 300 };
 
-  console.log("product", product);
-
   const linkURL =
     algoliaEvent === "search"
       ? `/products/${product.slug}?query-id=${product.__queryID}`

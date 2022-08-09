@@ -18,13 +18,18 @@ export default function FooterTopSection() {
 
   const selectedFooterCategory = useMarketplaceCategory();
 
+  const categoryImage = (contentLink: any) =>
+    typeof contentLink?.images[0] === "string"
+      ? contentLink?.images[0]
+      : contentLink?.images[0].file.url;
+
   function vboutCategoryViewHandler(contentLink: contentLinkType) {
     addCategoryView({
       id: contentLink.id,
       categoryId: contentLink.slug,
       categoryName: contentLink?.name,
       categoryLink: `categories/${contentLink.slug}`,
-      categoryImage: contentLink?.images[0]?.file?.url,
+      categoryImage: contentLink?.images ? categoryImage(contentLink) : "",
     });
   }
 
@@ -53,14 +58,14 @@ export default function FooterTopSection() {
                         {groupedContent.links.map(
                           (contentLink: any, index: number) => (
                             <li key={index} className="widget-list-item">
-                              {/* <Link href={`/${contentLink.slug}`} passHref> */}
-                              <a
-                                onClick={() => categoryEvents(contentLink)}
-                                className="widget-list-link"
-                              >
-                                {contentLink.name}
-                              </a>
-                              {/* </Link> */}
+                              <Link href={`/${contentLink.slug}`} passHref>
+                                <a
+                                  onClick={() => categoryEvents(contentLink)}
+                                  className="widget-list-link"
+                                >
+                                  {contentLink.name}
+                                </a>
+                              </Link>
                             </li>
                           )
                         )}
@@ -129,29 +134,6 @@ export default function FooterTopSection() {
                     offers, updates and new products info.
                   </div>
                   <div className="subscription-status"></div>
-                </div>
-              </div>
-              <div className="widget pb-2 mb-4">
-                <h3 className="widget-title text-light pb-1">
-                  Download our app
-                </h3>
-                <div className="d-flex flex-wrap">
-                  <div className="me-2 mb-2">
-                    <a className="btn-market btn-apple" href="#" role="button">
-                      <span className="btn-market-subtitle">
-                        Download on the
-                      </span>
-                      <span className="btn-market-title">App Store</span>
-                    </a>
-                  </div>
-                  <div className="mb-2">
-                    <a className="btn-market btn-google" href="#" role="button">
-                      <span className="btn-market-subtitle">
-                        Download on the
-                      </span>
-                      <span className="btn-market-title">Google Play</span>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>

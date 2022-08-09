@@ -21,12 +21,11 @@
         {
           "name": "Account & shipping info",
           "links": [
-            { "name": "Your account", "slug": "#" },
-            { "name": "Shipping rates & policies", "slug": "#" },
-            { "name": "Refunds & replacements", "slug": "#" },
-            { "name": "Order tracking", "slug": "#" },
-            { "name": "Delivery info", "slug": "#" },
-            { "name": "Taxes & fees", "slug": "#" }
+            { "name": "Account", "slug": "policies/my-account" },
+            { "name": "Privacy Policy", "slug": "policies/privacy-policy" },
+            { "name": "Refunds & replacements", "slug": "policies/return-and-refunds" },
+            { "name": "Order tracking", "slug": "policies/order-tracking" },
+            { "name": "Shipping & Delivery", "slug": "policies/shipping-and-delivery" }
           ]
         },
         {
@@ -34,7 +33,7 @@
           "links": [
             { "name": "About company", "slug": "about-us" },
             { "name": "Contacts", "slug": "contact-us" },
-            { "name": "News", "slug": "blog" }
+            { "name": "Blog", "slug": "blog" }
           ]
         }
       ]
