@@ -33,7 +33,6 @@ export default function RelatedProducts({ hit }: Props) {
 
   return (
     <>
-      <div className="mt-6 px-0 mx-0" />
       {status === "error" ? (
         "unable to load related products"
       ) : status === "loading" ? (

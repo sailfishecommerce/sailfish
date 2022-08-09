@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 
-import { ShareProductLink } from "@/components/ProductView";
+import { PaymentNote, ShareProductLink } from "@/components/ProductView";
 import ProductPanel from "@/components/ProductPanel";
 import { productType } from "@/types";
 import FormattedPrice from "@/lib/formatPrice";
@@ -63,11 +63,11 @@ export default function ProductDetail({ product }: Props) {
         </div>
         <ProductForm product={product} />
         <div className="d-flex flex-column flex-start align-items-start">
-          <Link href={`/collections/vendors/${product.vendor}`} passHref>
+          {/* <Link href={`/collections/vendors/${product.vendor}`} passHref>
             <a className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0">
               + All {product.vendor} products
             </a>
-          </Link>
+          </Link> */}
           <button
             onClick={toggleModal}
             className="notEnoughLink btn btn-link link-accent text-decoration-underline px-0"
@@ -79,6 +79,7 @@ export default function ProductDetail({ product }: Props) {
           <ProductPanel product={product} />
         )}
         <ShareProductLink />
+        <PaymentNote />
       </div>
       <style jsx>
         {`

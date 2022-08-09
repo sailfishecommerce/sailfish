@@ -22,7 +22,7 @@ export default function ContactForMoreModal({
   }
 
   return (
-    <Modal show={show} onHide={onClose} role="dialog">
+    <Modal show={show} onHide={onClose} role="dialog" contentClassName="px-2">
       <Modal.Header
         className="bg-secondary border-0"
         closeButton

@@ -43,7 +43,7 @@ export default function ProductGallery({ product, quickView }: Props) {
   return (
     <>
       <Head>
-        <link          
+        <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.4.0/src/css/lightgallery.css"
         />
@@ -106,7 +106,6 @@ export default function ProductGallery({ product, quickView }: Props) {
             ))}
           </div>
         </div>
-        {!quickView && <PaymentNote />}
         <style jsx>
           {`
             .product-gallery-thumblist.order-sm-1 {

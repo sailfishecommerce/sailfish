@@ -69,22 +69,25 @@ export default function ProductSlider({
   products,
 }: Props) {
   return (
-    <div className="itemSlider relative container mx-auto d-flex flex-column">
-      <div className="top mb-4 flex items-center justify-between">
-        {productName ? (
-          <h4 className="font-bold">
-            {title} <span className="mountain-green">{productName}</span> users
-          </h4>
-        ) : (
-          <h4 className="font-bold text-xl 2xl:text-2xl">{title}</h4>
-        )}
+    <div className="itemSlider relative container">
+      <div className="row">
+        <div className="top mb-4 flex items-center justify-between">
+          {productName ? (
+            <h4 className="font-bold">
+              {title} <span className="mountain-green">{productName}</span>{" "}
+              users
+            </h4>
+          ) : (
+            <h4 className="font-bold text-xl 2xl:text-2xl">{title}</h4>
+          )}
+        </div>
+        <VendorProductSlider
+          products={products}
+          tabColor={tabColor}
+          productClassName="col-12"
+          title={title}
+        />
       </div>
-      <VendorProductSlider
-        products={products}
-        tabColor={tabColor}
-        productClassName="col-12"
-        title={title}
-      />
     </div>
   );
 }
