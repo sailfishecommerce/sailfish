@@ -14,6 +14,7 @@ import {
 import Image from "@/components/Image";
 import { useAppDispatch } from "@/redux/store";
 import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";
+import FormattedPrice from "@/components/FormattedPrice";
 
 interface SearchHitsProps {
   hits: hitType[];
@@ -37,6 +38,11 @@ function SearchHits({ hits }: SearchHitsProps) {
     dispatch(closeSearch());
     router.push({ pathname: "/search", query: { product: query } });
   }
+
+  const hitImage = (hit: { images: any[] }) =>
+    typeof hit.images === "object" && typeof hit.images[0] === "string"
+      ? hit?.images[0]
+      : hit?.images[0].file.url;
 
   return (
     <div className="searchhits">
@@ -69,15 +75,16 @@ function SearchHits({ hits }: SearchHitsProps) {
                       }
                       className="hit d-flex align-items-center my-0 py-1"
                     >
+                      {console.log("hit", hit)}
                       <div className="hit-image">
                         <Image
-                          src={hit.images[0]?.file?.url}
+                          src={hitImage(hit)}
                           alt={hit.name}
                           className="productImage"
                           height={70}
                           width={100}
                           placeholder="blur"
-                          blurDataURL={hit.images[0]?.file?.url}
+                          blurDataURL={hitImage(hit)}
                           loading="lazy"
                         />
                       </div>
@@ -85,7 +92,20 @@ function SearchHits({ hits }: SearchHitsProps) {
                         <h6 className="ms-2 me-1">
                           <Highlight attribute="name" hit={hit} />
                         </h6>
-                        <div className="price fw-bold"> ${hit.price}</div>
+                        <div className="price-view d-flex align-items-center justify-content-between">
+                          <FormattedPrice
+                            price={hit.sale_price}
+                            className="text-xs md:text-sm my-1 md:my-0 lg:text-md text-black font-semibold"
+                          />
+                          {hit.price !== 0 && (
+                            <del>
+                              <FormattedPrice
+                                price={hit.price}
+                                className="text-xs md:text-sm my-1 md:my-0 lg:text-md text-red-500"
+                              />
+                            </del>
+                          )}
+                        </div>
                       </div>
                     </a>
                   </Link>

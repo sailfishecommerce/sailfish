@@ -8,7 +8,6 @@ import { ProductProps } from "@/types";
 import useProduct from "@/hooks/useProduct";
 import RatingStar from "./RatingStar";
 import discountPrice from "@/lib/discountPrice";
-import useProductPrice from "@/hooks/useProductPrice";
 import FormattedPrice from "@/lib/formatPrice";
 import useMediaQuery from "@/hooks/useMediaQuery";
 // import useAlgoliaEvents from "@/hooks/useAlgoliaEvents";

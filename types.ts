@@ -318,6 +318,7 @@ export type hitType = {
       text: string;
     }[];
   };
+  sale_price?: any |number;
   vendor?: string;
   product_image?: string;
   product_images: { link: string; alt: string }[];
