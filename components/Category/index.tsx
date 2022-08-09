@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import Link from "next/link";
 
 import useMarketplaceCategory from "@/hooks/useMarketplaceCategory";
-import RatingStar from "@/components/RatingStar";
+import RatingStar from "@/components/Widgets/RatingStar";
 
 interface CategoryProps {
   category: {

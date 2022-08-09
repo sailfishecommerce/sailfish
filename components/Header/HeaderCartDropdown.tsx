@@ -6,7 +6,7 @@ import { memo } from "react";
 import useCart from "@/hooks/useCart";
 import FormattedPrice from "@/lib/formatPrice";
 import { cartType } from "@/types";
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import useShoppingCart from "@/hooks/useShoppingCart";
 
 interface CartWidgetProps {

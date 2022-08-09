@@ -3,10 +3,10 @@ import Link from "next/link";
 import { useState, memo } from "react";
 import dynamic from "next/dynamic";
 
-import Image from "@/components/Image";
+import Image from "@/components/Widgets/Image";
 import { ProductProps } from "@/types";
 import useProduct from "@/hooks/useProduct";
-import RatingStar from "../RatingStar";
+import RatingStar from "@/components/Widgets/RatingStar";
 import discountPrice from "@/lib/discountPrice";
 import FormattedPrice from "@/lib/formatPrice";
 import useMediaQuery from "@/hooks/useMediaQuery";

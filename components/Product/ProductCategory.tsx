@@ -10,7 +10,6 @@ import { categorySlugType, categoryType, productType } from "@/types";
 import useCategory from "@/hooks/useCategory";
 import Product from "@/components/Product";
 import ShopBannerToolbar from "@/components/Banner/ShopBannerToolbar";
-import ShopPagination from "@/components/ShopPagination";
 import { useAppSelector } from "@/hooks/useRedux";
 
 interface ProductCategoryProps {

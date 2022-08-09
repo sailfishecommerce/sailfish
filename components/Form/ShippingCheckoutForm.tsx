@@ -4,7 +4,7 @@ import checkoutFormContent from "@/json/checkout-form.json";
 import { checkoutFormSchema } from "@/components/Form/CheckoutFormSchema";
 import { displayFormElement } from "@/components/Form/FormElement";
 import { useAppDispatch } from "@/hooks/useRedux";
-import { AddressInputGroup } from "@/components";
+import AddressInputGroup from "@/components/Form/AddressInputGroup";
 import { accordionButtonStyle } from "@/lib/single-Checkout";
 import { updatePaymentForm } from "@/redux/payment-slice";
 import useShippingPayment from "@/hooks/useShippingPayment";

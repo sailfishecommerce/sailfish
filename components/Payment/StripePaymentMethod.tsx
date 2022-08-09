@@ -3,7 +3,7 @@ import { useRef, MutableRefObject } from "react";
 
 import useStripeElement from "@/hooks/useStripeElement";
 import { Button } from "@/components/Button";
-import SpinnerRipple from "@/components/spinnerLoader";
+import SpinnerRipple from "@/components/Loader/SpinnerLoader";
 import styles from "@/styles/ui.module.css";
 
 interface PaymentInputType {

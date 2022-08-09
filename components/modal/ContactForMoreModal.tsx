@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Modal } from "react-bootstrap";
 
 import { modalType } from "@/types";
-import ContactForMoreForm from "./ContactForMoreForm";
+import ContactForMoreForm from "@/components/Form/ContactForMoreForm";
 
 interface Props extends modalType {
   productName: string;

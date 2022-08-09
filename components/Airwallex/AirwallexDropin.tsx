@@ -9,7 +9,7 @@ import {
 } from "airwallex-payment-elements";
 import { useRouter } from "next/router";
 
-import SpinnerRipple from "@/components/spinnerLoader";
+import SpinnerRipple from "@/components/Loader/SpinnerLoader";
 import { useToast } from "@/hooks";
 
 interface AirwallexDropinProps {

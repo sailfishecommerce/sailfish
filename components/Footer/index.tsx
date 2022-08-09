@@ -3,7 +3,7 @@
 import { memo } from "react";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
-import BottomTab from "@/components/BottomTab";
+import BottomTab from "@/components/Widgets/BottomTab";
 import FooterBottomSection from "@/components/Footer/FooterBottomSection";
 import FooterTopSection from "@/components/Footer/FooterTopSection";
 
