@@ -24,7 +24,7 @@ export default function ProductForm({ product }: ProductFormType) {
   const { productAddedToCartAfterSearch, productAddedToCart } =
     useAlgoliaEvents();
   const queryID: any = router.query["query-id"];
-  const { dataStatus, addItemToCartModal } = useShoppingCart();
+  const { addItemToCartModal } = useShoppingCart();
 
   const { optionHandler, selectedOptions } = useProductOptions();
 

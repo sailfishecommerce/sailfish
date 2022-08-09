@@ -14,17 +14,10 @@ interface SlideCartProductProps {
 export default function SlideCartProduct({
   item,
 }: SlideCartProductProps): JSX.Element {
-  const { removeVboutCartItem } = useVbout();
-  const { dataStatus, removeCartItem } = useShoppingCart();
+  const { removeCartItem } = useShoppingCart();
 
-  dataStatus(removeCartItem, `${item.product.name} removed from cart`);
-  
   function removeItemFromCart() {
     removeCartItem.mutate(item);
-    // removeVboutCartItem({
-    //   cartId: cart.id,
-    //   productId: item.id,
-    // });
   }
 
   return (
