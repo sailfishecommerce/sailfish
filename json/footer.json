@@ -31,6 +31,10 @@
             {
               "name": "Shipping & Delivery",
               "slug": "policies/shipping-and-delivery"
+            },
+            {
+              "name": "Terms & Conditions",
+              "slug": "policies/terms-and-condition"
             }
           ]
         },
