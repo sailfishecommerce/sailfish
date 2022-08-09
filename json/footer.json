@@ -19,7 +19,7 @@
     {
       "group": [
         {
-          "name": "Account & shipping info",
+          "name": "Account & Policies",
           "links": [
             { "name": "Account", "slug": "/my-account" },
             { "name": "Privacy Policy", "slug": "policies/privacy-policy" },
@@ -46,7 +46,15 @@
             { "name": "Blog", "slug": "blog" }
           ]
         }
-      ]
+      ],
+      "pageLinks": {
+        "name": "About us",
+        "links": [
+          { "name": "About company", "slug": "about-us" },
+          { "name": "Contacts", "slug": "contact-us" },
+          { "name": "Blog", "slug": "blog" }
+        ]
+      }
     }
   ],
   "section2": {

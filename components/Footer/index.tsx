@@ -3,9 +3,9 @@
 import { memo } from "react";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
-import BottomTab from "./BottomTab";
-import FooterBottomSection from "./FooterBottomSection";
-import FooterTopSection from "./FooterTopSection";
+import BottomTab from "@/components/BottomTab";
+import FooterBottomSection from "@/components/Footer/FooterBottomSection";
+import FooterTopSection from "@/components/Footer/FooterTopSection";
 
 export default function FooterComponent() {
   const tabWidth = useMediaQuery("(max-width:768px)");
