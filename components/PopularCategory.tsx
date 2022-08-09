@@ -25,7 +25,7 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
     : { height: 250, width: 250 };
 
   return (
-    <div className="popularCategory col-12 col-md-4 px-2 d-flex justify-content-center align-items-center border border-sm-2 rounded  border-lg-0 mb-2 mb-lg-0">
+    <div className="popularCategory col-12 col-md-4 px-2 d-flex justify-content-center align-items-center rounded  mb-2 mb-lg-0">
       <Link
         href={`/collections/product-type/${category.name}?id=${category.id}`}
         passHref
@@ -54,7 +54,7 @@ export default function PopularCategory({ category }: PopularCategoryProps) {
           .popularCategory img {
             height: 200px;
           }
-          .popularCategory img:hover {
+          .popularCategory  a:hover {
             -webkit-transform: scale(1.03);
             -moz-transform: scale(1.03);
             -ms-transform: scale(1.03);

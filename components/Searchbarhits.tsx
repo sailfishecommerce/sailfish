@@ -75,7 +75,6 @@ function SearchHits({ hits }: SearchHitsProps) {
                       }
                       className="hit d-flex align-items-center my-0 py-1"
                     >
-                      {console.log("hit", hit)}
                       <div className="hit-image">
                         <Image
                           src={hitImage(hit)}
