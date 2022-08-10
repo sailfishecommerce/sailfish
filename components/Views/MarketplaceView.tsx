@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import AlgoliaCurrentRefinement from "@/components/AlgoliaWidgets/AlgoliaCurrentRefinement";
 import Categories from "@/components/Category/Categories";
 import ShopBannerToolbar from "@/components/Banner/ShopBannerToolbar";
-import InfiniteProductHits from "../AlgoliaWidgets/InfiniteHits";
+import InfiniteProductHits from "@/components/AlgoliaWidgets/InfiniteHits";
 
 interface MarketplaceProps {
   searchState: any;

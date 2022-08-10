@@ -11,7 +11,7 @@ interface Props {
   category: categoryType;
   categories: categoryType[];
 }
-function CategoryDropdownList({ category, categories }: Props) {
+function NavDropdownList({ category, categories }: Props) {
   const subCategories = categories.filter((cats) => cats.topId === category.id);
   const displayThreeSubCat = subCategories.slice(0, 3);
   const { addCategoryView } = useVbout();
@@ -41,7 +41,7 @@ function CategoryDropdownList({ category, categories }: Props) {
               className="categoryImg d-flex flex-column overflow-hidden rounded-3 mb-3"
             >
               <img src={category.images[0].file.url} alt={category.name} />
-              <h6 className="fs-base my-2">{category.name}</h6>
+              <h6 className="fs-base my-2 text-center">{category.name}</h6>
             </a>
           </Link>
           <ul className="widget-list">
@@ -95,7 +95,7 @@ function CategoryDropdownList({ category, categories }: Props) {
   );
 }
 
-export default function CategoryDropdown() {
+export default function NavDropdown() {
   const [categories, status] = useCategoryData();
 
   const topCategories = categories?.results?.filter(
@@ -116,7 +116,7 @@ export default function CategoryDropdown() {
           <div className="d-flex flex-wrap flex-sm-nowrap categorySet">
             {categories
               ? categorySet.map((category: categoryType) => (
-                  <CategoryDropdownList
+                  <NavDropdownList
                     key={category.id}
                     category={category}
                     categories={categories?.results}

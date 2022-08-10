@@ -20,7 +20,7 @@ import styles from "@/styles/ui.module.css";
 const HeaderCartDropdown = dynamic(
   () => import("@/components/Header/HeaderCartDropdown")
 );
-const CategoryDropdown = dynamic(() => import("@/components/Nav/NavDropdown"));
+const NavDropdown = dynamic(() => import("@/components/Nav/NavDropdown"));
 
 export default function Nav() {
   const { authorized, userDetail }: any = useAppSelector((state) => state.auth);
@@ -184,7 +184,7 @@ export default function Nav() {
                     Collections
                   </a>
                   {largerDeviceWidth ? (
-                    <CategoryDropdown />
+                    <NavDropdown />
                   ) : (
                     !largerDeviceWidth &&
                     toggleCollection && <MobileCategoryList />

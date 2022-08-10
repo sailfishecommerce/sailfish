@@ -39,7 +39,7 @@ export default function FooterLinkItem({
       <h3 className="widget-title text-light">{title}</h3>
       <ul className="widget-list">
         {content.map((contentLink: any) => (
-          <li key={contentLink.id} className="widget-list-item">
+          <li key={contentLink.slug} className="widget-list-item">
             <Link href={groupLink(contentLink)} passHref>
               <a
                 onClick={() => linkEventMethod(contentLink)}

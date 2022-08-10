@@ -21,7 +21,7 @@
         {
           "name": "Account & Policies",
           "links": [
-            { "name": "Account", "slug": "/my-account" },
+            { "name": "Account", "slug": "my-account" },
             { "name": "Privacy Policy", "slug": "policies/privacy-policy" },
             {
               "name": "Refunds & replacements",
