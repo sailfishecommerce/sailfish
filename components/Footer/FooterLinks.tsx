@@ -47,7 +47,7 @@ export default function FooterLinks() {
             {content.group.map((groupedContent, index) => (
               <FooterLinkItem
                 key={`${groupedContent.links[0].slug}-${index}`}
-                group
+                group={true}
                 title={groupedContent.name}
                 content={groupedContent.links}
                 groupEvent={categoryEvents}
@@ -57,7 +57,7 @@ export default function FooterLinks() {
         ) : (
           <div key={index} className="col-md-4 col-sm-6">
             <FooterLinkItem
-              group
+              group={false}
               title={content.name}
               content={content.links}
               linkEvent={selectedFooterCategory}

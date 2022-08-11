@@ -92,7 +92,7 @@ export default function MarketplaceView(
             <div>
               <div className="row mx-n2 mb-5">
                 {loadPageStatus && (
-                  <InfiniteProductHits minHitsPerPage={9} animation={true} />
+                  <InfiniteProductHits minHitsPerPage={12} animation={true} />
                 )}
               </div>
               <hr className="mb-2" />
