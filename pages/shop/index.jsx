@@ -124,7 +124,7 @@ class Shop extends Component {
     const findResultsState = await (
       await import("react-instantsearch-dom/server")
     ).findResultsState;
-    const resultsState = await findResultsState(MarketplaceTemp, {
+    const resultsState = await findResultsState(MarketplaceView, {
       ...DEFAULT_PROPS,
       searchState,
     });
