@@ -26,6 +26,10 @@ export default function ProductGallery({ product, quickView }: Props) {
   }
 
   const images = product?.images;
+  const productImage: any = (index: number) =>
+    typeof product?.images[0] === "string"
+      ? product?.images[index]
+      : product?.images[index].file.url;
 
   const onImgClick = () => {
     setLightBoxOpen(!lightBoxOpen);
@@ -64,19 +68,16 @@ export default function ProductGallery({ product, quickView }: Props) {
                 mgWidth={2000}
                 mgHeight={2000}
                 className="img-fluid"
-                src={images[activeImage].file.url}
+                src={productImage(activeImage)}
                 zoomFactor={0.11}
               />
               <div className="image-zoom-pane"></div>
             </div>
             {lightBoxOpen && (
               <Lightbox
-                mainSrc={images[activeImage].file.url}
-                nextSrc={images[(activeImage + 1) % images.length].file.url}
-                prevSrc={
-                  images[(activeImage + images.length - 1) % images.length].file
-                    .url
-                }
+                mainSrc={productImage(activeImage)}
+                nextSrc={productImage((activeImage + 1) % images.length)}
+                prevSrc={productImage((activeImage - 1) % images.length)}
                 onCloseRequest={() => setLightBoxOpen(false)}
                 imageCaption={product.image_alt_text[activeImage]}
                 onMovePrevRequest={() =>
@@ -93,17 +94,21 @@ export default function ProductGallery({ product, quickView }: Props) {
             )}
           </div>
           <div className="product-gallery-thumblist order-sm-1">
-            {images?.map((image: any, index) => (
-              <a
-                className={`product-gallery-thumblist-item ${activethumbnailImg(
-                  index
-                )}`}
-                onClick={() => updateActiveImage(index)}
-                key={index}
-              >
-                <img src={image.file.url} alt={product.image_alt_text[index]} />
-              </a>
-            ))}
+            {images?.map((image: any, index) => {
+              const productImage =
+                typeof image === "string" ? image : image.file.url;
+              return (
+                <a
+                  className={`product-gallery-thumblist-item ${activethumbnailImg(
+                    index
+                  )}`}
+                  onClick={() => updateActiveImage(index)}
+                  key={index}
+                >
+                  <img src={productImage} alt={product.image_alt_text[index]} />
+                </a>
+              );
+            })}
           </div>
         </div>
         <style jsx>

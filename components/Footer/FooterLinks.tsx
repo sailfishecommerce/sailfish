@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import footerContent from "@/json/footer.json";
 import { useCategoryData } from "@/hooks/useCategory";
 import useVbout from "@/hooks/useVbout";

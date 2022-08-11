@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { connectCurrentRefinements } from "react-instantsearch-dom";
 
 const CollectionRefinements = ({ items, refine, createURL }: any) => {
-  console.log("items-refinement", items);
   return (
     <ul className="currentRefinement">
       {items.map(

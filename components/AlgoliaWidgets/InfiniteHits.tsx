@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { connectInfiniteHits } from "react-instantsearch-dom";
+
 import { ProductHit, ProductHitList } from "@/components/Product/ProductHit";
 import { useAppSelector } from "@/hooks/useRedux";
 import { hitType } from "@/types";
@@ -17,6 +18,9 @@ function InfiniteHits({ hits, hasMore, refineNext }: Props) {
   const filterHits = hits.filter((fhits) => fhits.images.length !== 0);
   const { productView } = useAppSelector((state) => state.shop);
   const sentinelRef = useRef(null);
+
+  console.log("hits", hits);
+  console.log("filterHits", filterHits);
 
   useEffect(() => {
     if (!sentinelRef.current) return;

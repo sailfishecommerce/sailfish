@@ -16,13 +16,15 @@ import "react-toastify/dist/ReactToastify.css";
 import useModal from "@/hooks/useModal";
 import displayAppModal from "@/lib/displayAppModal";
 
-const SlideCart = dynamic(() => import("../components/Cart/SlideCart"));
-const NextNProgress = dynamic(() => import("../components/Loader/Nprogress"));
-const LoadingBar = dynamic(() => import("../components/Loader/loadingBar"));
-const SpinnerOverlay = dynamic(() => import("../components/Loader/SpinnerOverlay"));
-const AuthModal = dynamic(() => import("../components/Modal/AuthModal"));
+const SlideCart = dynamic(() => import("@/components/Cart/SlideCart"));
+const NextNProgress = dynamic(() => import("@/components/Loader/Nprogress"));
+const LoadingBar = dynamic(() => import("@/components/Loader/loadingBar"));
+const SpinnerOverlay = dynamic(
+  () => import("@/components/Loader/SpinnerOverlay")
+);
+const AuthModal = dynamic(() => import("@/components/Modal/AuthModal"));
 const QuickViewModal = dynamic(
-  () => import("../components/Modal/QuickViewModal")
+  () => import("@/components/Modal/QuickViewModal")
 );
 
 export default function LayoutWrapper({ children }: PropsWithChildren<{}>) {
