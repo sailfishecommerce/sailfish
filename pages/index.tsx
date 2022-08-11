@@ -9,22 +9,12 @@ import PopularCategories from "@/components/Category/PopularCategories";
 import Banners from "@/components/Banner";
 import Applayout from "@/layout/Applayout";
 import HomepageSlider from "@/components/Slider/HomepageSlider";
-import useVbout from "@/hooks/useVbout";
-import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
-import { createCartVbout } from "@/redux/integration-slice";
 import Metatag from "@/components/Metatag";
 import TrendingProducts from "@/components/Product/TrendingProduct";
 import ShopByBrandCarousel from "@/components/Slider/ShopByBrandCarousel";
 import useUserToken from "@/hooks/useUserToken";
-import { useCurrencies } from "@/hooks/useCurrency";
 
 export default function Index({ products }: any) {
-  const { createVboutCart } = useVbout();
-  useCurrencies();
-
-  const dispatch = useAppDispatch();
-  const vboutSlice = useAppSelector((state) => state.integrations);
-
   const { generateUserToken, authorized } = useUserToken();
 
   useEffect(() => {
