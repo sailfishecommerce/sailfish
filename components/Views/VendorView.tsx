@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { InstantSearch, Configure } from "react-instantsearch-hooks-web";
+import { InstantSearch, Configure } from "react-instantsearch-dom";
 import Link from "next/link";
 import searchClient from "@/lib/algoliaConfig";
 
