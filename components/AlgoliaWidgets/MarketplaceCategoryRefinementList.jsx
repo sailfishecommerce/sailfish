@@ -20,6 +20,8 @@ export function CategoriesList({
     searchForItems(e.currentTarget.value);
   }
 
+  console.log("queryString", queryString);
+
   useEffect(() => {
     refine([queryString]);
   }, []);
@@ -43,7 +45,7 @@ export function CategoriesList({
               <h3 className="text-sm">
                 <a className="cat-link">
                   {isFromSearch ? (
-                    <Highlight attribute="label" hit={item} />
+                    <Highlight hit={item} />
                   ) : (
                     <>
                       {item.label}

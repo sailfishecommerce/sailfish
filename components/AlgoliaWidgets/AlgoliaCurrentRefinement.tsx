@@ -26,17 +26,19 @@ const CustomCurrentRefinements = ({ items, refine, createURL }: any) => {
               </ul>
             </div>
           ) : (
-            <a
-              href={createURL(item.value)}
-              className="price"
-              onClick={(event) => {
-                event.preventDefault();
-                refine(item.value);
-              }}
-            >
-              {item.label}
-              <span className="mx-1 text-white">x</span>
-            </a>
+            <>
+              <a
+                href={createURL(item.value)}
+                className="price"
+                onClick={(event) => {
+                  event.preventDefault();
+                  refine(item.value);
+                }}
+              >
+                {`${categoryName(item.attribute)} : ${item.currentRefinement}`}
+                <span className="mx-1 text-white">x</span>
+              </a>
+            </>
           )}
         </li>
       ))}

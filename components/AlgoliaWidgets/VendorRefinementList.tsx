@@ -19,8 +19,6 @@ export function VendorList({
     searchForItems(e.currentTarget.value);
   }
 
-  console.log("vendorQuery");
-
   useEffect(() => {
     if (vendorQuery) {
       refine(vendorQuery);

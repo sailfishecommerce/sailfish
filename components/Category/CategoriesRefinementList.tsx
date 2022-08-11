@@ -1,8 +1,6 @@
-import Link from "next/link";
 import { Highlight, connectMenu } from "react-instantsearch-dom";
 
 import LoadCategorySidebar from "@/components/Loader/CategorySidebarLoader";
-import { replaceSpaceWithHypen } from "@/lib/formatString";
 
 type itemType = {
   label: string;
@@ -22,6 +20,11 @@ export function CategoriesList({
     searchForItems(e.currentTarget.value);
   }
 
+  function refineSearch(e: any, item: any) {
+    e.preventDefault();
+    refine(item.value);
+  }
+
   return (
     <div className="widget widget-categories mb-4 pb-0 border-bottom">
       <h3 className="widget-title">Product Type</h3>
@@ -39,23 +42,20 @@ export function CategoriesList({
           items.map((item: itemType) => (
             <div key={item.label} className="accordion-item">
               <h3 className="text-sm">
-                <Link
-                  href={`/collections/${replaceSpaceWithHypen(item.value)}`}
-                  passHref
+                <a
+                  className="cat-link"
+                  href={createURL(item.value)}
+                  onClick={(e) => refineSearch(e, item)}
                 >
-                  <a className="cat-link">
-                    {isFromSearch ? (
-                      <Highlight attribute="label" hit={item} />
-                    ) : (
-                      <>
-                        {item.label}
-                        <span className="mx-2 badge bg-danger">
-                          {item.count}
-                        </span>
-                      </>
-                    )}
-                  </a>
-                </Link>
+                  {isFromSearch ? (
+                    <Highlight attribute="label" hit={item} />
+                  ) : (
+                    <>
+                      {item.label}
+                      <span className="mx-2 badge bg-danger">{item.count}</span>
+                    </>
+                  )}
+                </a>
               </h3>
             </div>
           ))
