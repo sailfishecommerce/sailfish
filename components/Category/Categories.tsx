@@ -1,9 +1,9 @@
 import { CustomRangeSlider } from "@/components/AlgoliaWidgets/AlgoliaPriceRange";
-import { VendorRefinementList } from "../AlgoliaWidgets/VendorRefinementList";
+import { VendorRefinementList } from "@/components/AlgoliaWidgets/VendorRefinementList";
 import { CategoriesRefinementList } from "@/components/Category/CategoriesRefinementList";
-import { RatingsList } from "../AlgoliaWidgets/RatingsRefinementList";
-import { MarketplaceCategoriesRefinementList } from "../AlgoliaWidgets/MarketplaceCategoryRefinementList";
-import { TagsRefinementList } from "../AlgoliaWidgets/TagsRefinementList";
+import { RatingsList } from "@/components/AlgoliaWidgets/RatingsRefinementList";
+import { MarketplaceCategoriesRefinementList } from "@/components/AlgoliaWidgets/MarketplaceCategoryRefinementList";
+import { TagsRefinementList } from "@/components/AlgoliaWidgets/TagsRefinementList";
 
 interface CategoriesProps {
   categoryMarketplace?: boolean;

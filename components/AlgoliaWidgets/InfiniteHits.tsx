@@ -19,9 +19,6 @@ function InfiniteHits({ hits, hasMore, refineNext }: Props) {
   const { productView } = useAppSelector((state) => state.shop);
   const sentinelRef = useRef(null);
 
-  console.log("hits", hits);
-  console.log("filterHits", filterHits);
-
   useEffect(() => {
     if (!sentinelRef.current) return;
     function onSentinelIntersection(entries: any[]) {
