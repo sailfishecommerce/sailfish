@@ -107,7 +107,7 @@ export default function SlideCart(props: slideCartProps) {
             font-weight: bold;
           }
           .slidecart {
-            z-index: 200;
+            z-index: 2000;
             display: d-flex;
             position: fixed;
             right: 0;

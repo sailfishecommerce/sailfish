@@ -94,6 +94,8 @@ function HeaderCartDropdownComponent({ cart }: Props) {
         {`
           .widget.widget-cart {
             width: 20rem;
+            height: 300px;
+            overflow-y: scroll;
           }
         `}
       </style>

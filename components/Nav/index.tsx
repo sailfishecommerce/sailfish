@@ -162,16 +162,6 @@ export default function Nav() {
                 </small>
               )}
               {tabWidth && <SearchBar />}
-              {/*<!-- Search-->*/}
-              {/* <div className="input-group d-lg-none my-3">
-              <i className="ci-search position-absolute top-50 start-0 translate-middle-y text-muted fs-base ms-3"></i>
-              <input
-                className="form-control rounded-start"
-                type="text"
-                placeholder="Search for products"
-              />
-            </div> */}
-              {/*<!-- Departments menu-->*/}
               <ul className="navbar-nav navbar-mega-nav pe-lg-2 me-lg-2">
                 <li className="nav-item dropdown">
                   <a
